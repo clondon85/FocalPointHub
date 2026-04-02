@@ -5,14 +5,17 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Redirecting — Focal Point</title>
 <script>
-// Redirect old Squarespace URLs to class.thefocalpointhub.com
+// Redirect old Squarespace URLs directly to Squarespace
 var path = window.location.pathname;
-var preserved = ['/photoclass-2026', '/blog-52', '/blog'];
-var shouldRedirect = preserved.some(function(p){ return path.startsWith(p); });
-if (shouldRedirect) {
-  window.location.replace('https://class.thefocalpointhub.com' + path + window.location.search);
+var redirectMap = [
+  { prefix: '/photoclass-2026', base: 'https://heptagon-clover-9zj2.squarespace.com' },
+  { prefix: '/blog-52', base: 'https://heptagon-clover-9zj2.squarespace.com' },
+  { prefix: '/blog', base: 'https://heptagon-clover-9zj2.squarespace.com' },
+];
+var match = redirectMap.find(function(r){ return path.startsWith(r.prefix); });
+if (match) {
+  window.location.replace(match.base + path + window.location.search);
 } else {
-  // Genuine 404
   document.title = 'Page not found — Focal Point';
 }
 </script>
