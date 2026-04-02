@@ -48,6 +48,8 @@ a{text-decoration:none;}
 .hero-rule{background:rgba(255,255,255,.08);border-left:3px solid var(--yellow);padding:14px 18px;font-size:13.5px;color:rgba(255,252,246,.85);line-height:1.65;font-style:italic;max-width:600px;margin-bottom:32px;}
 .hero-methods{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:600px;margin-bottom:28px;}
 .method{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:12px 14px;}
+.method-link{transition:background .15s,border-color .15s;cursor:pointer;}
+.method-link:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.25);}
 .method-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--yellow);margin-bottom:4px;}
 .method-val{font-size:12px;color:rgba(255,252,246,.72);line-height:1.5;}
 .hero-links{display:flex;gap:10px;flex-wrap:wrap;}
@@ -75,16 +77,9 @@ a{text-decoration:none;}
 /* MONTH */
 .month{margin-bottom:64px;}
 .month-header{display:flex;align-items:center;gap:14px;margin-bottom:8px;}
-.month-pill{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-size:12px;font-weight:800;flex-shrink:0;}
-.month-pill.current{background:var(--yellow);color:#1a1018;}
-.month-pill.past{background:rgba(255,255,255,.08);color:rgba(255,252,246,.5);}
-.month-pill.upcoming{background:rgba(255,255,255,.04);color:rgba(255,252,246,.25);border:1px solid rgba(255,255,255,.08);}
+.month-label{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mag);margin-bottom:6px;}
+.month-header{margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.08);}
 .month-title{font-family:'Manrope',sans-serif;font-size:26px;font-weight:800;letter-spacing:-.02em;color:var(--off);}
-.month-badge{margin-left:auto;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:99px;padding:4px 12px;flex-shrink:0;}
-.badge-current{background:var(--yellow);color:#1a1018;}
-.badge-past{background:rgba(255,255,255,.08);color:rgba(255,252,246,.45);}
-.badge-upcoming{background:rgba(159,33,126,.2);color:var(--mag);border:1px solid rgba(159,33,126,.3);}
-.month-theme{font-size:14px;color:rgba(255,252,246,.5);margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.08);}
 .month-intro{font-size:15px;color:rgba(255,252,246,.68);line-height:1.75;margin-bottom:24px;max-width:700px;}
 
 /* PROMPTS */
@@ -96,7 +91,7 @@ a{text-decoration:none;}
 
 /* SPOTLIGHT */
 .spotlight{background:rgba(91,170,181,.08);border:1px solid rgba(91,170,181,.18);border-radius:14px;padding:18px 20px;display:flex;gap:16px;align-items:flex-start;}
-.spotlight-av{width:38px;height:38px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+
 .spotlight-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:3px;}
 .spotlight-name{font-size:15px;font-weight:700;color:var(--off);margin-bottom:6px;}
 .spotlight-body{font-size:13px;color:rgba(255,252,246,.6);line-height:1.68;margin-bottom:10px;}
@@ -157,14 +152,11 @@ a{text-decoration:none;}
     <p class="hero-sub">What started as a small project of self-motivation has grown to an incredibly supportive and engaged community of photographers of all levels and genres, spread out across the world. This year brings back the monthly Artist Spotlight — a bonus prompt featuring a photographer to draw inspiration from.</p>
     <div class="hero-rule">The purpose of the challenge is to make new photos with the prompt in mind, not to find photos you already have which happen to fit.</div>
     <div class="hero-methods">
-      <div class="method"><div class="method-label">Discord</div><div class="method-val">Best for real-time conversation with the community</div></div>
-      <div class="method"><div class="method-label">Instagram</div><div class="method-val">Add @focalpoint.hub as a collaborator on your image</div></div>
+      <a class="method method-link" href="https://discord.com/invite/fzKjSY8JTR" target="_blank" rel="noopener"><div class="method-label">Discord</div><div class="method-val">Best for real-time conversation with the community</div></a>
+      <a class="method method-link" href="https://www.instagram.com/focalpoint.hub" target="_blank" rel="noopener"><div class="method-label">Instagram</div><div class="method-val">Add @focalpoint.hub as a collaborator on your image</div></a>
       <div class="method"><div class="method-label">Also accepted</div><div class="method-val">Flickr, Reddit r/clondon52, or email chelsea@clondon.me</div></div>
     </div>
-    <div class="hero-links">
-      <a class="btn-y" href="https://discord.gg/fzKjSY8JTR" target="_blank" rel="noopener">Join Discord →</a>
-      <a class="btn-o" href="https://www.youtube.com/@_clondon" target="_blank" rel="noopener">YouTube</a>
-    </div>
+
   </div>
 </section>
 
@@ -173,23 +165,28 @@ a{text-decoration:none;}
   <div class="progress-inner">
     <div class="progress-top">
       <span class="progress-label">2026 progress</span>
-      <span class="progress-count">Week 13 of 52</span>
+      <span class="progress-count" id="week-count">Week — of 52</span>
     </div>
-    <div class="progress-bar"><div class="progress-fill"></div></div>
-    <div class="week-dots">
-      <div class="wdot done"></div><div class="wdot done"></div><div class="wdot done"></div><div class="wdot done"></div>
-      <div class="wdot done"></div><div class="wdot done"></div><div class="wdot done"></div><div class="wdot done"></div>
-      <div class="wdot done"></div><div class="wdot done"></div><div class="wdot done"></div><div class="wdot done"></div>
-      <div class="wdot now"></div>
-      <div class="wdot"></div><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div>
-      <div class="wdot"></div><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div>
-      <div class="wdot"></div><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div>
-      <div class="wdot"></div><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div>
-      <div class="wdot"></div><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div>
-      <div class="wdot"></div><div class="wdot"></div><div class="wdot"></div><div class="wdot"></div>
-    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%;"></div></div>
+    <div class="week-dots" id="week-dots"></div>
   </div>
 </div>
+<script>
+(function(){
+  var start = new Date('2026-01-01');
+  var today = new Date();
+  var msPerWeek = 7 * 24 * 60 * 60 * 1000;
+  var week = Math.min(52, Math.max(1, Math.ceil((today - start) / msPerWeek)));
+  document.getElementById('week-count').textContent = 'Week ' + week + ' of 52';
+  document.getElementById('progress-fill').style.width = Math.round((week / 52) * 100) + '%';
+  var dots = document.getElementById('week-dots');
+  for (var i = 1; i <= 52; i++) {
+    var d = document.createElement('div');
+    d.className = 'wdot' + (i < week ? ' done' : i === week ? ' now' : '');
+    dots.appendChild(d);
+  }
+})();
+</script>
 
 <!-- MONTHS -->
 <div class="content">
@@ -197,12 +194,8 @@ a{text-decoration:none;}
   <!-- APRIL (upcoming) -->
   <div class="month">
     <div class="month-header">
-      <div class="month-pill upcoming">Apr</div>
-      <div>
-        <div class="month-title">Witness</div>
-        <div class="month-theme">Weeks 14 – 17</div>
-      </div>
-      <span class="month-badge badge-upcoming">Coming April</span>
+      <div class="month-label">April</div>
+      <div class="month-title">Witness</div>
     </div>
     <p class="month-intro">Photography is an act of bearing witness. This month, four prompts push you to photograph with presence and intention: other people, overlooked places, traces of the past, and a full day of your own life.</p>
     <div class="prompts">
@@ -224,9 +217,7 @@ a{text-decoration:none;}
       </div>
     </div>
     <div class="spotlight">
-      <div class="spotlight-av">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="6" r="3" stroke="#fff" stroke-width="1.3"/><path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/></svg>
-      </div>
+
       <div>
         <div class="spotlight-label">Artist spotlight</div>
         <div class="spotlight-name">Zanele Muholi</div>
@@ -245,12 +236,8 @@ a{text-decoration:none;}
   <!-- MARCH (current) -->
   <div class="month">
     <div class="month-header">
-      <div class="month-pill current">Mar</div>
-      <div>
-        <div class="month-title">In Between</div>
-        <div class="month-theme">Weeks 9 – 13</div>
-      </div>
-      <span class="month-badge badge-current">Current</span>
+      <div class="month-label">March</div>
+      <div class="month-title">In Between</div>
     </div>
     <p class="month-intro">March sits mid-stride, not quite one thing, not yet another. Work with the threshold, the almost, the incomplete. The ambiguity is a feature, not a bug.</p>
     <div class="prompts">
@@ -272,9 +259,7 @@ a{text-decoration:none;}
       </div>
     </div>
     <div class="spotlight">
-      <div class="spotlight-av">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="6" r="3" stroke="#fff" stroke-width="1.3"/><path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/></svg>
-      </div>
+
       <div>
         <div class="spotlight-label">Artist spotlight</div>
         <div class="spotlight-name">Saul Leiter</div>
@@ -292,12 +277,8 @@ a{text-decoration:none;}
   <!-- FEBRUARY (past) -->
   <div class="month">
     <div class="month-header">
-      <div class="month-pill past">Feb</div>
-      <div>
-        <div class="month-title">Limited Light</div>
-        <div class="month-theme">Weeks 5 – 8</div>
-      </div>
-      <span class="month-badge badge-past">Complete</span>
+      <div class="month-label">February</div>
+      <div class="month-title">Limited Light</div>
     </div>
     <p class="month-intro">As the days get shorter, light becomes limited and more intentional. Work with those conditions using motion, stillness, and unconventional light sources to shape meaning. The goal is not to fight the light, but to notice what changes when it fades.</p>
     <div class="prompts">
@@ -319,9 +300,7 @@ a{text-decoration:none;}
       </div>
     </div>
     <div class="spotlight">
-      <div class="spotlight-av">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="6" r="3" stroke="#fff" stroke-width="1.3"/><path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/></svg>
-      </div>
+
       <div>
         <div class="spotlight-label">Artist spotlight</div>
         <div class="spotlight-name">Gordon Parks</div>
@@ -339,12 +318,8 @@ a{text-decoration:none;}
   <!-- JANUARY (past) -->
   <div class="month">
     <div class="month-header">
-      <div class="month-pill past">Jan</div>
-      <div>
-        <div class="month-title">Getting Started</div>
-        <div class="month-theme">Weeks 1 – 4</div>
-      </div>
-      <span class="month-badge badge-past">Complete</span>
+      <div class="month-label">January</div>
+      <div class="month-title">Getting Started</div>
     </div>
     <p class="month-intro">Four prompts chosen to help you feel motivated, engaged, and intentional about the year ahead. All focused on helping you identify how to make the most of the project.</p>
     <div class="prompts">
@@ -366,9 +341,7 @@ a{text-decoration:none;}
       </div>
     </div>
     <div class="spotlight">
-      <div class="spotlight-av">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="6" r="3" stroke="#fff" stroke-width="1.3"/><path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/></svg>
-      </div>
+
       <div>
         <div class="spotlight-label">Artist spotlight</div>
         <div class="spotlight-name">Martin Parr</div>
@@ -395,10 +368,6 @@ a{text-decoration:none;}
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function openMobMenu(){document.getElementById('mob-drawer').classList.add('open');document.body.style.overflow='hidden';}
-function closeMobMenu(){document.getElementById('mob-drawer').classList.remove('open');document.body.style.overflow='';}
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMobMenu();});
-</script>
-</body>
-</html>
+funct
