@@ -142,7 +142,7 @@ a{text-decoration:none;}
 .month-theme{display:flex;align-items:center;gap:10px;margin-bottom:20px;}
 .month-badge{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:var(--off);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:20px;}
 .theme-name{font-family:'Poppins',sans-serif;font-size:20px;font-weight:700;color:var(--yellow);}
-.prompts-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px;}
+.prompts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px;}
 .prompt-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:14px 16px;}
 .p-label{color:rgba(255,252,246,.4);font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;}
 .p-name{color:var(--off);font-size:14px;font-weight:700;margin-bottom:5px;}
@@ -181,8 +181,9 @@ a{text-decoration:none;}
   .utile:nth-child(n+7){display:none;}
 }
 @media(max-width:900px){
-  .hero-top,.weeks-inner{grid-template-columns:1fr;gap:40px;}
+  .hero-top{grid-template-columns:1fr;gap:40px;}
   .hero-title{font-size:36px;}
+  .prompts-grid{grid-template-columns:1fr 1fr;}
   .cgrid{grid-template-columns:1fr 1fr;}
   .strip-inner{grid-template-columns:1fr 1fr;gap:20px;}
   .hero,.section{padding:60px 24px;}
@@ -351,51 +352,16 @@ a{text-decoration:none;}
 </section>
 
 <!-- 52 WEEKS -->
+<!-- 52 WEEKS -->
 <section class="section weeks-section">
   <div class="inner">
-    <div class="weeks-inner">
 
-      <!-- LEFT: heading, prompts, spotlight -->
+    <!-- ROW 1: description left, week tracker right -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-bottom:36px;">
       <div>
         <h2 class="sec-title" style="color:var(--yellow);">52 Weeks with C. London</h2>
-        <p class="sec-sub">A free weekly photography prompt challenge, now in its 8th year. One new prompt every week, all year. Photograph with more intention, develop your eye, and find your photographic voice.<br><br><strong>Join thousands of photographers doing the same.</strong></p>
-
-        <div class="month-theme">
-          <span class="month-badge">April</span>
-          <span class="theme-name">Witness</span>
-        </div>
-
-        <div class="prompts-grid">
-          <div class="prompt-card">
-            <div class="p-label">Week 14</div>
-            <div class="p-name">Unseen</div>
-            <div class="p-desc">Make the viewer see the overlooked for the first time.</div>
-          </div>
-          <div class="prompt-card">
-            <div class="p-label">Week 15</div>
-            <div class="p-name">Eye Contact</div>
-            <div class="p-desc">A subject that meets the lens directly. Sit with the tension.</div>
-          </div>
-          <div class="prompt-card">
-            <div class="p-label">Week 16</div>
-            <div class="p-name">Evidence</div>
-            <div class="p-desc">Photograph the trace of something, not the thing itself.</div>
-          </div>
-          <div class="prompt-card">
-            <div class="p-label">Week 17</div>
-            <div class="p-name">A Day in the Life</div>
-            <div class="p-desc">Document one full day from waking to sleeping. Make it true.</div>
-          </div>
-        </div>
-
-        <div class="spotlight">
-          <div class="s-label">Artist Spotlight · April</div>
-          <div class="s-name">Zanele Muholi</div>
-          <div class="s-sub">Visual activist and photographer. Work centred on Black queer identity, visibility, and dignity. The connection to this month's theme is direct and intentional.</div>
-        </div>
+        <p class="sec-sub" style="margin-bottom:0;">A free weekly photography prompt challenge, now in its 8th year. One new prompt every week, all year. Photograph with more intention, develop your eye, and find your photographic voice.<br><br><strong>Join thousands of photographers doing the same.</strong></p>
       </div>
-
-      <!-- RIGHT: week grid + CTA -->
       <div>
         <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,252,246,.3);margin-bottom:12px;font-family:'Poppins',sans-serif;">Week 14 of 52 · currently</div>
         <div class="wgrid" id="wgrid"></div>
@@ -403,10 +369,47 @@ a{text-decoration:none;}
           <div class="wleg"><div class="wleg-dot" style="background:rgba(91,170,181,.55);"></div><span class="wleg-label">Completed</span></div>
           <div class="wleg"><div class="wleg-dot" style="background:var(--yellow);"></div><span class="wleg-label">This week</span></div>
         </div>
-        <a class="btn-t" href="/52-weeks/" style="margin-top:8px;display:inline-block;">See all prompts &#x2192;</a>
       </div>
-
     </div>
+
+    <!-- ROW 2: month badge + 4 prompts full width -->
+    <div class="month-theme">
+      <span class="month-badge">April</span>
+      <span class="theme-name">Witness</span>
+    </div>
+    <div class="prompts-grid">
+      <div class="prompt-card">
+        <div class="p-label">Week 14</div>
+        <div class="p-name">Unseen</div>
+        <div class="p-desc">Make the viewer see the overlooked for the first time.</div>
+      </div>
+      <div class="prompt-card">
+        <div class="p-label">Week 15</div>
+        <div class="p-name">Eye Contact</div>
+        <div class="p-desc">A subject that meets the lens directly. Sit with the tension.</div>
+      </div>
+      <div class="prompt-card">
+        <div class="p-label">Week 16</div>
+        <div class="p-name">Evidence</div>
+        <div class="p-desc">Photograph the trace of something, not the thing itself.</div>
+      </div>
+      <div class="prompt-card">
+        <div class="p-label">Week 17</div>
+        <div class="p-name">A Day in the Life</div>
+        <div class="p-desc">Document one full day from waking to sleeping. Make it true.</div>
+      </div>
+    </div>
+
+    <!-- ROW 3: spotlight full width -->
+    <div class="spotlight">
+      <div class="s-label">Artist Spotlight · April</div>
+      <div class="s-name">Zanele Muholi</div>
+      <div class="s-sub">Visual activist and photographer. Work centred on Black queer identity, visibility, and dignity. The connection to this month's theme is direct and intentional.</div>
+    </div>
+
+    <!-- ROW 4: CTA -->
+    <a class="btn-t" href="/52-weeks/" style="margin-top:10px;">See full prompts &#x2192;</a>
+
   </div>
 </section>
 
