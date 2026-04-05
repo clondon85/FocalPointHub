@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
 <style>
-:root{--mag:#9F217E;--teal:#5BAAB5;--yellow:#EACC28;--dark:#0e0618;--off:#FFFCF6;}
+:root{--mag:#9F217E;--teal:#5BAAB5;--yellow:#EACC28;--grad:linear-gradient(155deg,#3a7a85 0%,#7c3a82 50%,#9F217E 100%);--dark:#0e0618;--off:#FFFCF6;--card:rgba(255,255,255,.06);--border:rgba(255,255,255,.1);}
 *{margin:0;padding:0;box-sizing:border-box;}
 html{background:var(--dark);}
 body{font-family:'Poppins',sans-serif;background:linear-gradient(155deg,#3a7a85 0%,#5BAAB5 20%,#7c3a82 50%,#9F217E 75%,#7a1860 100%) fixed;color:var(--off);-webkit-font-smoothing:antialiased;}
@@ -18,9 +18,9 @@ a{text-decoration:none;}
 .nav{position:sticky;top:0;z-index:200;height:68px;background:rgba(40,15,55,.45);backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
 .nav-logo img{height:32px;width:auto;}
 .nav-links{display:flex;align-items:center;gap:4px;}
-.nav-link{font-size:12.5px;font-weight:600;color:rgba(255,252,246,.6);padding:7px 14px;border-radius:8px;transition:all .15s;}
+.nav-link{font-family:'Poppins',sans-serif;font-size:12.5px;font-weight:600;color:rgba(255,252,246,.6);padding:7px 14px;border-radius:8px;transition:all .15s;}
 .nav-link:hover,.nav-link.active{color:var(--off);background:rgba(255,255,255,.1);}
-.nav-cta{background:var(--mag);color:#fff;border-radius:99px;padding:9px 20px;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;transition:filter .15s;}
+.nav-cta{background:var(--mag);color:#fff;border-radius:99px;padding:9px 20px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;transition:filter .15s;}
 .nav-cta:hover{filter:brightness(1.12);}
 .nav-mob{display:none;background:none;border:none;cursor:pointer;padding:6px;color:var(--off);}
 @media(max-width:820px){.nav{padding:0 20px;}.nav-links{display:none;}.nav-mob{display:flex;align-items:center;}}
@@ -31,63 +31,66 @@ a{text-decoration:none;}
 .mob-panel{position:absolute;top:0;right:0;bottom:0;width:280px;background:rgba(40,10,60,.95);border-left:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;padding:24px;transform:translateX(100%);transition:transform .25s ease;}
 .mob-drawer.open .mob-panel{transform:translateX(0);}
 .mob-close{align-self:flex-end;background:none;border:none;color:rgba(255,252,246,.6);cursor:pointer;font-size:24px;line-height:1;margin-bottom:24px;}
-.mob-link{font-size:16px;font-weight:600;color:rgba(255,252,246,.75);padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);}
-.mob-cta{margin-top:24px;background:var(--mag);color:#fff;border-radius:99px;padding:13px 24px;font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;text-align:center;}
+.mob-link{font-family:'Poppins',sans-serif;font-size:16px;font-weight:600;color:rgba(255,252,246,.75);padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);}
+.mob-cta{margin-top:24px;background:var(--mag);color:#fff;border-radius:99px;padding:13px 24px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;text-align:center;}
 
-.hero{padding:80px 48px 72px;position:relative;overflow:hidden;}
+.hero{background:transparent;padding:80px 48px 72px;position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;top:-80px;right:-80px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(234,204,40,.1) 0%,transparent 70%);pointer-events:none;}
 .hero-inner{max-width:940px;margin:0 auto;}
-.hero-ey{font-size:22px;font-weight:800;color:var(--yellow);margin-bottom:16px;letter-spacing:-.01em;}
-.hero-title{font-size:52px;font-weight:800;line-height:1.07;letter-spacing:-.03em;color:var(--off);margin-bottom:16px;}
-.hero-sub{font-size:16px;color:rgba(255,252,246,.72);line-height:1.72;max-width:600px;margin-bottom:28px;}
+.hero-ey{font-family:'Poppins',sans-serif;font-size:22px;font-weight:800;color:var(--yellow);margin-bottom:16px;letter-spacing:-.01em;}
+.hero-title{font-family:'Poppins',sans-serif;font-size:52px;font-weight:800;line-height:1.07;letter-spacing:-.03em;color:var(--off);margin-bottom:16px;}
+.hero-sub{font-family:'Poppins',sans-serif;font-size:16px;color:rgba(255,252,246,.72);line-height:1.72;max-width:600px;margin-bottom:28px;}
 .hero-acts{display:flex;gap:12px;flex-wrap:wrap;}
-.btn-y{background:var(--yellow);color:#1a1018;border-radius:99px;padding:13px 28px;font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;transition:all .15s;display:inline-block;}
+.btn-y{background:var(--yellow);color:#1a1018;border-radius:99px;padding:13px 28px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;transition:all .15s;display:inline-block;}
 .btn-y:hover{filter:brightness(1.08);}
-.btn-o{background:transparent;color:var(--off);border:1.5px solid rgba(255,255,255,.35);border-radius:99px;padding:12px 24px;font-size:13px;font-weight:600;transition:all .15s;display:inline-block;}
+.btn-o{background:transparent;color:var(--off);border:1.5px solid rgba(255,255,255,.35);border-radius:99px;padding:12px 24px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;transition:all .15s;display:inline-block;}
 .btn-o:hover{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.08);}
 
 .strip{background:rgba(0,0,0,.15);border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);padding:28px 48px;}
 .strip-inner{max-width:940px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
 .feat{text-align:center;}
 .feat-icon{width:34px;height:34px;border-radius:10px;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;}
-.feat-label{font-size:12px;font-weight:700;color:var(--off);margin-bottom:3px;}
-.feat-desc{font-size:11px;color:rgba(255,252,246,.45);line-height:1.5;}
+.feat-label{font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;color:var(--off);margin-bottom:3px;}
+.feat-desc{font-family:'Poppins',sans-serif;font-size:11px;color:rgba(255,252,246,.45);line-height:1.5;}
 
 .content{max-width:940px;margin:0 auto;padding:56px 48px 80px;}
 .cohort-banner{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:18px 22px;display:flex;align-items:center;gap:14px;margin-bottom:40px;}
 .cohort-dot{width:8px;height:8px;border-radius:50%;background:var(--yellow);flex-shrink:0;}
-.cohort-text{font-size:14px;color:rgba(255,252,246,.8);line-height:1.6;}
+.cohort-text{font-family:'Poppins',sans-serif;font-size:14px;color:rgba(255,252,246,.8);line-height:1.6;}
 .cohort-text strong{color:var(--off);}
-.section-title{font-size:28px;font-weight:800;letter-spacing:-.02em;color:var(--yellow);margin-bottom:32px;}
+
+.section-title{font-family:'Poppins',sans-serif;font-size:28px;font-weight:800;letter-spacing:-.02em;color:var(--yellow);margin-bottom:32px;}
 
 .units{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
 .unit-card{position:relative;border-radius:14px;overflow:hidden;display:block;aspect-ratio:1;border:1px solid rgba(255,255,255,.1);transition:border-color .15s,transform .15s;}
 a.unit-card:hover{border-color:rgba(255,255,255,.28);transform:translateY(-3px);}
 .unit-card.locked{opacity:.65;cursor:default;filter:grayscale(20%);}
-.uc-bg{position:absolute;inset:0;background-size:cover;background-position:center;}
+.uc-bg{position:absolute;inset:0;background-size:cover;background-position:center;background-color:rgba(255,255,255,.04);}
 .uc-arrow{position:absolute;bottom:12px;right:12px;color:rgba(255,252,246,.5);transition:color .15s;}
 a.unit-card:hover .uc-arrow{color:var(--teal);}
 .uc-label{position:absolute;top:50%;left:12px;right:12px;transform:translateY(-50%);background:rgba(8,3,18,.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 12px;}
-.unit-num{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mag);margin-bottom:4px;}
-.unit-title{font-size:14px;font-weight:800;color:var(--off);line-height:1.2;margin-bottom:3px;}
-.unit-sub{font-size:11px;color:rgba(255,252,246,.55);line-height:1.35;}
-.unit-badge{font-size:10px;font-weight:700;color:rgba(255,252,246,.4);display:block;margin-top:4px;}
+.unit-num{font-family:'Poppins',sans-serif;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mag);margin-bottom:4px;}
+.unit-title{font-family:'Poppins',sans-serif;font-size:14px;font-weight:800;color:var(--off);line-height:1.2;margin-bottom:3px;text-wrap:balance;}
+.unit-sub{font-family:'Poppins',sans-serif;font-size:11px;color:rgba(255,252,246,.55);line-height:1.35;text-wrap:pretty;}
+.unit-badge{font-family:'Poppins',sans-serif;font-size:10px;font-weight:700;color:rgba(255,252,246,.4);display:block;margin-top:4px;}
 
 .footer{background:rgba(0,0,0,.4);border-top:1px solid rgba(255,255,255,.07);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
-.footer-copy{font-size:11px;color:rgba(255,252,246,.25);}
+.footer-copy{font-family:'Poppins',sans-serif;font-size:11px;color:rgba(255,252,246,.25);}
 .footer-links{display:flex;gap:20px;}
-.footer-link{font-size:11px;color:rgba(255,252,246,.3);transition:color .15s;}
+.footer-link{font-family:'Poppins',sans-serif;font-size:11px;color:rgba(255,252,246,.3);transition:color .15s;}
 .footer-link:hover{color:rgba(255,252,246,.7);}
 
 @media(max-width:820px){.hero{padding:56px 24px 48px;}.hero-title{font-size:36px;}.strip-inner{grid-template-columns:1fr 1fr;gap:16px;}.strip{padding:24px;}.content{padding:40px 24px 64px;}}
 @media(max-width:620px){.units{grid-template-columns:1fr 1fr;}}
-@media(max-width:480px){.unit-card{aspect-ratio:1;}}
+@media(max-width:480px){.units{grid-template-columns:1fr;aspect-ratio:auto;} .unit-card{aspect-ratio:1;}}
 @media(max-width:560px){.strip-inner{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
 <nav class="nav">
-  <a class="nav-logo" href="https://thefocalpointhub.com"><img src="/img/logo-white.webp" alt="Focal Point"></a>
+  <a class="nav-logo" href="https://thefocalpointhub.com">
+    <img src="/img/logo-white.webp" alt="Focal Point">
+  </a>
   <div class="nav-links">
     <a class="nav-link active" href="/photoclass-2026/">Photoclass 2026</a>
     <a class="nav-link" href="https://courses.thefocalpointhub.com">Courses</a>
@@ -145,7 +148,7 @@ a.unit-card:hover .uc-arrow{color:var(--teal);}
   <div class="units">
 
     <a class="unit-card" href="/photoclass-2026/getting-started/">
-      <div class="uc-bg" style="background-image:url('/img/photoclass/getting-started.jpg');"></div>
+      <div class="uc-bg" style="background-image:url('data:image/jpeg;base64,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');"></div>
       <div class="uc-label">
         <div class="unit-num">Getting Started</div>
         <div class="unit-title">Before You Begin</div>
@@ -155,7 +158,7 @@ a.unit-card:hover .uc-arrow{color:var(--teal);}
     </a>
 
     <a class="unit-card" href="/photoclass-2026/unit-1/">
-      <div class="uc-bg" style="background-image:url('/img/photoclass/unit-1.jpg');"></div>
+      <div class="uc-bg" style="background:linear-gradient(135deg,#3a7a85,#5BAAB5);"></div>
       <div class="uc-label">
         <div class="unit-num">Unit 1</div>
         <div class="unit-title">Introduction &amp; The Gear</div>
@@ -165,7 +168,7 @@ a.unit-card:hover .uc-arrow{color:var(--teal);}
     </a>
 
     <a class="unit-card" href="/photoclass-2026/unit-2/">
-      <div class="uc-bg" style="background-image:url('/img/photoclass/unit-2.jpg');"></div>
+      <div class="uc-bg" style="background:linear-gradient(135deg,#7c3a82,#9F217E);"></div>
       <div class="uc-label">
         <div class="unit-num">Unit 2</div>
         <div class="unit-title">Photography Basics</div>
@@ -175,7 +178,7 @@ a.unit-card:hover .uc-arrow{color:var(--teal);}
     </a>
 
     <a class="unit-card" href="/photoclass-2026/unit-3/">
-      <div class="uc-bg" style="background-image:url('/img/photoclass/unit-3.jpg');"></div>
+      <div class="uc-bg" style="background:linear-gradient(135deg,#2a5a6a,#3a7a85);"></div>
       <div class="uc-label">
         <div class="unit-num">Unit 3</div>
         <div class="unit-title">The Art of Photography</div>
@@ -185,7 +188,7 @@ a.unit-card:hover .uc-arrow{color:var(--teal);}
     </a>
 
     <a class="unit-card" href="/photoclass-2026/unit-4/">
-      <div class="uc-bg" style="background-image:url('/img/photoclass/unit-4.jpg');"></div>
+      <div class="uc-bg" style="background:linear-gradient(135deg,#5c2a7c,#7c3a82);"></div>
       <div class="uc-label">
         <div class="unit-num">Unit 4</div>
         <div class="unit-title">Post Processing</div>
@@ -195,7 +198,7 @@ a.unit-card:hover .uc-arrow{color:var(--teal);}
     </a>
 
     <a class="unit-card" href="/photoclass-2026/unit-5/">
-      <div class="uc-bg" style="background-image:url('/img/photoclass/unit-5.jpg');"></div>
+      <div class="uc-bg" style="background:linear-gradient(135deg,#3a7a85,#5BAAB5);"></div>
       <div class="uc-label">
         <div class="unit-num">Unit 5</div>
         <div class="unit-title">The Decision Process</div>
@@ -205,7 +208,7 @@ a.unit-card:hover .uc-arrow{color:var(--teal);}
     </a>
 
     <a class="unit-card" href="/photoclass-2026/unit-6/">
-      <div class="uc-bg" style="background-image:url('/img/photoclass/unit-6.jpg');"></div>
+      <div class="uc-bg" style="background:linear-gradient(135deg,#7a1860,#9F217E);"></div>
       <div class="uc-label">
         <div class="unit-num">Unit 6</div>
         <div class="unit-title">Taking Your Camera Skills Further</div>
@@ -215,7 +218,7 @@ a.unit-card:hover .uc-arrow{color:var(--teal);}
     </a>
 
     <a class="unit-card" href="/photoclass-2026/unit-7/">
-      <div class="uc-bg" style="background-image:url('/img/photoclass/unit-7.jpg');"></div>
+      <div class="uc-bg" style="background:linear-gradient(135deg,#2a5a6a,#3a7a85);"></div>
       <div class="uc-label">
         <div class="unit-num">Unit 7</div>
         <div class="unit-title">Personal Projects</div>
@@ -225,7 +228,7 @@ a.unit-card:hover .uc-arrow{color:var(--teal);}
     </a>
 
     <div class="unit-card locked">
-      <div class="uc-bg" style="background-image:url('/img/photoclass/unit-8.jpg');"></div>
+      <div class="uc-bg" style="background:linear-gradient(135deg,#5c2a7c,#7c3a82);"></div>
       <div class="uc-label">
         <div class="unit-num">Unit 8</div>
         <div class="unit-title">The Art of Photography, Part 2</div>
@@ -235,7 +238,7 @@ a.unit-card:hover .uc-arrow{color:var(--teal);}
     </div>
 
     <div class="unit-card locked">
-      <div class="uc-bg" style="background-image:url('/img/photoclass/unit-9.jpg');"></div>
+      <div class="uc-bg" style="background:linear-gradient(135deg,#2a5a6a,#3a7a85);"></div>
       <div class="uc-label">
         <div class="unit-num">Unit 9</div>
         <div class="unit-title">Exploration</div>
@@ -245,7 +248,7 @@ a.unit-card:hover .uc-arrow{color:var(--teal);}
     </div>
 
     <div class="unit-card locked">
-      <div class="uc-bg" style="background-image:url('/img/photoclass/unit-10.jpg');"></div>
+      <div class="uc-bg" style="background:linear-gradient(135deg,#7a1860,#9F217E);"></div>
       <div class="uc-label">
         <div class="unit-num">Unit 10</div>
         <div class="unit-title">Next Steps</div>
@@ -255,7 +258,7 @@ a.unit-card:hover .uc-arrow{color:var(--teal);}
     </div>
 
     <div class="unit-card locked">
-      <div class="uc-bg" style="background-image:url('/img/photoclass/final-project.jpg');"></div>
+      <div class="uc-bg" style="background-image:url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80');background-size:cover;background-position:center;"></div>
       <div class="uc-label">
         <div class="unit-num">Final Project</div>
         <div class="unit-title">Final Project</div>
