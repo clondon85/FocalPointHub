@@ -7,31 +7,47 @@
 <meta name="description" content="52 Weeks with C. London, 2026 edition. A year-long weekly photography prompt challenge, now in its 8th year.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--mag:#9F217E;--teal:#5BAAB5;--yellow:#EACC28;--grad:linear-gradient(155deg,#3a7a85 0%,#7c3a82 50%,#9F217E 100%);--dark:#0e0618;--off:#FFFCF6;--card:rgba(255,255,255,.06);--border:rgba(255,255,255,.1);}
+:root{
+  --mag:#9F217E;--teal:#5BAAB5;--yellow:#EACC28;
+  --off:#FFFCF6;
+  --card:rgba(255,255,255,.1);--border:rgba(255,255,255,.15);
+}
 *{margin:0;padding:0;box-sizing:border-box;}
-html{background:var(--dark);scroll-behavior:smooth;}
-body{font-family:'Nunito Sans',sans-serif;background:var(--dark);color:var(--off);-webkit-font-smoothing:antialiased;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Nunito Sans',sans-serif;
+  color:var(--off);
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  background: linear-gradient(155deg,#3a7a85 0%,#7c3a82 45%,#9F217E 75%,#7a1a5e 100%);
+  background-attachment: fixed;
+}
 a{text-decoration:none;}
 
 /* NAV */
-.nav{position:sticky;top:0;z-index:200;height:68px;background:rgba(14,6,24,.8);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
-.nav-logo{display:flex;align-items:center;}
+.nav{
+  position:sticky;top:0;z-index:200;height:68px;
+  background:rgba(40,15,55,.45);
+  backdrop-filter:blur(24px);
+  border-bottom:1px solid rgba(255,255,255,.1);
+  display:flex;align-items:center;justify-content:space-between;padding:0 48px;
+}
 .nav-logo img{height:32px;width:auto;}
 .nav-links{display:flex;align-items:center;gap:4px;}
 .nav-link{font-size:12.5px;font-weight:600;color:rgba(255,252,246,.6);padding:7px 14px;border-radius:8px;transition:all .15s;}
-.nav-link:hover,.nav-link.active{color:var(--off);background:rgba(255,255,255,.08);}
+.nav-link:hover,.nav-link.active{color:var(--off);background:rgba(255,255,255,.1);}
 .nav-cta{background:var(--mag);color:#fff;border-radius:99px;padding:9px 20px;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;transition:filter .15s;}
-.nav-cta:hover{filter:brightness(1.1);}
+.nav-cta:hover{filter:brightness(1.12);}
 .nav-mob{display:none;background:none;border:none;cursor:pointer;padding:6px;color:var(--off);}
 @media(max-width:820px){.nav{padding:0 20px;}.nav-links{display:none;}.nav-mob{display:flex;align-items:center;}}
 
 /* MOBILE DRAWER */
 .mob-drawer{display:none;position:fixed;inset:0;z-index:300;}
 .mob-drawer.open{display:block;}
-.mob-overlay{position:absolute;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);}
-.mob-panel{position:absolute;top:0;right:0;bottom:0;width:280px;background:#1a0a24;border-left:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;padding:24px;transform:translateX(100%);transition:transform .25s ease;}
+.mob-overlay{position:absolute;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(4px);}
+.mob-panel{position:absolute;top:0;right:0;bottom:0;width:280px;background:rgba(40,10,60,.95);border-left:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;padding:24px;transform:translateX(100%);transition:transform .25s ease;}
 .mob-drawer.open .mob-panel{transform:translateX(0);}
 .mob-close{align-self:flex-end;background:none;border:none;color:rgba(255,252,246,.6);cursor:pointer;font-size:24px;line-height:1;margin-bottom:24px;}
 .mob-link{font-size:16px;font-weight:600;color:rgba(255,252,246,.75);padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);transition:color .15s;}
@@ -39,77 +55,97 @@ a{text-decoration:none;}
 .mob-cta{margin-top:24px;background:var(--mag);color:#fff;border-radius:99px;padding:13px 24px;font-family:'Nunito Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;text-align:center;}
 
 /* HERO */
-.hero{background:var(--grad);padding:80px 48px 72px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(234,204,40,.1) 0%,transparent 70%);pointer-events:none;}
-.hero-inner{max-width:940px;margin:0 auto;}
-.hero-ey{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--yellow);margin-bottom:14px;}
-.hero-title{font-family:'Manrope',sans-serif;font-size:48px;font-weight:800;line-height:1.07;letter-spacing:-.03em;color:var(--off);margin-bottom:16px;}
-.hero-sub{font-size:16px;color:rgba(255,252,246,.72);line-height:1.72;max-width:600px;margin-bottom:28px;}
-.hero-rule{background:rgba(255,255,255,.08);border-left:3px solid var(--yellow);padding:14px 18px;font-size:13.5px;color:rgba(255,252,246,.85);line-height:1.65;font-style:italic;max-width:600px;margin-bottom:32px;}
-.hero-methods{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:600px;margin-bottom:28px;}
-.method{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:12px 14px;}
+.hero{padding:100px 48px 80px;position:relative;overflow:hidden;}
+.hero::before{
+  content:'';position:absolute;top:-120px;right:-120px;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(234,204,40,.13) 0%,transparent 68%);
+  pointer-events:none;
+}
+.hero-inner{max-width:960px;margin:0 auto;position:relative;z-index:1;}
+.hero-ey{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--yellow);margin-bottom:18px;}
+.hero-title{font-family:'Manrope',sans-serif;font-size:64px;font-weight:800;line-height:1.04;letter-spacing:-.03em;color:var(--off);margin-bottom:20px;}
+.hero-sub{font-size:17px;color:rgba(255,252,246,.8);line-height:1.72;max-width:640px;margin-bottom:32px;}
+.hero-rule{
+  background:rgba(0,0,0,.18);
+  border-left:3px solid var(--yellow);
+  padding:16px 20px;font-size:14px;
+  color:rgba(255,252,246,.9);line-height:1.7;
+  font-style:italic;max-width:620px;
+  margin-bottom:40px;border-radius:0 8px 8px 0;
+}
+.hero-methods{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:640px;margin-bottom:36px;}
+.method{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:14px 16px;}
 .method-link{transition:background .15s,border-color .15s;cursor:pointer;}
-.method-link:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.25);}
-.method-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--yellow);margin-bottom:4px;}
-.method-val{font-size:12px;color:rgba(255,252,246,.72);line-height:1.5;}
-.hero-links{display:flex;gap:10px;flex-wrap:wrap;}
-.btn-y{background:var(--yellow);color:#1a1018;border-radius:99px;padding:11px 24px;font-family:'Nunito Sans',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;transition:all .15s;display:inline-block;}
-.btn-y:hover{filter:brightness(1.08);}
-.btn-o{background:transparent;color:var(--off);border:1.5px solid rgba(255,255,255,.35);border-radius:99px;padding:10px 20px;font-family:'Nunito Sans',sans-serif;font-size:12.5px;font-weight:600;transition:all .15s;display:inline-block;}
-.btn-o:hover{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.08);}
+.method-link:hover{background:rgba(255,255,255,.18);}
+.method-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--yellow);margin-bottom:5px;}
+.method-val{font-size:12.5px;color:rgba(255,252,246,.72);line-height:1.55;}
 
 /* PROGRESS */
-.progress-section{padding:40px 48px;border-bottom:1px solid rgba(255,255,255,.08);}
-.progress-inner{max-width:940px;margin:0 auto;}
-.progress-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;}
-.progress-label{font-size:12px;font-weight:600;color:rgba(255,252,246,.45);letter-spacing:.06em;text-transform:uppercase;}
-.progress-count{font-size:13px;font-weight:700;color:var(--mag);}
-.progress-bar{height:5px;background:rgba(255,255,255,.1);border-radius:99px;overflow:hidden;margin-bottom:12px;}
-.progress-fill{height:100%;background:var(--mag);border-radius:99px;width:25%;}
-.week-dots{display:flex;flex-wrap:wrap;gap:4px;}
-.wdot{width:11px;height:11px;border-radius:2px;background:rgba(255,255,255,.1);}
-.wdot.done{background:var(--mag);}
+.progress-section{padding:40px 48px;border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1);background:rgba(0,0,0,.12);}
+.progress-inner{max-width:960px;margin:0 auto;}
+.progress-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;}
+.progress-label{font-size:12px;font-weight:600;color:rgba(255,252,246,.5);letter-spacing:.08em;text-transform:uppercase;}
+.progress-count{font-size:13px;font-weight:700;color:var(--yellow);}
+.progress-bar{height:6px;background:rgba(255,255,255,.15);border-radius:99px;overflow:hidden;margin-bottom:14px;}
+.progress-fill{height:100%;background:var(--yellow);border-radius:99px;}
+.week-dots{display:flex;flex-wrap:wrap;gap:5px;}
+.wdot{width:12px;height:12px;border-radius:3px;background:rgba(255,255,255,.15);}
+.wdot.done{background:rgba(255,255,255,.4);}
 .wdot.now{background:var(--yellow);}
 
 /* CONTENT */
-.content{max-width:940px;margin:0 auto;padding:64px 48px 80px;}
+.content{max-width:960px;margin:0 auto;padding:72px 48px 100px;}
 
 /* MONTH */
-.month{margin-bottom:64px;}
-.month-header{display:flex;align-items:center;gap:14px;margin-bottom:8px;}
-.month-label{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mag);margin-bottom:6px;}
-.month-header{margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.08);}
-.month-title{font-family:'Manrope',sans-serif;font-size:26px;font-weight:800;letter-spacing:-.02em;color:var(--off);}
-.month-intro{font-size:15px;color:rgba(255,252,246,.68);line-height:1.75;margin-bottom:24px;max-width:700px;}
+.month{margin-bottom:80px;}
+.month-heading{
+  font-family:'Manrope',sans-serif;
+  font-size:42px;font-weight:800;
+  letter-spacing:-.02em;line-height:1.1;
+  margin-bottom:20px;
+}
+.month-heading .month-name{color:var(--off);}
+.month-heading .month-theme{color:var(--yellow);}
+.month-header{margin-bottom:24px;padding-bottom:0;}
+.month-intro{font-size:16px;color:rgba(255,252,246,.75);line-height:1.78;margin-bottom:28px;max-width:720px;}
 
 /* PROMPTS */
-.prompts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
-@media(max-width:600px){.prompts{grid-template-columns:1fr;}}
-.prompt{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;}
-.prompt-title{font-size:14px;font-weight:700;color:var(--off);margin-bottom:8px;line-height:1.3;}
-.prompt-body{font-size:13px;color:rgba(255,252,246,.55);line-height:1.68;}
+.prompts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px;}
+@media(max-width:620px){.prompts{grid-template-columns:1fr;}}
+.prompt{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:22px 24px;}
+.prompt-title{font-family:'Manrope',sans-serif;font-size:18px;font-weight:800;color:var(--off);margin-bottom:10px;line-height:1.2;}
+.prompt-body{font-size:15px;color:rgba(255,252,246,.65);line-height:1.72;}
+.prompt-body p+p{margin-top:12px;}
 
 /* SPOTLIGHT */
-.spotlight{background:rgba(91,170,181,.08);border:1px solid rgba(91,170,181,.18);border-radius:14px;padding:18px 20px;display:flex;gap:16px;align-items:flex-start;}
-
-.spotlight-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:3px;}
-.spotlight-name{font-size:15px;font-weight:700;color:var(--off);margin-bottom:6px;}
-.spotlight-body{font-size:13px;color:rgba(255,252,246,.6);line-height:1.68;margin-bottom:10px;}
+.spotlight{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:22px 24px;}
+.spotlight-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:4px;}
+.spotlight-name{font-size:17px;font-weight:700;color:var(--off);margin-bottom:8px;}
+.spotlight-body{font-size:15px;color:rgba(255,252,246,.65);line-height:1.72;margin-bottom:12px;}
 .spotlight-links{display:flex;gap:8px;flex-wrap:wrap;}
-.spotlight-link{font-size:11px;font-weight:700;color:var(--teal);background:rgba(91,170,181,.1);border:1px solid rgba(91,170,181,.2);border-radius:8px;padding:4px 12px;transition:all .15s;}
-.spotlight-link:hover{background:rgba(91,170,181,.2);}
+.spotlight-link{font-size:11.5px;font-weight:700;color:var(--teal);background:rgba(91,170,181,.12);border:1px solid rgba(91,170,181,.25);border-radius:8px;padding:5px 14px;transition:all .15s;}
+.spotlight-link:hover{background:rgba(91,170,181,.25);}
 
 /* DIVIDER */
-.divider{height:1px;background:rgba(255,255,255,.08);margin:0 0 64px;}
+.divider{display:none;}
 
 /* FOOTER */
-.footer{background:rgba(0,0,0,.4);border-top:1px solid rgba(255,255,255,.07);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
-.footer-logo img{height:22px;width:auto;opacity:.7;}
-.footer-copy{font-size:11px;color:rgba(255,252,246,.25);}
+.footer{background:rgba(0,0,0,.25);border-top:1px solid rgba(255,255,255,.1);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.footer-copy{font-size:11px;color:rgba(255,252,246,.3);}
 .footer-links{display:flex;gap:20px;}
-.footer-link{font-size:11px;color:rgba(255,252,246,.3);transition:color .15s;}
-.footer-link:hover{color:rgba(255,252,246,.7);}
-@media(max-width:820px){.hero{padding:56px 24px 48px;}.hero-title{font-size:36px;}.hero-methods{grid-template-columns:1fr;}.progress-section{padding:32px 24px;}.content{padding:48px 24px 64px;}.footer{padding:24px;}}
+.footer-link{font-size:11px;color:rgba(255,252,246,.35);transition:color .15s;}
+.footer-link:hover{color:rgba(255,252,246,.75);}
+
+@media(max-width:820px){
+  .hero{padding:64px 24px 56px;}
+  .hero-title{font-size:42px;}
+  .hero-methods{grid-template-columns:1fr;}
+  .progress-section{padding:32px 24px;}
+  .content{padding:52px 24px 72px;}
+  .footer{padding:24px;}
+  .month-name{font-size:32px;}
+}
 </style>
 </head>
 <body>
@@ -147,16 +183,24 @@ a{text-decoration:none;}
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-ey">52 Weeks with C. London · 2026 edition</div>
+    <div class="hero-ey">52 Weeks with C. London · 2026 Edition</div>
     <h1 class="hero-title">Welcome to year 8.</h1>
-    <p class="hero-sub">What started as a small project of self-motivation has grown to an incredibly supportive and engaged community of photographers of all levels and genres, spread out across the world. This year brings back the monthly Artist Spotlight — a bonus prompt featuring a photographer to draw inspiration from.</p>
-    <div class="hero-rule">The purpose of the challenge is to make new photos with the prompt in mind, not to find photos you already have which happen to fit.</div>
+    <p class="hero-sub">What started as a small project of self-motivation has grown into an incredibly supportive community of photographers at every level, spread all over the world. This year brings back the monthly Artist Spotlight, a bonus prompt featuring a photographer to draw inspiration from.</p>
+    <div class="hero-rule">The purpose of the challenge is to make new photos with the prompt in mind, not to dig through your archive for something that fits.</div>
     <div class="hero-methods">
-      <a class="method method-link" href="https://discord.com/invite/fzKjSY8JTR" target="_blank" rel="noopener"><div class="method-label">Discord</div><div class="method-val">Best for real-time conversation with the community</div></a>
-      <a class="method method-link" href="https://www.instagram.com/focalpoint.hub" target="_blank" rel="noopener"><div class="method-label">Instagram</div><div class="method-val">Add @focalpoint.hub as a collaborator on your image</div></a>
-      <div class="method"><div class="method-label">Also accepted</div><div class="method-val">Flickr, Reddit r/clondon52, or email chelsea@clondon.me</div></div>
+      <a class="method method-link" href="https://discord.com/invite/fzKjSY8JTR" target="_blank" rel="noopener">
+        <div class="method-label">Discord</div>
+        <div class="method-val">Best for real-time conversation with the community</div>
+      </a>
+      <a class="method method-link" href="https://www.instagram.com/focalpoint.hub" target="_blank" rel="noopener">
+        <div class="method-label">Instagram</div>
+        <div class="method-val">Add @focalpoint.hub as a collaborator on your image</div>
+      </a>
+      <div class="method">
+        <div class="method-label">Also accepted</div>
+        <div class="method-val">Flickr, Reddit r/clondon52, or email chelsea@clondon.me</div>
+      </div>
     </div>
-
   </div>
 </section>
 
@@ -173,16 +217,15 @@ a{text-decoration:none;}
 </div>
 <script>
 (function(){
-  var start = new Date('2026-01-01');
-  var today = new Date();
-  var msPerWeek = 7 * 24 * 60 * 60 * 1000;
-  var week = Math.min(52, Math.max(1, Math.ceil((today - start) / msPerWeek)));
-  document.getElementById('week-count').textContent = 'Week ' + week + ' of 52';
-  document.getElementById('progress-fill').style.width = Math.round((week / 52) * 100) + '%';
-  var dots = document.getElementById('week-dots');
-  for (var i = 1; i <= 52; i++) {
-    var d = document.createElement('div');
-    d.className = 'wdot' + (i < week ? ' done' : i === week ? ' now' : '');
+  var start=new Date('2026-01-01');
+  var today=new Date();
+  var week=Math.min(52,Math.max(1,Math.ceil((today-start)/(7*24*60*60*1000))));
+  document.getElementById('week-count').textContent='Week '+week+' of 52';
+  document.getElementById('progress-fill').style.width=Math.round((week/52)*100)+'%';
+  var dots=document.getElementById('week-dots');
+  for(var i=1;i<=52;i++){
+    var d=document.createElement('div');
+    d.className='wdot'+(i<week?' done':i===week?' now':'');
     dots.appendChild(d);
   }
 })();
@@ -191,166 +234,198 @@ a{text-decoration:none;}
 <!-- MONTHS -->
 <div class="content">
 
-  <!-- APRIL (upcoming) -->
+  <!-- APRIL -->
   <div class="month">
     <div class="month-header">
-      <div class="month-label">April</div>
-      <div class="month-title">Witness</div>
+      <div class="month-heading"><span class="month-name">April: </span><span class="month-theme">Witness</span></div>
     </div>
     <p class="month-intro">Photography is an act of bearing witness. This month, four prompts push you to photograph with presence and intention: other people, overlooked places, traces of the past, and a full day of your own life.</p>
     <div class="prompts">
       <div class="prompt">
         <div class="prompt-title">Unseen</div>
-        <div class="prompt-body">Photograph someone or something that exists in plain sight but goes unnoticed. The overlooked person on a busy street, the building everyone passes without looking up, the object that has been in the same spot so long it has become invisible. Your job is to make the viewer see it for the first time.</div>
+        <div class="prompt-body">
+          <p>Photograph someone or something that exists in plain sight but goes unnoticed. The overlooked person on a busy street, the building everyone passes without looking up, the object that has been in the same spot so long it has become invisible.</p>
+          <p>Your job is to make the viewer see it for the first time.</p>
+        </div>
       </div>
       <div class="prompt">
         <div class="prompt-title">Eye contact</div>
-        <div class="prompt-body">Make a portrait of a person, an animal, or even a statue where the subject meets the lens directly. Something shifts when a subject acknowledges the camera. Sit with that tension and decide what you want it to mean.</div>
+        <div class="prompt-body">
+          <p>Make a portrait where the subject meets the lens directly. A person, an animal, even a statue.</p>
+          <p>Something shifts when a subject acknowledges the camera. Sit with that tension and decide what you want it to mean.</p>
+        </div>
       </div>
       <div class="prompt">
         <div class="prompt-title">Evidence</div>
-        <div class="prompt-body">Photograph the trace of something, not the thing itself. A worn path, an empty chair, a window with condensation, a meal half eaten. Show what was there without showing it.</div>
+        <div class="prompt-body">
+          <p>Photograph the trace of something, not the thing itself. A worn path, an empty chair, a window with condensation, a meal half eaten.</p>
+          <p>Show what was there without showing it directly.</p>
+        </div>
       </div>
       <div class="prompt">
         <div class="prompt-title">A day in the life</div>
-        <div class="prompt-body">Choose one day this month and document it fully, from the moment you wake up until right before you fall asleep. Aim for at least one photo an hour. You are not trying to make it look good. You are trying to make it true.</div>
+        <div class="prompt-body">
+          <p>Choose one day this month and document it fully, from the moment you wake up until right before you fall asleep. Aim for at least one photo an hour.</p>
+          <p>You are not trying to make it look good. You are trying to make it true.</p>
+        </div>
       </div>
     </div>
     <div class="spotlight">
-
-      <div>
-        <div class="spotlight-label">Artist spotlight</div>
-        <div class="spotlight-name">Zanele Muholi</div>
-        <div class="spotlight-body">A South African visual activist and photographer whose work centers on Black queer identity, visibility, and dignity. Their series Faces and Phases and Somnyama Ngonyama are among the most powerful bodies of documentary portraiture of the past two decades — work that is explicitly about the act of witnessing and being witnessed. The connection to this month's theme is direct and intentional.</div>
-        <div class="spotlight-links">
-          <a class="spotlight-link" href="https://zanemuholi.com" target="_blank" rel="noopener">Official site</a>
-          <a class="spotlight-link" href="https://en.wikipedia.org/wiki/Zanele_Muholi" target="_blank" rel="noopener">Wikipedia</a>
-          <a class="spotlight-link" href="https://www.tate.org.uk/art/artists/zanele-muholi-17997" target="_blank" rel="noopener">Tate profile</a>
-        </div>
+      <div class="spotlight-label">Artist spotlight</div>
+      <div class="spotlight-name">Zanele Muholi</div>
+      <div class="spotlight-body">A South African visual activist and photographer whose work centres on Black queer identity, visibility, and dignity. Their series Faces and Phases and Somnyama Ngonyama are among the most powerful bodies of documentary portraiture of the past two decades. Work that is explicitly about the act of witnessing and being witnessed. The connection to this month's theme is direct and intentional.</div>
+      <div class="spotlight-links">
+        <a class="spotlight-link" href="https://zanemuholi.com" target="_blank" rel="noopener">Official site</a>
+        <a class="spotlight-link" href="https://en.wikipedia.org/wiki/Zanele_Muholi" target="_blank" rel="noopener">Wikipedia</a>
+        <a class="spotlight-link" href="https://www.tate.org.uk/art/artists/zanele-muholi-17997" target="_blank" rel="noopener">Tate profile</a>
       </div>
     </div>
   </div>
 
   <div class="divider"></div>
 
-  <!-- MARCH (current) -->
+  <!-- MARCH -->
   <div class="month">
     <div class="month-header">
-      <div class="month-label">March</div>
-      <div class="month-title">In Between</div>
+      <div class="month-heading"><span class="month-name">March: </span><span class="month-theme">In Between</span></div>
     </div>
-    <p class="month-intro">March sits mid-stride, not quite one thing, not yet another. Work with the threshold, the almost, the incomplete. The ambiguity is a feature, not a bug.</p>
+    <p class="month-intro">March sits mid-stride, not quite one thing, not yet another. Work with the threshold, the almost, the incomplete. Lean into the ambiguity.</p>
     <div class="prompts">
       <div class="prompt">
         <div class="prompt-title">Caught mid-change</div>
-        <div class="prompt-body">Find something that hasn't finished becoming what it's going to be. A bud that hasn't opened. A building half-demolished. A face mid-expression. The incompleteness is the whole point — fight every instinct to wait for it to resolve and shoot it as-is.</div>
+        <div class="prompt-body">
+          <p>Find something that has not finished becoming what it is going to be. A bud that has not opened. A building half-demolished. A face mid-expression.</p>
+          <p>The incompleteness is the whole point. Fight every instinct to wait for it to resolve and shoot it as-is.</p>
+        </div>
       </div>
       <div class="prompt">
         <div class="prompt-title">Threshold</div>
-        <div class="prompt-body">Doorways, shorelines, the edge of a shadow, the moment before someone walks through a door. A threshold implies both sides at once, and your job is to put that tension in the frame.</div>
+        <div class="prompt-body">
+          <p>Doorways, shorelines, the edge of a shadow, the moment before someone walks through a door.</p>
+          <p>A threshold implies both sides at once, and your job is to put that tension in the frame.</p>
+        </div>
       </div>
       <div class="prompt">
         <div class="prompt-title">Neither here nor there</div>
-        <div class="prompt-body">Dawn or dusk? Joy or grief? Abandoned or just quiet? Find a scene that refuses to be one thing and don't try to fix it in post. Ambiguity is a feature, not a bug.</div>
+        <div class="prompt-body">
+          <p>Find a scene that refuses to be one thing and do not try to fix it in post. Dawn or dusk, joy or grief, abandoned or just quiet.</p>
+          <p>Ambiguity is welcome here.</p>
+        </div>
       </div>
       <div class="prompt">
         <div class="prompt-title">Before it's gone</div>
-        <div class="prompt-body">Steam off a coffee. Chalk on a sidewalk before it rains. That look someone gives right before they realize you're photographing them. Find something small and impermanent and make it last.</div>
+        <div class="prompt-body">
+          <p>Steam off a coffee. Chalk on a sidewalk before it rains. That look someone gives right before they realise you are photographing them.</p>
+          <p>Find something small and impermanent and make it last.</p>
+        </div>
       </div>
     </div>
     <div class="spotlight">
-
-      <div>
-        <div class="spotlight-label">Artist spotlight</div>
-        <div class="spotlight-name">Saul Leiter</div>
-        <div class="spotlight-body">Leiter spent decades photographing New York through rain-streaked windows, around reflections, in the margins of scenes where the real action had already happened or hadn't quite started yet. His images are soft, layered, and deliberately hard to read — and all the better for it. If you've never come across his work, clear your afternoon.</div>
-        <div class="spotlight-links">
-          <a class="spotlight-link" href="https://en.wikipedia.org/wiki/Saul_Leiter" target="_blank" rel="noopener">Wikipedia</a>
-          <a class="spotlight-link" href="https://saulleiter.com/" target="_blank" rel="noopener">Official Foundation</a>
-        </div>
+      <div class="spotlight-label">Artist spotlight</div>
+      <div class="spotlight-name">Saul Leiter</div>
+      <div class="spotlight-body">Leiter spent decades photographing New York through rain-streaked windows, around reflections, in the margins of scenes where the real action had already happened or had not quite started yet. His images are soft, layered, and deliberately hard to read. If you have never come across his work, clear your afternoon.</div>
+      <div class="spotlight-links">
+        <a class="spotlight-link" href="https://en.wikipedia.org/wiki/Saul_Leiter" target="_blank" rel="noopener">Wikipedia</a>
+        <a class="spotlight-link" href="https://saulleiter.com/" target="_blank" rel="noopener">Official Foundation</a>
       </div>
     </div>
   </div>
 
   <div class="divider"></div>
 
-  <!-- FEBRUARY (past) -->
+  <!-- FEBRUARY -->
   <div class="month">
     <div class="month-header">
-      <div class="month-label">February</div>
-      <div class="month-title">Limited Light</div>
+      <div class="month-heading"><span class="month-name">February: </span><span class="month-theme">Limited Light</span></div>
     </div>
-    <p class="month-intro">As the days get shorter, light becomes limited and more intentional. Work with those conditions using motion, stillness, and unconventional light sources to shape meaning. The goal is not to fight the light, but to notice what changes when it fades.</p>
+    <p class="month-intro">As the days get shorter, light becomes limited and more intentional. Work with those conditions using motion, stillness, and unconventional light sources to shape meaning. Pay attention to what changes when the light fades. That is where the interesting stuff lives.</p>
     <div class="prompts">
       <div class="prompt">
         <div class="prompt-title">Show motion</div>
-        <div class="prompt-body">Light trails, blurred commuters, soft water. Use a slow shutter speed to show motion. You'll need a steady hand, tripod, or solid surface. Can't control your shutter speed? Think creatively about other ways to suggest movement.</div>
+        <div class="prompt-body">
+          <p>Light trails, blurred commuters, soft water. Use a slow shutter speed to show motion. You will need a steady hand, tripod, or solid surface.</p>
+          <p>Can not control your shutter speed? Think creatively about other ways to suggest movement.</p>
+        </div>
       </div>
       <div class="prompt">
         <div class="prompt-title">Unconventional light</div>
-        <div class="prompt-body">Some of the most interesting light comes from unconventional places — a bonfire, a TV set, car headlights. The main light source should come from something other than the sun or standard light bulbs.</div>
+        <div class="prompt-body">
+          <p>Some of the most interesting light comes from unconventional places, a bonfire, a TV set, car headlights.</p>
+          <p>The main light source should come from something other than the sun or standard light bulbs.</p>
+        </div>
       </div>
       <div class="prompt">
         <div class="prompt-title">One light</div>
-        <div class="prompt-body">One artificial light source only. A table lamp or phone flashlight will do just fine. Subject is up to you — no cheating with multiple sources.</div>
+        <div class="prompt-body">
+          <p>One artificial light source only. A table lamp or phone flashlight will do just fine.</p>
+          <p>Subject is up to you, no cheating with multiple sources.</p>
+        </div>
       </div>
       <div class="prompt">
         <div class="prompt-title">Still, Life</div>
-        <div class="prompt-body">Interpret as you will. Still life the genre. Life being still. Life still going on. However you read this, you do you. The ambiguity is intentional.</div>
+        <div class="prompt-body">
+          <p>Interpret as you will. Still life the genre. Life being still. Life still going on.</p>
+          <p>However you read this, you do you. The ambiguity is intentional.</p>
+        </div>
       </div>
     </div>
     <div class="spotlight">
-
-      <div>
-        <div class="spotlight-label">Artist spotlight</div>
-        <div class="spotlight-name">Gordon Parks</div>
-        <div class="spotlight-body">Parks used low light as a narrative tool rather than a limitation. Working largely in available light, often indoors or at night, he embraced shadow, contrast, and darkness to convey emotional weight and social reality. His photographs show how restraint in light can heighten intimacy, tension, and meaning.</div>
-        <div class="spotlight-links">
-          <a class="spotlight-link" href="https://en.wikipedia.org/wiki/Gordon_Parks" target="_blank" rel="noopener">Wikipedia</a>
-          <a class="spotlight-link" href="https://www.gordonparksfoundation.org/gordon-parks/photography-archive" target="_blank" rel="noopener">Foundation archive</a>
-        </div>
+      <div class="spotlight-label">Artist spotlight</div>
+      <div class="spotlight-name">Gordon Parks</div>
+      <div class="spotlight-body">Parks used low light as a narrative tool rather than a limitation. Working largely in available light, often indoors or at night, he embraced shadow, contrast, and darkness to convey emotional weight and social reality. His photographs show how restraint in light can heighten intimacy, tension, and meaning.</div>
+      <div class="spotlight-links">
+        <a class="spotlight-link" href="https://en.wikipedia.org/wiki/Gordon_Parks" target="_blank" rel="noopener">Wikipedia</a>
+        <a class="spotlight-link" href="https://www.gordonparksfoundation.org/gordon-parks/photography-archive" target="_blank" rel="noopener">Foundation archive</a>
       </div>
     </div>
   </div>
 
   <div class="divider"></div>
 
-  <!-- JANUARY (past) -->
+  <!-- JANUARY -->
   <div class="month">
     <div class="month-header">
-      <div class="month-label">January</div>
-      <div class="month-title">Getting Started</div>
+      <div class="month-heading"><span class="month-name">January: </span><span class="month-theme">Getting Started</span></div>
     </div>
     <p class="month-intro">Four prompts chosen to help you feel motivated, engaged, and intentional about the year ahead. All focused on helping you identify how to make the most of the project.</p>
     <div class="prompts">
       <div class="prompt">
         <div class="prompt-title">Setting goals</div>
-        <div class="prompt-body">Think about what you'd like to achieve this year. Set a goal and make a photograph which demonstrates it. You'll revisit this midway through and at the end of the year.</div>
+        <div class="prompt-body">
+          <p>Think about what you want to achieve this year. Set a goal and make a photograph which demonstrates it.</p>
+          <p>You will revisit this midway through and at the end of the year.</p>
+        </div>
       </div>
       <div class="prompt">
         <div class="prompt-title">Your passion</div>
-        <div class="prompt-body">Make a photo that shows what you love. Be as concrete or abstract as you like. Highlight what makes this your passion so a viewer can interpret your relationship to it.</div>
+        <div class="prompt-body">
+          <p>Make a photo that shows what you love. Be as concrete or abstract as you like.</p>
+          <p>Highlight what makes this your passion so a viewer can interpret your relationship to it.</p>
+        </div>
       </div>
       <div class="prompt">
         <div class="prompt-title">Something familiar</div>
-        <div class="prompt-body">Find something you interact with every day and photograph it from at least ten different angles. Choose the best one. What's mundane to you may be fascinating to another.</div>
+        <div class="prompt-body">
+          <p>Find something you interact with every day and photograph it from at least ten different angles. Choose the best one.</p>
+          <p>What is mundane to you may be fascinating to another.</p>
+        </div>
       </div>
       <div class="prompt">
         <div class="prompt-title">Past experiences</div>
-        <div class="prompt-body">Show where you are in your photographic journey. Wildlife, portraits, street, sport — photograph what you like, how you normally would. You have free range here.</div>
+        <div class="prompt-body">
+          <p>Show where you are in your photographic journey. Wildlife, portraits, street, sport, photograph what you like, how you normally would.</p>
+          <p>You have free range here.</p>
+        </div>
       </div>
     </div>
     <div class="spotlight">
-
-      <div>
-        <div class="spotlight-label">Artist spotlight</div>
-        <div class="spotlight-name">Martin Parr</div>
-        <div class="spotlight-body">Known for vibrant colors and hyper-real documentation of the everyday. Often comical, his well-placed colors elevate the mundane to something with true character. We lost Martin last month, and as he's been an enormous inspiration, it felt only right to start the year with him.</div>
-        <div class="spotlight-links">
-          <a class="spotlight-link" href="https://www.martinparr.com/" target="_blank" rel="noopener">Official site</a>
-          <a class="spotlight-link" href="https://en.wikipedia.org/wiki/Martin_Parr" target="_blank" rel="noopener">Wikipedia</a>
-          <a class="spotlight-link" href="https://www.magnumphotos.com/photographer/martin-parr/" target="_blank" rel="noopener">Magnum</a>
-        </div>
+      <div class="spotlight-label">Artist spotlight</div>
+      <div class="spotlight-name">Martin Parr</div>
+      <div class="spotlight-body">Known for vibrant colours and hyper-real documentation of the everyday. Often comical, his well-placed colours elevate the mundane to something with true character. We lost Martin last month, and as he has been an enormous inspiration, it felt only right to start the year with him.</div>
+      <div class="spotlight-links">
+        <a class="spotlight-link" href="https://www.martinparr.com/" target="_blank" rel="noopener">Official site</a>
+        <a class="spotlight-link" href="https://en.wikipedia.org/wiki/Martin_Parr" target="_blank" rel="noopener">Wikipedia</a>
+        <a class="spotlight-link" href="https://www.magnumphotos.com/photographer/martin-parr/" target="_blank" rel="noopener">Magnum</a>
       </div>
     </div>
   </div>
@@ -368,6 +443,9 @@ a{text-decoration:none;}
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 function openMobMenu(){document.getElementById('mob-drawer').classList.add('open');document.body.style.overflow='hidden';}
-funct
+function closeMobMenu(){document.getElementById('mob-drawer').classList.remove('open');document.body.style.overflow='';}
+</script>
+</body>
+</html>
