@@ -4,19 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Photoclass 2026 — Focal Point</title>
-<meta name="description" content="Focal Point Photoclass 2026 is a free, cohort-based photography course. Ten units, real assignments, mentor feedback, and a community of photographers.">
+<meta name="description" content="Focal Point Photoclass 2026 — a free, cohort-based photography course. Ten units, real assignments, mentor feedback.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--mag:#9F217E;--teal:#5BAAB5;--yellow:#EACC28;--dark:#0e0618;--off:#FFFCF6;--card:rgba(255,255,255,.06);--border:rgba(255,255,255,.1);}
 *{margin:0;padding:0;box-sizing:border-box;}
 html{background:var(--dark);}
-body{font-family:'Poppins',sans-serif;background:linear-gradient(155deg,#3a7a85 0%,#5BAAB5 20%,#7c3a82 50%,#9F217E 75%,#7a1860 100%) fixed;color:var(--off);-webkit-font-smoothing:antialiased;}
+body{font-family:'Nunito Sans',sans-serif;background:linear-gradient(155deg,#3a7a85 0%,#5BAAB5 20%,#7c3a82 50%,#9F217E 75%,#7a1860 100%) fixed;color:var(--off);-webkit-font-smoothing:antialiased;}
 a{text-decoration:none;}
 
 /* NAV */
-.nav{position:sticky;top:0;z-index:200;height:68px;background:rgba(0,0,0,.35);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
+.nav{position:sticky;top:0;z-index:200;height:68px;background:rgba(14,6,24,.8);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
 .nav-logo img{height:32px;width:auto;}
 .nav-links{display:flex;align-items:center;gap:4px;}
 .nav-link{font-size:12.5px;font-weight:600;color:rgba(255,252,246,.6);padding:7px 14px;border-radius:8px;transition:all .15s;}
@@ -38,10 +38,9 @@ a{text-decoration:none;}
 
 /* HERO */
 .hero{padding:72px 48px 48px;max-width:760px;margin:0 auto;}
-.hero-ey{font-size:28px;font-weight:800;color:var(--yellow);margin-bottom:10px;line-height:1.15;}
-.hero-title{font-family:'Poppins',sans-serif;font-size:48px;font-weight:800;line-height:1.05;letter-spacing:-.03em;color:var(--off);margin-bottom:18px;}
-.hero-sub{font-size:16px;line-height:1.7;color:rgba(255,252,246,.7);margin-bottom:6px;max-width:600px;}
-.hero-sub-bold{font-size:16px;line-height:1.7;color:rgba(255,252,246,.85);font-weight:700;margin-bottom:28px;max-width:600px;}
+.hero-ey{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:14px;}
+.hero-title{font-family:'Manrope',sans-serif;font-size:48px;font-weight:800;line-height:1.05;letter-spacing:-.03em;color:var(--off);margin-bottom:18px;}
+.hero-sub{font-size:16px;line-height:1.7;color:rgba(255,252,246,.7);margin-bottom:28px;max-width:600px;}
 .hero-acts{display:flex;gap:12px;flex-wrap:wrap;}
 .btn-y{background:var(--yellow);color:#1a1018;border-radius:99px;padding:13px 26px;font-size:13px;font-weight:700;letter-spacing:.05em;transition:filter .15s;}
 .btn-y:hover{filter:brightness(1.08);}
@@ -62,4 +61,270 @@ a{text-decoration:none;}
 /* COHORT BANNER */
 .cohort-banner{display:flex;align-items:flex-start;gap:12px;background:rgba(91,170,181,.1);border:1px solid rgba(91,170,181,.25);border-radius:10px;padding:14px 16px;margin-bottom:40px;}
 .cohort-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:5px;}
-.cohort-text{font-size:13px;line
+.cohort-text{font-size:13px;line-height:1.6;color:rgba(255,252,246,.75);}
+.cohort-text strong{color:var(--off);}
+
+/* SECTION HEADINGS */
+.section-ey{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;}
+.section-title{font-family:'Manrope',sans-serif;font-size:28px;font-weight:800;letter-spacing:-.02em;color:var(--off);margin-bottom:24px;}
+
+/* UNIT CARDS */
+.units{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.unit-card{position:relative;border-radius:14px;overflow:hidden;display:block;aspect-ratio:1;border:1px solid rgba(255,255,255,.1);transition:border-color .15s,transform .15s;}
+a.unit-card:hover{border-color:rgba(255,255,255,.28);transform:translateY(-3px);}
+.unit-card.locked{opacity:.65;cursor:default;filter:grayscale(20%);}
+.uc-bg{position:absolute;inset:0;background-size:cover;background-position:center;background-color:rgba(255,255,255,.04);}
+.uc-arrow{position:absolute;bottom:12px;right:12px;color:rgba(255,252,246,.5);transition:color .15s;}
+a.unit-card:hover .uc-arrow{color:var(--teal);}
+.uc-label{position:absolute;top:50%;left:12px;right:12px;transform:translateY(-50%);background:rgba(8,3,18,.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 12px;}
+.unit-num{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mag);margin-bottom:4px;}
+.unit-title{font-family:'Manrope',sans-serif;font-size:14px;font-weight:800;color:var(--off);line-height:1.2;margin-bottom:3px;}
+.unit-sub{font-size:11px;color:rgba(255,252,246,.55);line-height:1.35;}
+.unit-badge{font-size:10px;font-weight:700;color:rgba(255,252,246,.4);display:block;margin-top:4px;}
+
+/* FOOTER */
+.footer{background:rgba(0,0,0,.25);border-top:1px solid rgba(255,255,255,.07);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.footer-logo img{height:22px;width:auto;opacity:.7;}
+.footer-copy{font-size:11px;color:rgba(255,252,246,.25);}
+.footer-links{display:flex;gap:20px;}
+.footer-link{font-size:11px;color:rgba(255,252,246,.3);transition:color .15s;}
+.footer-link:hover{color:rgba(255,252,246,.7);}
+
+/* RESPONSIVE */
+@media(max-width:820px){.hero{padding:56px 24px 40px;}.hero-title{font-size:36px;}.strip{padding:24px;}.strip-inner{grid-template-columns:1fr 1fr;gap:16px;}.content{padding:40px 24px 64px;}.footer{padding:24px;}}
+@media(max-width:560px){.strip-inner{grid-template-columns:1fr;}.units{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:480px){.units{grid-template-columns:1fr;aspect-ratio:auto;}.unit-card{aspect-ratio:1;}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-logo" href="https://thefocalpointhub.com">
+    <img src="/img/logo-white.webp" alt="Focal Point">
+  </a>
+  <div class="nav-links">
+    <a class="nav-link active" href="/photoclass-2026/">Photoclass 2026</a>
+    <a class="nav-link" href="https://courses.thefocalpointhub.com">Courses</a>
+    <a class="nav-link" href="/52-weeks/">52 Weeks</a>
+    <a class="nav-link" href="https://discord.gg/fzKjSY8JTR" target="_blank" rel="noopener">Community</a>
+    <a class="nav-link" href="https://thefocalpointhub.com/blog">Blog</a>
+  </div>
+  <a class="nav-cta" href="https://learn.thefocalpointhub.com">My Focal Point &rarr;</a>
+  <button class="nav-mob" aria-label="Menu" onclick="openMobMenu()">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+  </button>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<div class="mob-drawer" id="mob-drawer">
+  <div class="mob-overlay" onclick="closeMobMenu()"></div>
+  <div class="mob-panel">
+    <button class="mob-close" onclick="closeMobMenu()">&#xd7;</button>
+    <a class="mob-link" href="/photoclass-2026/" onclick="closeMobMenu()">Photoclass 2026</a>
+    <a class="mob-link" href="https://courses.thefocalpointhub.com" onclick="closeMobMenu()">Courses</a>
+    <a class="mob-link" href="/52-weeks/" onclick="closeMobMenu()">52 Weeks</a>
+    <a class="mob-link" href="https://discord.gg/fzKjSY8JTR" target="_blank" rel="noopener" onclick="closeMobMenu()">Community</a>
+    <a class="mob-link" href="https://thefocalpointhub.com/blog" onclick="closeMobMenu()">Blog</a>
+    <a class="mob-cta" href="https://learn.thefocalpointhub.com">My Focal Point &rarr;</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-ey">Focal Point Photoclass 2026</div>
+  <h1 class="hero-title">Free. Cohort-based. All year.</h1>
+  <p class="hero-sub">Ten units covering everything from camera fundamentals to your own long-term personal project. January and July cohorts &mdash; join any time and catch up at your own pace.</p>
+  <div class="hero-acts">
+    <a class="btn-y" href="/photoclass-2026/getting-started/">Start the course &rarr;</a>
+    <a class="btn-o" href="https://learn.thefocalpointhub.com">My Focal Point</a>
+  </div>
+</section>
+
+<!-- FEATURES STRIP -->
+<div class="strip">
+  <div class="strip-inner">
+    <div class="feat">
+      <div class="feat-icon" style="background:rgba(159,33,126,.15);">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 2h7l3 3v9H3V2z" stroke="#9F217E" stroke-width="1.4" stroke-linejoin="round"/></svg>
+      </div>
+      <div><div class="feat-label">Weekly lessons</div><div class="feat-desc">Paced with the cohort, all year</div></div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon" style="background:rgba(91,170,181,.15);">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#5BAAB5" stroke-width="1.4"/><circle cx="8" cy="8" r="2.5" fill="#5BAAB5"/></svg>
+      </div>
+      <div><div class="feat-label">Real assignments</div><div class="feat-desc">Every unit, applied in the real world</div></div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon" style="background:rgba(234,204,40,.12);">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 2h12v9H9l-3 3v-3H2V2z" stroke="#EACC28" stroke-width="1.4" stroke-linejoin="round"/></svg>
+      </div>
+      <div><div class="feat-label">Mentor feedback</div><div class="feat-desc">Post your work, get real critiques</div></div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon" style="background:rgba(159,33,126,.15);">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L7.5 2H13v5.5L7.5 14 2 8.5z" stroke="#9F217E" stroke-width="1.4" stroke-linejoin="round"/><circle cx="10.5" cy="5.5" r="1.2" fill="#9F217E"/></svg>
+      </div>
+      <div><div class="feat-label">Free, always</div><div class="feat-desc">No cost, no catch</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- COHORT BANNER -->
+  <div class="cohort-banner">
+    <div class="cohort-dot"></div>
+    <div class="cohort-text"><strong>January 2026 cohort is active.</strong> Join now and work through at your own pace. The July cohort starts fresh if you'd prefer to begin with a group.</div>
+  </div>
+
+  <div class="section-ey">Course units</div>
+  <div class="section-title">Ten units. One year.</div>
+
+  <div class="units">
+
+    <!-- GETTING STARTED -->
+    <a class="unit-card" href="/photoclass-2026/getting-started/">
+      <div class="uc-bg" style="background-color:rgba(91,170,181,.2);"></div>
+      <div class="uc-label">
+        <div class="unit-num">Getting Started</div>
+        <div class="unit-title">Before You Begin</div>
+        <div class="unit-sub">Experience, goals, and mindset</div>
+      </div>
+      <div class="uc-arrow"><svg width="15" height="15" viewBox="0 0 18 18" fill="none"><path d="M6 9h6M9 6l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    </a>
+
+    <!-- UNIT 1 -->
+    <a class="unit-card" href="/photoclass-2026/unit-1/">
+      <div class="uc-bg" style="background-color:rgba(91,170,181,.15);"></div>
+      <div class="uc-label">
+        <div class="unit-num">Unit 1</div>
+        <div class="unit-title">Introduction &amp; The Gear</div>
+        <div class="unit-sub">Cameras, lenses, focal length, and digital workflow</div>
+      </div>
+      <div class="uc-arrow"><svg width="15" height="15" viewBox="0 0 18 18" fill="none"><path d="M6 9h6M9 6l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    </a>
+
+    <!-- UNIT 2 -->
+    <a class="unit-card" href="/photoclass-2026/unit-2/">
+      <div class="uc-bg" style="background-color:rgba(100,80,160,.25);"></div>
+      <div class="uc-label">
+        <div class="unit-num">Unit 2</div>
+        <div class="unit-title">The Exposure Triangle</div>
+        <div class="unit-sub">Aperture, shutter speed, and ISO</div>
+      </div>
+      <div class="uc-arrow"><svg width="15" height="15" viewBox="0 0 18 18" fill="none"><path d="M6 9h6M9 6l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    </a>
+
+    <!-- UNIT 3 -->
+    <a class="unit-card" href="/photoclass-2026/unit-3/">
+      <div class="uc-bg" style="background-color:rgba(159,33,126,.2);"></div>
+      <div class="uc-label">
+        <div class="unit-num">Unit 3</div>
+        <div class="unit-title">The Art of Photography</div>
+        <div class="unit-sub">Light, composition, and color theory</div>
+      </div>
+      <div class="uc-arrow"><svg width="15" height="15" viewBox="0 0 18 18" fill="none"><path d="M6 9h6M9 6l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    </a>
+
+    <!-- UNIT 4 -->
+    <a class="unit-card" href="/photoclass-2026/unit-4/">
+      <div class="uc-bg" style="background-color:rgba(58,122,133,.25);"></div>
+      <div class="uc-label">
+        <div class="unit-num">Unit 4</div>
+        <div class="unit-title">Post Processing</div>
+        <div class="unit-sub">Editing workflow and Lightroom fundamentals</div>
+      </div>
+      <div class="uc-arrow"><svg width="15" height="15" viewBox="0 0 18 18" fill="none"><path d="M6 9h6M9 6l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    </a>
+
+    <!-- UNIT 5 -->
+    <a class="unit-card" href="/photoclass-2026/unit-5/">
+      <div class="uc-bg" style="background-color:rgba(80,50,140,.25);"></div>
+      <div class="uc-label">
+        <div class="unit-num">Unit 5</div>
+        <div class="unit-title">The Decision Process</div>
+        <div class="unit-sub">Visual narrative, culling, and feedback</div>
+      </div>
+      <div class="uc-arrow"><svg width="15" height="15" viewBox="0 0 18 18" fill="none"><path d="M6 9h6M9 6l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    </a>
+
+    <!-- UNIT 6 -->
+    <a class="unit-card" href="/photoclass-2026/unit-6/">
+      <div class="uc-bg" style="background-color:rgba(91,170,181,.15);"></div>
+      <div class="uc-label">
+        <div class="unit-num">Unit 6</div>
+        <div class="unit-title">Taking Your Camera Skills Further</div>
+        <div class="unit-sub">Focus systems, metering, and flash</div>
+      </div>
+      <div class="uc-arrow"><svg width="15" height="15" viewBox="0 0 18 18" fill="none"><path d="M6 9h6M9 6l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    </a>
+
+    <!-- UNIT 7 -->
+    <a class="unit-card" href="/photoclass-2026/unit-7/">
+      <div class="uc-bg" style="background-color:rgba(159,33,126,.25);"></div>
+      <div class="uc-label">
+        <div class="unit-num">Unit 7</div>
+        <div class="unit-title">Personal Projects</div>
+        <div class="unit-sub">Long-form work and sustained practice</div>
+      </div>
+      <div class="uc-arrow"><svg width="15" height="15" viewBox="0 0 18 18" fill="none"><path d="M6 9h6M9 6l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    </a>
+
+    <!-- UNIT 8 — LOCKED -->
+    <div class="unit-card locked">
+      <div class="uc-bg" style="background-color:rgba(50,30,80,.3);"></div>
+      <div class="uc-label">
+        <div class="unit-num">Unit 8</div>
+        <div class="unit-title">The Art of Photography Pt. 2</div>
+        <div class="unit-sub">Advanced vision and intent</div>
+        <span class="unit-badge">Coming soon</span>
+      </div>
+    </div>
+
+    <!-- UNIT 9 — LOCKED -->
+    <div class="unit-card locked">
+      <div class="uc-bg" style="background-color:rgba(50,30,80,.3);"></div>
+      <div class="uc-label">
+        <div class="unit-num">Unit 9</div>
+        <div class="unit-title">Sharing Your Work</div>
+        <div class="unit-sub">Print, web, and portfolio</div>
+        <span class="unit-badge">Coming soon</span>
+      </div>
+    </div>
+
+    <!-- UNIT 10 — LOCKED -->
+    <div class="unit-card locked">
+      <div class="uc-bg" style="background-color:rgba(50,30,80,.3);"></div>
+      <div class="uc-label">
+        <div class="unit-num">Unit 10</div>
+        <div class="unit-title">Final Project</div>
+        <div class="unit-sub">Your completed personal project</div>
+        <span class="unit-badge">Coming soon</span>
+      </div>
+    </div>
+
+  </div><!-- /units -->
+
+</div><!-- /content -->
+
+<!-- FOOTER -->
+<footer class="footer">
+  <a class="footer-logo" href="https://thefocalpointhub.com"><img src="/img/logo-white.webp" alt="Focal Point"></a>
+  <div class="footer-copy">&copy; 2026 Focal Point. All rights reserved.</div>
+  <div class="footer-links">
+    <a class="footer-link" href="https://thefocalpointhub.com/blog">Blog</a>
+    <a class="footer-link" href="https://discord.gg/fzKjSY8JTR">Discord</a>
+    <a class="footer-link" href="https://ko-fi.com/focalpoint_clondon">Support</a>
+  </div>
+</footer>
+
+<script>
+function openMobMenu(){document.getElementById('mob-drawer').classList.add('open');document.body.style.overflow='hidden';}
+function closeMobMenu(){document.getElementById('mob-drawer').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMobMenu();});
+</script>
+</body>
+</html>
