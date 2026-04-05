@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Blog — Focal Point</title>
+<meta name="description" content="Photography articles, ideas, exercises, and perspectives from Focal Point and C. London.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--mag:#9F217E;--teal:#5BAAB5;--yellow:#EACC28;--dark:#0e0618;--off:#FFFCF6;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{background:var(--dark);scroll-behavior:smooth;}
+body{font-family:'Poppins',sans-serif;background:linear-gradient(155deg,#3a7a85 0%,#5BAAB5 20%,#7c3a82 50%,#9F217E 75%,#7a1860 100%) fixed;color:var(--off);-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:200;height:68px;background:rgba(40,15,55,.45);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
+.nav-logo{display:flex;align-items:center;}
+.nav-logo img{height:32px;width:auto;}
+.nav-links{display:flex;align-items:center;gap:4px;}
+.nav-link{font-family:'Poppins',sans-serif;font-size:12.5px;font-weight:600;color:rgba(255,252,246,.6);padding:7px 14px;border-radius:8px;transition:all .15s;}
+.nav-link:hover{color:var(--off);background:rgba(255,255,255,.1);}
+.nav-link.active{color:var(--off);}
+.nav-cta{background:var(--mag);color:#fff;border-radius:99px;padding:9px 20px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;transition:filter .15s;}
+.nav-cta:hover{filter:brightness(1.12);}
+.nav-mob{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+.mob-drawer{display:none;position:fixed;inset:0;z-index:300;}
+.mob-drawer.open{display:block;}
+.mob-overlay{position:absolute;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);}
+.mob-panel{position:absolute;top:0;right:0;bottom:0;width:280px;background:rgba(40,10,60,.95);border-left:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;padding:24px;transform:translateX(100%);transition:transform .25s ease;}
+.mob-drawer.open .mob-panel{transform:translateX(0);}
+.mob-close{align-self:flex-end;background:none;border:none;color:rgba(255,252,246,.6);cursor:pointer;font-size:24px;line-height:1;margin-bottom:24px;font-family:'Poppins',sans-serif;}
+.mob-link{font-family:'Poppins',sans-serif;font-size:16px;font-weight:600;color:rgba(255,252,246,.75);padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);transition:color .15s;display:block;}
+.mob-link:hover{color:var(--off);}
+.mob-cta{margin-top:24px;background:var(--mag);color:#fff;border-radius:99px;padding:13px 24px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;text-align:center;}
+@media(max-width:820px){.nav{padding:0 20px;}.nav-links{display:none;}.nav-mob{display:flex;align-items:center;color:var(--off);}}
+
+/* BLOG HEADER */
+.blog-header{padding:72px 48px 52px;max-width:1100px;margin:0 auto;}
+.ey{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--yellow);margin-bottom:10px;}
+.blog-title{font-family:'Poppins',sans-serif;font-size:48px;font-weight:800;letter-spacing:-.03em;line-height:1.07;color:var(--off);margin-bottom:14px;}
+.blog-sub{font-size:15px;color:rgba(255,252,246,.6);line-height:1.7;max-width:520px;}
+
+/* FEATURED */
+.featured-wrap{padding:0 48px 56px;max-width:1100px;margin:0 auto;}
+.featured-label{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,252,246,.3);margin-bottom:16px;}
+.featured-card{display:grid;grid-template-columns:1fr 1fr;border-radius:20px;overflow:hidden;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);transition:transform .18s,box-shadow .18s;}
+.featured-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.35);}
+.featured-img{width:100%;height:100%;min-height:320px;object-fit:cover;display:block;}
+.featured-body{padding:36px 40px;display:flex;flex-direction:column;justify-content:center;}
+.fcat{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);margin-bottom:12px;}
+.ftitle{font-family:'Poppins',sans-serif;font-size:24px;font-weight:800;color:var(--off);line-height:1.2;margin-bottom:14px;letter-spacing:-.02em;}
+.fdesc{font-size:14px;color:rgba(255,252,246,.6);line-height:1.7;margin-bottom:24px;flex:1;}
+.fmeta{font-size:11px;color:rgba(255,252,246,.35);margin-bottom:20px;}
+.read-btn{display:inline-flex;align-items:center;gap:6px;background:var(--yellow);color:#1a1018;border-radius:99px;padding:11px 22px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;transition:all .15s;align-self:flex-start;}
+.read-btn:hover{filter:brightness(1.08);transform:translateY(-1px);}
+
+/* GRID */
+.grid-wrap{padding:0 48px 80px;max-width:1100px;margin:0 auto;}
+.grid-label{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,252,246,.3);margin-bottom:20px;}
+.post-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.pcard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden;transition:transform .15s,box-shadow .15s;display:flex;flex-direction:column;}
+.pcard:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.3);}
+.pimg{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:rgba(159,33,126,.15);}
+.pimg-placeholder{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,rgba(91,170,181,.2),rgba(159,33,126,.2));}
+.pbody{padding:18px 20px 22px;display:flex;flex-direction:column;flex:1;}
+.pcat{font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;}
+.ptitle{font-family:'Poppins',sans-serif;font-size:15px;font-weight:700;color:var(--off);line-height:1.3;margin-bottom:8px;}
+.pdesc{font-size:12px;color:rgba(255,252,246,.5);line-height:1.6;flex:1;margin-bottom:14px;}
+.pmeta{font-size:10px;color:rgba(255,252,246,.3);}
+
+/* FOOTER */
+.footer{background:rgba(0,0,0,.25);border-top:1px solid rgba(255,255,255,.07);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.footer-logo img{height:22px;width:auto;opacity:.7;}
+.footer-copy{font-size:11px;color:rgba(255,252,246,.25);}
+.footer-links{display:flex;gap:20px;}
+.footer-link{font-size:11px;color:rgba(255,252,246,.3);transition:color .15s;}
+.footer-link:hover{color:rgba(255,252,246,.7);}
+
+@media(max-width:900px){
+  .blog-header,.featured-wrap,.grid-wrap{padding-left:24px;padding-right:24px;}
+  .featured-card{grid-template-columns:1fr;}
+  .featured-img{min-height:220px;}
+  .post-grid{grid-template-columns:1fr 1fr;}
+  .blog-title{font-size:36px;}
+}
+@media(max-width:560px){
+  .post-grid{grid-template-columns:1fr;}
+  .blog-title{font-size:28px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-logo" href="/"><img src="/img/logo-white.webp" alt="Focal Point"></a>
+  <div class="nav-links">
+    <a class="nav-link" href="/photoclass-2026/">Photoclass 2026</a>
+    <a class="nav-link" href="https://courses.thefocalpointhub.com">Courses</a>
+    <a class="nav-link" href="/52-weeks/">52 Weeks</a>
+    <a class="nav-link" href="https://discord.gg/fzKjSY8JTR" target="_blank" rel="noopener">Community</a>
+    <a class="nav-link active" href="/blog">Blog</a>
+  </div>
+  <a class="nav-cta" href="https://learn.thefocalpointhub.com">My Focal Point &#x2192;</a>
+  <button class="nav-mob" aria-label="Menu" onclick="openMobMenu()">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+  </button>
+</nav>
+
+<!-- HEADER -->
+<div class="blog-header">
+  <div class="ey">Focal Point Blog</div>
+  <h1 class="blog-title">Ideas, exercises,<br>and perspectives.</h1>
+  <p class="blog-sub">Articles for photographers at every stage — from building habits to finding your voice.</p>
+</div>
+
+<!-- FEATURED POST -->
+<div class="featured-wrap">
+  <div class="featured-label">Featured</div>
+  <a class="featured-card" href="/blog/photography-exercises-for-when-youre-feeling-uninspired/">
+    <img class="featured-img" src="/img/blog/photography-exercises-uninspired.jpg" alt="A blurred crowd in motion, colours blending together">
+    <div class="featured-body">
+      <div class="fcat">Practice &amp; Exercises</div>
+      <h2 class="ftitle">Photography Exercises for When You're Feeling Uninspired</h2>
+      <p class="fdesc">Constrained shooting, open-ended challenges, and over 60 prompts to break the rut and get you seeing again.</p>
+      <div class="fmeta">By Chelsea London Phillips &nbsp;·&nbsp; Jul 28</div>
+      <span class="read-btn">Read article &#x2192;</span>
+    </div>
+  </a>
+</div>
+
+<!-- POST GRID (ready for more posts) -->
+<div class="grid-wrap">
+  <div class="grid-label">All posts</div>
+  <div class="post-grid">
+
+    <a class="pcard" href="/blog/photography-exercises-for-when-youre-feeling-uninspired/">
+      <img class="pimg" src="/img/blog/photography-exercises-uninspired.jpg" alt="Blurred crowd">
+      <div class="pbody">
+        <div class="pcat">Practice &amp; Exercises</div>
+        <div class="ptitle">Photography Exercises for When You're Feeling Uninspired</div>
+        <p class="pdesc">60+ constrained shooting and open-ended exercises to break the creative rut.</p>
+        <div class="pmeta">Chelsea London Phillips &nbsp;·&nbsp; Jul 28</div>
+      </div>
+    </a>
+
+    <!-- Placeholder cards — remove when real posts are added -->
+    <div class="pcard" style="opacity:.35;pointer-events:none;">
+      <div class="pimg-placeholder"></div>
+      <div class="pbody">
+        <div class="pcat">Coming soon</div>
+        <div class="ptitle">More articles on the way</div>
+        <p class="pdesc">New posts published regularly throughout the year.</p>
+      </div>
+    </div>
+    <div class="pcard" style="opacity:.2;pointer-events:none;">
+      <div class="pimg-placeholder"></div>
+      <div class="pbody">
+        <div class="pcat">Coming soon</div>
+        <div class="ptitle">&nbsp;</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <a class="footer-logo" href="/"><img src="/img/logo-white.webp" alt="Focal Point"></a>
+  <div class="footer-copy">&#169; 2026 Focal Point. All rights reserved.</div>
+  <div class="footer-links">
+    <a class="footer-link" href="/blog">Blog</a>
+    <a class="footer-link" href="https://discord.gg/fzKjSY8JTR">Discord</a>
+    <a class="footer-link" href="https://ko-fi.com/focalpoint_clondon">Support</a>
+  </div>
+</footer>
+
+<!-- Mobile drawer -->
+<div class="mob-drawer" id="mob-drawer">
+  <div class="mob-overlay" onclick="closeMobMenu()"></div>
+  <div class="mob-panel">
+    <button class="mob-close" onclick="closeMobMenu()">&#xd7;</button>
+    <a class="mob-link" href="/photoclass-2026/" onclick="closeMobMenu()">Photoclass 2026</a>
+    <a class="mob-link" href="https://courses.thefocalpointhub.com" onclick="closeMobMenu()">Courses</a>
+    <a class="mob-link" href="/52-weeks/" onclick="closeMobMenu()">52 Weeks</a>
+    <a class="mob-link" href="https://discord.gg/fzKjSY8JTR" target="_blank" rel="noopener" onclick="closeMobMenu()">Community</a>
+    <a class="mob-link" href="/blog" onclick="closeMobMenu()">Blog</a>
+    <a class="mob-cta" href="https://learn.thefocalpointhub.com">My Focal Point &#x2192;</a>
+  </div>
+</div>
+
+<script>
+function openMobMenu(){document.getElementById('mob-drawer').classList.add('open');document.body.style.overflow='hidden';}
+function closeMobMenu(){document.getElementById('mob-drawer').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMobMenu();});
+</script>
+</body>
+</html>

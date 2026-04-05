@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Photography Exercises for When You're Feeling Uninspired — Focal Point</title>
+<meta name="description" content="Constrained shooting exercises and open-ended photography challenges to break through creative blocks. 60+ ideas from Focal Point.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--mag:#9F217E;--teal:#5BAAB5;--yellow:#EACC28;--dark:#0e0618;--off:#FFFCF6;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{background:var(--dark);scroll-behavior:smooth;}
+body{font-family:'Poppins',sans-serif;background:linear-gradient(155deg,#3a7a85 0%,#5BAAB5 20%,#7c3a82 50%,#9F217E 75%,#7a1860 100%) fixed;color:var(--off);-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:200;height:68px;background:rgba(40,15,55,.45);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
+.nav-logo{display:flex;align-items:center;}
+.nav-logo img{height:32px;width:auto;}
+.nav-links{display:flex;align-items:center;gap:4px;}
+.nav-link{font-family:'Poppins',sans-serif;font-size:12.5px;font-weight:600;color:rgba(255,252,246,.6);padding:7px 14px;border-radius:8px;transition:all .15s;}
+.nav-link:hover{color:var(--off);background:rgba(255,255,255,.1);}
+.nav-cta{background:var(--mag);color:#fff;border-radius:99px;padding:9px 20px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;transition:filter .15s;}
+.nav-cta:hover{filter:brightness(1.12);}
+.nav-mob{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+.mob-drawer{display:none;position:fixed;inset:0;z-index:300;}
+.mob-drawer.open{display:block;}
+.mob-overlay{position:absolute;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);}
+.mob-panel{position:absolute;top:0;right:0;bottom:0;width:280px;background:rgba(40,10,60,.95);border-left:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;padding:24px;transform:translateX(100%);transition:transform .25s ease;}
+.mob-drawer.open .mob-panel{transform:translateX(0);}
+.mob-close{align-self:flex-end;background:none;border:none;color:rgba(255,252,246,.6);cursor:pointer;font-size:24px;line-height:1;margin-bottom:24px;font-family:'Poppins',sans-serif;}
+.mob-link{font-family:'Poppins',sans-serif;font-size:16px;font-weight:600;color:rgba(255,252,246,.75);padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);transition:color .15s;display:block;}
+.mob-link:hover{color:var(--off);}
+.mob-cta{margin-top:24px;background:var(--mag);color:#fff;border-radius:99px;padding:13px 24px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;text-align:center;}
+@media(max-width:820px){.nav{padding:0 20px;}.nav-links{display:none;}.nav-mob{display:flex;align-items:center;color:var(--off);}}
+
+/* BREADCRUMB */
+.breadcrumb{padding:24px 48px 0;max-width:780px;margin:0 auto;display:flex;align-items:center;gap:8px;}
+.bc-link{font-size:11px;font-weight:600;color:rgba(255,252,246,.4);transition:color .15s;}
+.bc-link:hover{color:rgba(255,252,246,.7);}
+.bc-sep{font-size:11px;color:rgba(255,252,246,.2);}
+.bc-cur{font-size:11px;color:rgba(255,252,246,.35);}
+
+/* ARTICLE */
+.article{max-width:780px;margin:0 auto;padding:36px 48px 80px;}
+
+/* Hero image */
+.hero-img{width:100%;border-radius:16px;display:block;margin-bottom:40px;aspect-ratio:16/8;object-fit:cover;}
+
+/* Post meta */
+.post-cat{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:12px;}
+.post-title{font-family:'Poppins',sans-serif;font-size:40px;font-weight:800;letter-spacing:-.03em;line-height:1.1;color:var(--off);margin-bottom:18px;}
+.post-meta{display:flex;align-items:center;gap:16px;margin-bottom:36px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.1);}
+.meta-author{font-size:13px;font-weight:600;color:rgba(255,252,246,.65);}
+.meta-date{font-size:12px;color:rgba(255,252,246,.35);}
+.meta-dot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.2);}
+
+/* Prose */
+.prose h2{font-family:'Poppins',sans-serif;font-size:26px;font-weight:800;letter-spacing:-.02em;color:var(--off);margin:44px 0 16px;line-height:1.2;}
+.prose h3{font-family:'Poppins',sans-serif;font-size:16px;font-weight:700;color:var(--yellow);margin:30px 0 14px;letter-spacing:.01em;}
+.prose p{font-size:15.5px;color:rgba(255,252,246,.78);line-height:1.8;margin-bottom:18px;}
+.prose strong{color:var(--off);font-weight:700;}
+.prose ul{list-style:none;margin:0 0 24px;display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.prose ul li{font-size:13.5px;color:rgba(255,252,246,.68);line-height:1.55;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 14px;position:relative;}
+.prose ul li strong{color:var(--teal);}
+
+/* Author bio */
+.author-bio{margin-top:52px;padding:24px 28px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;display:flex;gap:20px;align-items:flex-start;}
+.author-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--mag),var(--teal));flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#fff;}
+.author-name{font-size:14px;font-weight:700;color:var(--off);margin-bottom:4px;}
+.author-desc{font-size:12.5px;color:rgba(255,252,246,.5);line-height:1.6;}
+.author-link{font-size:11px;color:var(--teal);margin-top:6px;display:inline-block;}
+
+/* Back link */
+.back-wrap{margin-top:48px;padding-top:28px;border-top:1px solid rgba(255,255,255,.08);}
+.back-link{font-size:13px;font-weight:700;color:rgba(255,252,246,.45);transition:color .15s;display:inline-flex;align-items:center;gap:6px;}
+.back-link:hover{color:var(--off);}
+
+/* FOOTER */
+.footer{background:rgba(0,0,0,.25);border-top:1px solid rgba(255,255,255,.07);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.footer-logo img{height:22px;width:auto;opacity:.7;}
+.footer-copy{font-size:11px;color:rgba(255,252,246,.25);}
+.footer-links{display:flex;gap:20px;}
+.footer-link{font-size:11px;color:rgba(255,252,246,.3);transition:color .15s;}
+.footer-link:hover{color:rgba(255,252,246,.7);}
+
+@media(max-width:820px){
+  .article{padding:28px 24px 64px;}
+  .breadcrumb{padding:20px 24px 0;}
+  .post-title{font-size:30px;}
+  .prose ul{grid-template-columns:1fr;}
+}
+@media(max-width:560px){
+  .post-title{font-size:26px;}
+  .prose h2{font-size:22px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-logo" href="/"><img src="/img/logo-white.webp" alt="Focal Point"></a>
+  <div class="nav-links">
+    <a class="nav-link" href="/photoclass-2026/">Photoclass 2026</a>
+    <a class="nav-link" href="https://courses.thefocalpointhub.com">Courses</a>
+    <a class="nav-link" href="/52-weeks/">52 Weeks</a>
+    <a class="nav-link" href="https://discord.gg/fzKjSY8JTR" target="_blank" rel="noopener">Community</a>
+    <a class="nav-link" href="/blog">Blog</a>
+  </div>
+  <a class="nav-cta" href="https://learn.thefocalpointhub.com">My Focal Point &#x2192;</a>
+  <button class="nav-mob" aria-label="Menu" onclick="openMobMenu()">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+  </button>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a class="bc-link" href="/">Home</a>
+  <span class="bc-sep">/</span>
+  <a class="bc-link" href="/blog">Blog</a>
+  <span class="bc-sep">/</span>
+  <span class="bc-cur">Photography Exercises</span>
+</div>
+
+<!-- ARTICLE -->
+<article class="article">
+
+  <img class="hero-img"
+       src="/img/blog/photography-exercises-uninspired.jpg"
+       alt="A blurred crowd of people in motion, colours blending — an abstract image about seeing differently">
+
+  <div class="post-cat">Practice &amp; Exercises</div>
+  <h1 class="post-title">Photography Exercises for When You're Feeling Uninspired</h1>
+  <div class="post-meta">
+    <span class="meta-author">Chelsea London Phillips</span>
+    <span class="meta-dot"></span>
+    <span class="meta-date">Jul 28</span>
+  </div>
+
+  <div class="prose">
+
+    <h2>Constrained Shooting Exercises</h2>
+
+    <p>Constrained shooting is an excellent way to work on your photography skills. By removing certain variables and focusing on specific limitations, you can sharpen your creativity and problem-solving abilities. These constraints force you to think more critically about composition, lighting, and subject matter, encouraging you to explore new perspectives and techniques.</p>
+
+    <p>This method of practice helps to develop a deeper understanding of your equipment and its capabilities, ultimately making you a more versatile and skilled photographer.</p>
+
+    <h3>Try one of these constrained shooting exercises:</h3>
+
+    <ul>
+      <li><strong>One Hour, One Block</strong> — Spend an hour photographing within a single city block.</li>
+      <li><strong>Single Lens Day</strong> — Use only one fixed lens for all your shots in a day.</li>
+      <li><strong>Fixed Focal Length</strong> — Shoot all your photos at a single focal length.</li>
+      <li><strong>One Object Challenge</strong> — Choose one object and photograph it in 10 different ways.</li>
+      <li><strong>Black and White Only</strong> — Shoot exclusively in black and white.</li>
+      <li><strong>24 Shots, No Deletions</strong> — Limit yourself to 24 shots (like a roll of film) and don't delete any.</li>
+      <li><strong>Single Aperture</strong> — Use the same aperture setting for all your photos.</li>
+      <li><strong>No Zooming</strong> — Use only the zoom you get by physically moving closer or further from your subject.</li>
+      <li><strong>Only Vertical Shots</strong> — Take all your photos in portrait orientation.</li>
+      <li><strong>Single Subject</strong> — Choose one subject and focus all your shots on it for a day.</li>
+      <li><strong>One Color Dominance</strong> — Photograph scenes where one color dominates.</li>
+      <li><strong>Fixed ISO</strong> — Set your camera to a single ISO and keep it there.</li>
+      <li><strong>Low Angle Only</strong> — Shoot all your photos from a low angle.</li>
+      <li><strong>No Post-Processing</strong> — Take photos that you won't edit afterward.</li>
+      <li><strong>Single Location</strong> — Spend an entire shoot session in one location without moving.</li>
+      <li><strong>One Light Source</strong> — Use only one light source for all your shots.</li>
+      <li><strong>Manual Focus Only</strong> — Use only manual focus for your entire shoot.</li>
+      <li><strong>Reflection Only</strong> — Capture only reflections in various surfaces.</li>
+      <li><strong>Only Shadows</strong> — Focus exclusively on capturing shadows.</li>
+      <li><strong>Single Shutter Speed</strong> — Use only one shutter speed for all your shots.</li>
+      <li><strong>Minimalist Shots</strong> — Create images with minimal elements.</li>
+      <li><strong>One Prop</strong> — Incorporate a single prop in all your images.</li>
+      <li><strong>Fixed White Balance</strong> — Set your camera to one white balance and keep it there.</li>
+      <li><strong>Double Exposure</strong> — Create a series of double exposures.</li>
+      <li><strong>One Theme</strong> — Choose a theme (e.g., happiness, solitude) and stick to it.</li>
+      <li><strong>Slow Shutter Only</strong> — Use long exposures for all your photos.</li>
+      <li><strong>Daytime Silhouettes</strong> — Capture only silhouettes during daylight.</li>
+      <li><strong>Low Key Photography</strong> — Focus on creating low-key (dark) images.</li>
+      <li><strong>One Time of Day</strong> — Shoot all your photos during a specific time of day (e.g., golden hour).</li>
+      <li><strong>Single Color Backgrounds</strong> — Use backgrounds of a single color for all your photos.</li>
+      <li><strong>Textures Only</strong> — Focus on capturing different textures.</li>
+      <li><strong>No Autofocus</strong> — Turn off autofocus and manually adjust for every shot.</li>
+      <li><strong>Monochromatic Scenes</strong> — Shoot scenes that are predominantly one color.</li>
+      <li><strong>Environmental Portraits</strong> — Take portraits in a single type of environment.</li>
+      <li><strong>In-Camera Effects</strong> — Use only in-camera effects for creative shots.</li>
+      <li><strong>No Flash</strong> — Avoid using flash for all your photos.</li>
+      <li><strong>High Angle Only</strong> — Capture all your photos from a high angle.</li>
+      <li><strong>Through an Object</strong> — Shoot all your photos through another object (e.g., a glass, a window).</li>
+      <li><strong>Same Subject, Different Times</strong> — Photograph the same subject at different times of the day.</li>
+      <li><strong>Zoom at Fixed Focal Length</strong> — Use a zoom lens but keep it at a fixed focal length.</li>
+      <li><strong>Single Aspect Ratio</strong> — Use one aspect ratio (e.g., 1:1, 16:9) for all your shots.</li>
+      <li><strong>One Background</strong> — Use the same background for all your photos.</li>
+      <li><strong>Only Natural Light</strong> — Use only available natural light.</li>
+      <li><strong>Long Exposure Day</strong> — Use long exposures for every shot.</li>
+      <li><strong>Only Manual Settings</strong> — Shoot entirely in manual mode.</li>
+      <li><strong>Fixed Perspective</strong> — Shoot all your photos from the same perspective (e.g., eye level, bird's eye).</li>
+    </ul>
+
+    <h2>General Photography Exercises</h2>
+
+    <p>While constrained shooting is a great way to challenge yourself, there are plenty of more open photography exercises that will also give you focus and direction. These exercises encourage experimentation and exploration while still providing a framework to guide your creativity. Open exercises allow for more flexibility and personal expression, helping you to discover your unique style and voice as a photographer.</p>
+
+    <h3>Some ideas to get you started:</h3>
+
+    <ul>
+      <li><strong>Write your name in photos</strong> — Find each letter, or objects creatively framed to look like them. Edit them together to write it out.</li>
+      <li><strong>Choose a shape</strong> — Pick circle, square, or triangle and photograph objects that fit it.</li>
+      <li><strong>Same location, different light</strong> — Photograph the same location at different times of day.</li>
+      <li><strong>Texture series</strong> — Make a series of images showcasing different textures (smooth, rough, soft, hard).</li>
+      <li><strong>Reflections</strong> — Photograph reflections found in puddles, mirrors, and windows.</li>
+      <li><strong>Color gradient</strong> — Photograph objects that create a gradient of colors when placed together.</li>
+      <li><strong>Long exposures</strong> — Experiment with long exposures to capture motion blur in a scene.</li>
+      <li><strong>Through another object</strong> — Photograph your subject through a glass, a hole, or a fence.</li>
+      <li><strong>Extreme close-ups</strong> — Use macro or extreme close-ups to highlight fine details.</li>
+      <li><strong>Symmetry</strong> — Find and photograph symmetrical scenes or objects.</li>
+      <li><strong>Silhouettes</strong> — Take photos of subjects in silhouette against a bright background.</li>
+      <li><strong>Natural frames</strong> — Use windows or arches to frame your subject within the photo.</li>
+      <li><strong>Perspective tricks</strong> — Play with perspective to make subjects appear larger or smaller than they are.</li>
+      <li><strong>Reflected portraits</strong> — Take portraits of people reflected in various surfaces.</li>
+      <li><strong>Double exposures</strong> — Experiment with double exposure either in-camera or in editing.</li>
+      <li><strong>Pareidolia</strong> — Photograph scenes or objects that subtly resemble human faces.</li>
+      <li><strong>Small made monumental</strong> — Photograph small objects to make them appear enormous.</li>
+      <li><strong>Multiple angles</strong> — Photograph a single subject from as many angles and perspectives as you can.</li>
+    </ul>
+
+  </div>
+
+  <!-- Author bio -->
+  <div class="author-bio">
+    <div class="author-avatar">C</div>
+    <div>
+      <div class="author-name">Chelsea London Phillips</div>
+      <div class="author-desc">Nomadic native New Yorker. Photographer, educator, and the person behind Focal Point.</div>
+      <a class="author-link" href="http://clondon.me" target="_blank" rel="noopener">clondon.me &#x2192;</a>
+    </div>
+  </div>
+
+  <!-- Back to blog -->
+  <div class="back-wrap">
+    <a class="back-link" href="/blog">&#x2190; Back to Blog</a>
+  </div>
+
+</article>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <a class="footer-logo" href="/"><img src="/img/logo-white.webp" alt="Focal Point"></a>
+  <div class="footer-copy">&#169; 2026 Focal Point. All rights reserved.</div>
+  <div class="footer-links">
+    <a class="footer-link" href="/blog">Blog</a>
+    <a class="footer-link" href="https://discord.gg/fzKjSY8JTR">Discord</a>
+    <a class="footer-link" href="https://ko-fi.com/focalpoint_clondon">Support</a>
+  </div>
+</footer>
+
+<!-- Mobile drawer -->
+<div class="mob-drawer" id="mob-drawer">
+  <div class="mob-overlay" onclick="closeMobMenu()"></div>
+  <div class="mob-panel">
+    <button class="mob-close" onclick="closeMobMenu()">&#xd7;</button>
+    <a class="mob-link" href="/photoclass-2026/" onclick="closeMobMenu()">Photoclass 2026</a>
+    <a class="mob-link" href="https://courses.thefocalpointhub.com" onclick="closeMobMenu()">Courses</a>
+    <a class="mob-link" href="/52-weeks/" onclick="closeMobMenu()">52 Weeks</a>
+    <a class="mob-link" href="https://discord.gg/fzKjSY8JTR" target="_blank" rel="noopener" onclick="closeMobMenu()">Community</a>
+    <a class="mob-link" href="/blog" onclick="closeMobMenu()">Blog</a>
+    <a class="mob-cta" href="https://learn.thefocalpointhub.com">My Focal Point &#x2192;</a>
+  </div>
+</div>
+
+<script>
+function openMobMenu(){document.getElementById('mob-drawer').classList.add('open');document.body.style.overflow='hidden';}
+function closeMobMenu(){document.getElementById('mob-drawer').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMobMenu();});
+</script>
+</body>
+</html>
