@@ -4,17 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Getting Started: Before You Begin — Focal Point Photoclass 2026</title>
-<meta name="description" content="Before the course begins, this unit gets you connected to the community, oriented on how the course works, and set up for a successful year. Meet your teachers, write down your goals, and introduce yourself.">
+<meta name="description" content="Before the course begins, this unit gets you connected to the community, oriented on how the course works, and set up for a successful year.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Nunito+Sans:wght@400;600;700&display=swap');
 :root{--mag:#9F217E;--teal:#5BAAB5;--yellow:#EACC28;--grad:linear-gradient(155deg,#3a7a85 0%,#7c3a82 50%,#9F217E 100%);--dark:#0e0618;--off:#FFFCF6;--card:rgba(255,255,255,.06);--border:rgba(255,255,255,.1);}
 *{margin:0;padding:0;box-sizing:border-box;}
 html{background:var(--dark);}
-body{font-family:'Nunito Sans',sans-serif;background:var(--dark);color:var(--off);-webkit-font-smoothing:antialiased;}
+body{font-family:'Nunito Sans',sans-serif;background:linear-gradient(155deg,#3a7a85 0%,#5BAAB5 20%,#7c3a82 50%,#9F217E 75%,#7a1860 100%) fixed;color:var(--off);-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;min-height:100vh;}
 a{text-decoration:none;}
 .nav{position:sticky;top:0;z-index:200;height:68px;background:rgba(14,6,24,.8);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
 .nav-logo img{height:32px;width:auto;}
@@ -40,9 +39,6 @@ a{text-decoration:none;}
 .footer-link{font-size:11px;color:rgba(255,252,246,.3);transition:color .15s;}
 .footer-link:hover{color:rgba(255,252,246,.7);}
 @media(max-width:820px){.footer{padding:24px;}}
-
-html,body{height:100%;}
-body{display:flex;flex-direction:column;min-height:100vh;}
 .unit-bar{position:fixed;top:68px;left:0;right:0;z-index:190;background:rgba(14,6,24,.55);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.07);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:52px;}
 .unit-bar-left{display:flex;align-items:center;gap:16px;}
 .unit-bar-back{font-size:12px;font-weight:600;color:rgba(255,252,246,.55);display:flex;align-items:center;gap:6px;transition:color .15s;}
@@ -61,9 +57,7 @@ a.unit-nav-btn:hover{background:rgba(255,255,255,.15);color:var(--off);}
 </head>
 <body>
 <nav class="nav">
-  <a class="nav-logo" href="https://thefocalpointhub.com">
-    <img src="/img/logo-white.webp" alt="Focal Point">
-  </a>
+  <a class="nav-logo" href="https://thefocalpointhub.com"><img src="/img/logo-white.webp" alt="Focal Point"></a>
   <div class="nav-links">
     <a class="nav-link active" href="/photoclass-2026/">Photoclass 2026</a>
     <a class="nav-link" href="https://courses.thefocalpointhub.com">Courses</a>
@@ -101,7 +95,7 @@ a.unit-nav-btn:hover{background:rgba(255,255,255,.15);color:var(--off);}
     </div>
   </div>
   <div class="unit-nav">
-    <span class="unit-nav-btn disabled">← Previous</span>
+    <span class="unit-nav-btn disabled">disabled:← Previous</span>
     <a class="unit-nav-btn" href="/photoclass-2026/unit-1/">Unit 1 →</a>
   </div>
 </div>
@@ -116,9 +110,9 @@ a.unit-nav-btn:hover{background:rgba(255,255,255,.15);color:var(--off);}
   </div>
 </footer>
 <script>
-function openMobMenu(){{document.getElementById('mob-drawer').classList.add('open');document.body.style.overflow='hidden';}}
-function closeMobMenu(){{document.getElementById('mob-drawer').classList.remove('open');document.body.style.overflow='';}}
-document.addEventListener('keydown',function(e){{if(e.key==='Escape')closeMobMenu();}});
+function openMobMenu(){document.getElementById('mob-drawer').classList.add('open');document.body.style.overflow='hidden';}
+function closeMobMenu(){document.getElementById('mob-drawer').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMobMenu();});
 </script>
 </body>
 </html>
