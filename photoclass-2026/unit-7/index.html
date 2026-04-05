@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Unit 7: Personal Projects — Focal Point Photoclass 2026</title>
+<meta name="description" content="How to find, develop, and start a long-term personal photography project. Revisiting your goals, brainstorming ideas, building a plan, and making the first shot. The foundation for your final project.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Nunito+Sans:wght@400;600;700&display=swap');
+:root{--mag:#9F217E;--teal:#5BAAB5;--yellow:#EACC28;--grad:linear-gradient(155deg,#3a7a85 0%,#7c3a82 50%,#9F217E 100%);--dark:#0e0618;--off:#FFFCF6;--card:rgba(255,255,255,.06);--border:rgba(255,255,255,.1);}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{background:var(--dark);}
+body{font-family:'Nunito Sans',sans-serif;background:var(--dark);color:var(--off);-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;}
+.nav{position:sticky;top:0;z-index:200;height:68px;background:rgba(14,6,24,.8);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
+.nav-logo img{height:32px;width:auto;}
+.nav-links{display:flex;align-items:center;gap:4px;}
+.nav-link{font-size:12.5px;font-weight:600;color:rgba(255,252,246,.6);padding:7px 14px;border-radius:8px;transition:all .15s;}
+.nav-link:hover,.nav-link.active{color:var(--off);background:rgba(255,255,255,.08);}
+.nav-cta{background:var(--mag);color:#fff;border-radius:99px;padding:9px 20px;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;transition:filter .15s;}
+.nav-cta:hover{filter:brightness(1.1);}
+.nav-mob{display:none;background:none;border:none;cursor:pointer;padding:6px;color:var(--off);}
+@media(max-width:820px){.nav{padding:0 20px;}.nav-links{display:none;}.nav-mob{display:flex;align-items:center;}}
+.mob-drawer{display:none;position:fixed;inset:0;z-index:300;}
+.mob-drawer.open{display:block;}
+.mob-overlay{position:absolute;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);}
+.mob-panel{position:absolute;top:0;right:0;bottom:0;width:280px;background:#1a0a24;border-left:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;padding:24px;transform:translateX(100%);transition:transform .25s ease;}
+.mob-drawer.open .mob-panel{transform:translateX(0);}
+.mob-close{align-self:flex-end;background:none;border:none;color:rgba(255,252,246,.6);cursor:pointer;font-size:24px;line-height:1;margin-bottom:24px;}
+.mob-link{font-size:16px;font-weight:600;color:rgba(255,252,246,.75);padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);}
+.mob-cta{margin-top:24px;background:var(--mag);color:#fff;border-radius:99px;padding:13px 24px;font-family:'Nunito Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;text-align:center;}
+.footer{background:rgba(0,0,0,.4);border-top:1px solid rgba(255,255,255,.07);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.footer-logo img{height:22px;width:auto;opacity:.7;}
+.footer-copy{font-size:11px;color:rgba(255,252,246,.25);}
+.footer-links{display:flex;gap:20px;}
+.footer-link{font-size:11px;color:rgba(255,252,246,.3);transition:color .15s;}
+.footer-link:hover{color:rgba(255,252,246,.7);}
+@media(max-width:820px){.footer{padding:24px;}}
+
+html,body{height:100%;}
+body{display:flex;flex-direction:column;min-height:100vh;}
+.unit-bar{background:rgba(14,6,24,.95);border-bottom:1px solid rgba(255,255,255,.1);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:52px;flex-shrink:0;}
+.unit-bar-left{display:flex;align-items:center;gap:16px;}
+.unit-bar-back{font-size:12px;font-weight:600;color:rgba(255,252,246,.55);display:flex;align-items:center;gap:6px;transition:color .15s;}
+.unit-bar-back:hover{color:var(--off);}
+.unit-bar-divider{width:1px;height:18px;background:rgba(255,255,255,.15);}
+.unit-bar-label{display:flex;flex-direction:column;}
+.unit-bar-num{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mag);}
+.unit-bar-title{font-size:13px;font-weight:700;color:var(--off);}
+.unit-nav{display:flex;align-items:center;gap:8px;}
+.unit-nav-btn{font-size:12px;font-weight:700;color:rgba(255,252,246,.7);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:6px 14px;transition:all .15s;white-space:nowrap;}
+a.unit-nav-btn:hover{background:rgba(255,255,255,.15);color:var(--off);}
+.unit-nav-btn.disabled{opacity:.35;cursor:default;}
+.unit-iframe{width:100%;flex:1;border:none;display:block;min-height:calc(100vh - 68px - 52px);}
+@media(max-width:820px){.unit-bar{padding:0 16px;}.unit-bar-title{display:none;}.unit-nav-btn{padding:5px 10px;font-size:11px;}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="nav-logo" href="https://thefocalpointhub.com">
+    <img src="/img/logo-white.webp" alt="Focal Point">
+  </a>
+  <div class="nav-links">
+    <a class="nav-link active" href="/photoclass-2026/">Photoclass 2026</a>
+    <a class="nav-link" href="https://courses.thefocalpointhub.com">Courses</a>
+    <a class="nav-link" href="/52-weeks/">52 Weeks</a>
+    <a class="nav-link" href="https://discord.gg/fzKjSY8JTR" target="_blank" rel="noopener">Community</a>
+    <a class="nav-link" href="https://thefocalpointhub.com/blog">Blog</a>
+  </div>
+  <a class="nav-cta" href="https://learn.thefocalpointhub.com">My Focal Point →</a>
+  <button class="nav-mob" aria-label="Menu" onclick="openMobMenu()">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+  </button>
+</nav>
+<div class="mob-drawer" id="mob-drawer">
+  <div class="mob-overlay" onclick="closeMobMenu()"></div>
+  <div class="mob-panel">
+    <button class="mob-close" onclick="closeMobMenu()">&#xd7;</button>
+    <a class="mob-link" href="/photoclass-2026/" onclick="closeMobMenu()">Photoclass 2026</a>
+    <a class="mob-link" href="https://courses.thefocalpointhub.com" onclick="closeMobMenu()">Courses</a>
+    <a class="mob-link" href="/52-weeks/" onclick="closeMobMenu()">52 Weeks</a>
+    <a class="mob-link" href="https://discord.gg/fzKjSY8JTR" target="_blank" rel="noopener" onclick="closeMobMenu()">Community</a>
+    <a class="mob-link" href="https://thefocalpointhub.com/blog" onclick="closeMobMenu()">Blog</a>
+    <a class="mob-cta" href="https://learn.thefocalpointhub.com">My Focal Point →</a>
+  </div>
+</div>
+<div class="unit-bar">
+  <div class="unit-bar-left">
+    <a class="unit-bar-back" href="/photoclass-2026/">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      All units
+    </a>
+    <div class="unit-bar-divider"></div>
+    <div class="unit-bar-label">
+      <span class="unit-bar-num">Unit 7</span>
+      <span class="unit-bar-title">Personal Projects</span>
+    </div>
+  </div>
+  <div class="unit-nav">
+    <a class="unit-nav-btn" href="/photoclass-2026/unit-6/">← Unit 6</a>
+    <span class="unit-nav-btn disabled">Unit 8 (opens April 8) →</span>
+  </div>
+</div>
+<iframe class="unit-iframe" src="https://clondon85.github.io/PersonalProjects/" title="Personal Projects" allowfullscreen></iframe>
+<footer class="footer">
+  <a href="https://thefocalpointhub.com"><img src="/img/logo-white.webp" alt="Focal Point" style="height:22px;opacity:.7;"></a>
+  <div class="footer-copy">© 2026 Focal Point. All rights reserved.</div>
+  <div class="footer-links">
+    <a class="footer-link" href="https://thefocalpointhub.com/blog">Blog</a>
+    <a class="footer-link" href="https://discord.gg/fzKjSY8JTR">Discord</a>
+    <a class="footer-link" href="https://ko-fi.com/focalpoint_clondon">Support</a>
+  </div>
+</footer>
+<script>
+function openMobMenu(){{document.getElementById('mob-drawer').classList.add('open');document.body.style.overflow='hidden';}}
+function closeMobMenu(){{document.getElementById('mob-drawer').classList.remove('open');document.body.style.overflow='';}}
+document.addEventListener('keydown',function(e){{if(e.key==='Escape')closeMobMenu();}});
+</script>
+</body>
+</html>
