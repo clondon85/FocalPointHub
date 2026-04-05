@@ -71,7 +71,7 @@ a{text-decoration:none;}
   .nav-mob{display:flex;align-items:center;color:var(--off);}
 }
 
-/* ── COMBINED HERO / COURSE SECTION ── */
+/* ── HERO ── */
 .hero{
   padding:80px 48px 72px;
   position:relative;overflow:hidden;
@@ -90,34 +90,20 @@ a{text-decoration:none;}
   background:radial-gradient(circle,rgba(91,170,181,.12) 0%,transparent 70%);
   pointer-events:none;
 }
-
-/* top row: text + dashboard preview */
 .hero-top{
   max-width:1100px;margin:0 auto;
   display:grid;grid-template-columns:1fr 1fr;
   gap:64px;align-items:center;
   margin-bottom:64px;
 }
-
 .hero-ey{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--yellow);margin-bottom:14px;}
 .hero-title{font-family:'Manrope',sans-serif;font-size:50px;font-weight:800;line-height:1.07;letter-spacing:-.03em;color:var(--off);margin-bottom:20px;}
 .hero-title span{background:linear-gradient(90deg,var(--yellow),#f5e06a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .hero-sub{font-size:15.5px;color:rgba(255,252,246,.72);line-height:1.7;margin-bottom:8px;}
 .hero-sub strong{color:var(--off);font-weight:700;}
-
-.hero-divider{
-  width:32px;height:2px;
-  background:rgba(255,255,255,.15);
-  margin:20px 0;
-  border-radius:2px;
-}
-
-.myfp-label{
-  font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--teal);margin-bottom:10px;
-}
+.hero-divider{width:32px;height:2px;background:rgba(255,255,255,.15);margin:20px 0;border-radius:2px;}
+.myfp-label{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:10px;}
 .myfp-desc{font-size:14px;color:rgba(255,252,246,.62);line-height:1.65;margin-bottom:28px;}
-
 .hero-acts{display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
 .btn-y{background:var(--yellow);color:#1a1018;border-radius:99px;padding:13px 28px;font-family:'Nunito Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;transition:all .15s;display:inline-block;}
 .btn-y:hover{filter:brightness(1.08);transform:translateY(-1px);}
@@ -144,14 +130,9 @@ a{text-decoration:none;}
 .app-unit-n{font-size:9px;font-weight:600;color:rgba(255,252,246,.45);margin-bottom:4px;}
 .app-unit-t{font-size:10px;font-weight:700;color:var(--off);line-height:1.3;}
 
-/* bottom row: unit grid */
-.hero-units-row{
-  max-width:1100px;margin:0 auto;
-}
-.hero-units-label{
-  font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  color:rgba(255,252,246,.35);margin-bottom:14px;
-}
+/* Bottom unit grid */
+.hero-units-row{max-width:1100px;margin:0 auto;}
+.hero-units-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,252,246,.35);margin-bottom:14px;}
 .unit-grid{display:grid;grid-template-columns:repeat(11,1fr);gap:7px;}
 .utile{border-radius:10px;aspect-ratio:1;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;}
 .utile-bg{position:absolute;inset:0;background-size:cover;background-position:center;}
@@ -199,18 +180,29 @@ a{text-decoration:none;}
 
 /* ── 52 WEEKS ── */
 .weeks-section{background:rgba(0,0,0,.12);border-top:1px solid rgba(91,170,181,.15);border-bottom:1px solid rgba(91,170,181,.15);}
-.weeks-section .ey{font-size:20px;letter-spacing:.08em;margin-bottom:14px;}
-.weeks-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.weeks-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
 .btn-t{background:transparent;color:var(--teal);border:1.5px solid var(--teal);border-radius:99px;padding:11px 24px;font-family:'Nunito Sans',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:all .15s;display:inline-block;}
 .btn-t:hover{background:rgba(91,170,181,.1);}
-.wgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;max-width:360px;}
+.month-theme{display:flex;align-items:center;gap:10px;margin-bottom:20px;}
+.month-badge{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:var(--off);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:20px;}
+.theme-name{font-family:'Manrope',sans-serif;font-size:20px;font-weight:700;color:var(--yellow);}
+.prompts-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px;}
+.prompt-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:14px 16px;}
+.p-label{color:rgba(255,252,246,.4);font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;}
+.p-name{color:var(--off);font-size:14px;font-weight:700;margin-bottom:5px;}
+.p-desc{color:rgba(255,252,246,.55);font-size:12px;line-height:1.5;}
+.wgrid{display:grid;grid-template-columns:repeat(13,1fr);gap:5px;max-width:100%;}
 .wcell{aspect-ratio:1;border-radius:4px;background:rgba(91,170,181,.12);}
 .wcell.done{background:rgba(91,170,181,.55);}
 .wcell.now{background:var(--yellow);}
-.wlegend{display:flex;gap:16px;margin-top:12px;}
+.wlegend{display:flex;gap:16px;margin-top:12px;margin-bottom:24px;}
 .wleg{display:flex;align-items:center;gap:6px;}
 .wleg-dot{width:10px;height:10px;border-radius:2px;}
 .wleg-label{font-size:11px;color:rgba(255,252,246,.35);}
+.spotlight{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:16px 18px;}
+.s-label{color:rgba(255,252,246,.4);font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;}
+.s-name{color:var(--off);font-size:15px;font-weight:700;margin-bottom:4px;}
+.s-sub{color:rgba(255,252,246,.55);font-size:12px;line-height:1.5;}
 
 /* ── COMMUNITY ── */
 .community-section{background:transparent;text-align:center;}
@@ -249,6 +241,7 @@ a{text-decoration:none;}
   .cgrid{grid-template-columns:1fr;}
   .hero-title{font-size:32px;}
   .sec-title{font-size:28px;}
+  .prompts-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -264,45 +257,38 @@ a{text-decoration:none;}
     <a class="nav-link" href="https://discord.gg/fzKjSY8JTR" target="_blank" rel="noopener">Community</a>
     <a class="nav-link" href="/blog">Blog</a>
   </div>
-  <a class="nav-cta" href="https://learn.thefocalpointhub.com">My Focal Point →</a>
+  <a class="nav-cta" href="https://learn.thefocalpointhub.com">My Focal Point &#x2192;</a>
   <button class="nav-mob" aria-label="Menu" onclick="openMobMenu()">
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
   </button>
 </nav>
 
-<!-- COMBINED HERO + COURSE SECTION -->
+<!-- HERO -->
 <section class="hero">
-
-  <!-- Top: copy + dashboard preview -->
   <div class="hero-top">
     <div>
-      <div class="hero-ey">Focal Point Photoclass 2026 · Free · Always</div>
+      <div class="hero-ey">Focal Point Photoclass 2026 &middot; Free &middot; Always</div>
       <h1 class="hero-title">Learn to shoot<br>with <span>intention.</span></h1>
-
       <p class="hero-sub">
-        <strong>Photoclass 2026</strong> is a free, cohort-based photography course — ten structured units covering everything from exposure fundamentals to your own long-term personal project. Work with a cohort of photographers at your pace, with real assignments, mentor feedback, and a community that keeps you accountable.
+        <strong>Photoclass 2026</strong> is a free, cohort-based photography course with ten structured units covering the art and technology inherent in photography. It culminates in a personal project. Work with a cohort of photographers at your pace, with real assignments, mentor feedback, and a community that keeps you accountable and supported.
       </p>
-
       <div class="hero-divider"></div>
-
-      <div class="myfp-label">My Focal Point — your student dashboard</div>
+      <div class="myfp-label">My Focal Point &mdash; your student dashboard</div>
       <p class="myfp-desc">
-        Track your progress, access lessons, review your assignments, and manage goals all in one place. Your personalised photography hub — available the moment you enrol.
+        Track your progress, access lessons, review your assignments, and manage goals all in one place. Your personalised photography hub, available the moment you enrol.
       </p>
-
       <div class="hero-acts">
-        <a class="btn-y" href="/photoclass-2026/">Join the current cohort →</a>
+        <a class="btn-y" href="/photoclass-2026/">Join the current cohort &#x2192;</a>
         <a class="btn-o" href="https://learn.thefocalpointhub.com">Explore My Focal Point</a>
       </div>
     </div>
 
-    <!-- App dashboard preview -->
     <div class="app-preview">
       <div class="app-bar">
         <div class="app-dot" style="background:var(--mag);"></div>
         <div class="app-dot" style="background:var(--teal);"></div>
         <div class="app-dot" style="background:var(--yellow);"></div>
-        <span class="app-label">My Focal Point · student dashboard</span>
+        <span class="app-label">My Focal Point &middot; student dashboard</span>
       </div>
       <div class="app-stats">
         <div class="app-stat"><div class="app-stat-l">Sections</div><div class="app-stat-v">7 <span>/ 10</span></div></div>
@@ -317,80 +303,22 @@ a{text-decoration:none;}
     </div>
   </div>
 
-  <!-- Bottom: course unit grid -->
   <div class="hero-units-row">
-    <div class="hero-units-label">Course units — Photoclass 2026</div>
+    <div class="hero-units-label">Course units &mdash; Photoclass 2026</div>
     <div class="unit-grid">
-
-      <div class="utile done">
-        <div class="utile-bg" style="background-color:rgba(91,170,181,.3);"></div>
-        <div class="utile-overlay"></div>
-        <div class="utile-text"><div class="unum">Intro</div><div class="uname">Before You Begin</div></div>
-      </div>
-
-      <div class="utile done">
-        <div class="utile-bg" style="background-color:rgba(91,170,181,.25);"></div>
-        <div class="utile-overlay"></div>
-        <div class="utile-text"><div class="unum">Unit 1</div><div class="uname">Intro &amp; The Gear</div></div>
-      </div>
-
-      <div class="utile done">
-        <div class="utile-bg" style="background-color:rgba(100,80,160,.35);"></div>
-        <div class="utile-overlay"></div>
-        <div class="utile-text"><div class="unum">Unit 2</div><div class="uname">Exposure Triangle</div></div>
-      </div>
-
-      <div class="utile done">
-        <div class="utile-bg" style="background-color:rgba(159,33,126,.25);"></div>
-        <div class="utile-overlay"></div>
-        <div class="utile-text"><div class="unum">Unit 3</div><div class="uname">Art of Photography</div></div>
-      </div>
-
-      <div class="utile done">
-        <div class="utile-bg" style="background-color:rgba(58,122,133,.35);"></div>
-        <div class="utile-overlay"></div>
-        <div class="utile-text"><div class="unum">Unit 4</div><div class="uname">Post Processing</div></div>
-      </div>
-
-      <div class="utile done">
-        <div class="utile-bg" style="background-color:rgba(80,50,140,.3);"></div>
-        <div class="utile-overlay"></div>
-        <div class="utile-text"><div class="unum">Unit 5</div><div class="uname">Decision Process</div></div>
-      </div>
-
-      <div class="utile done">
-        <div class="utile-bg" style="background-color:rgba(91,170,181,.2);"></div>
-        <div class="utile-overlay"></div>
-        <div class="utile-text"><div class="unum">Unit 6</div><div class="uname">Furthering Skills</div></div>
-      </div>
-
-      <div class="utile current">
-        <div class="utile-bg" style="background-color:rgba(159,33,126,.3);"></div>
-        <div class="utile-overlay"></div>
-        <div class="utile-text"><div class="unum">Unit 7</div><div class="uname">Personal Projects</div></div>
-      </div>
-
-      <div class="utile locked">
-        <div class="utile-bg" style="background-color:rgba(50,30,80,.4);"></div>
-        <div class="utile-overlay"></div>
-        <div class="utile-text"><div class="unum">Unit 8</div><div class="uname">Art of Photo Pt. 2</div></div>
-      </div>
-
-      <div class="utile locked">
-        <div class="utile-bg" style="background-color:rgba(50,30,80,.4);"></div>
-        <div class="utile-overlay"></div>
-        <div class="utile-text"><div class="unum">Unit 9</div><div class="uname">Exploration</div></div>
-      </div>
-
-      <div class="utile locked">
-        <div class="utile-bg" style="background-color:rgba(50,30,80,.4);"></div>
-        <div class="utile-overlay"></div>
-        <div class="utile-text"><div class="unum">Unit 10</div><div class="uname">Wrapping Up</div></div>
-      </div>
-
+      <div class="utile done"><div class="utile-bg" style="background-color:rgba(91,170,181,.3);"></div><div class="utile-overlay"></div><div class="utile-text"><div class="unum">Intro</div><div class="uname">Before You Begin</div></div></div>
+      <div class="utile done"><div class="utile-bg" style="background-color:rgba(91,170,181,.25);"></div><div class="utile-overlay"></div><div class="utile-text"><div class="unum">Unit 1</div><div class="uname">Intro &amp; The Gear</div></div></div>
+      <div class="utile done"><div class="utile-bg" style="background-color:rgba(100,80,160,.35);"></div><div class="utile-overlay"></div><div class="utile-text"><div class="unum">Unit 2</div><div class="uname">Exposure Triangle</div></div></div>
+      <div class="utile done"><div class="utile-bg" style="background-color:rgba(159,33,126,.25);"></div><div class="utile-overlay"></div><div class="utile-text"><div class="unum">Unit 3</div><div class="uname">Art of Photography</div></div></div>
+      <div class="utile done"><div class="utile-bg" style="background-color:rgba(58,122,133,.35);"></div><div class="utile-overlay"></div><div class="utile-text"><div class="unum">Unit 4</div><div class="uname">Post Processing</div></div></div>
+      <div class="utile done"><div class="utile-bg" style="background-color:rgba(80,50,140,.3);"></div><div class="utile-overlay"></div><div class="utile-text"><div class="unum">Unit 5</div><div class="uname">Decision Process</div></div></div>
+      <div class="utile done"><div class="utile-bg" style="background-color:rgba(91,170,181,.2);"></div><div class="utile-overlay"></div><div class="utile-text"><div class="unum">Unit 6</div><div class="uname">Furthering Skills</div></div></div>
+      <div class="utile current"><div class="utile-bg" style="background-color:rgba(159,33,126,.3);"></div><div class="utile-overlay"></div><div class="utile-text"><div class="unum">Unit 7</div><div class="uname">Personal Projects</div></div></div>
+      <div class="utile locked"><div class="utile-bg" style="background-color:rgba(50,30,80,.4);"></div><div class="utile-overlay"></div><div class="utile-text"><div class="unum">Unit 8</div><div class="uname">Art of Photo Pt. 2</div></div></div>
+      <div class="utile locked"><div class="utile-bg" style="background-color:rgba(50,30,80,.4);"></div><div class="utile-overlay"></div><div class="utile-text"><div class="unum">Unit 9</div><div class="uname">Exploration</div></div></div>
+      <div class="utile locked"><div class="utile-bg" style="background-color:rgba(50,30,80,.4);"></div><div class="utile-overlay"></div><div class="utile-text"><div class="unum">Unit 10</div><div class="uname">Wrapping Up</div></div></div>
     </div>
   </div>
-
 </section>
 
 <!-- FEATURES STRIP -->
@@ -435,7 +363,7 @@ a{text-decoration:none;}
         <div class="ey">Standalone courses</div>
         <h2 class="sec-title" style="margin-bottom:0;">Go deeper on what matters to you.</h2>
       </div>
-      <a class="see-all" href="https://courses.thefocalpointhub.com">See all →</a>
+      <a class="see-all" href="https://courses.thefocalpointhub.com">See all &#x2192;</a>
     </div>
     <div class="cgrid">
       <a class="ccard" href="https://courses.thefocalpointhub.com/portraiture/">
@@ -470,20 +398,57 @@ a{text-decoration:none;}
 <section class="section weeks-section">
   <div class="inner">
     <div class="weeks-inner">
+
       <div>
         <div class="ey">52 Weeks with C. London</div>
         <h2 class="sec-title">8 years of weekly prompts.</h2>
         <p class="sec-sub">A prompt a week, all year. Designed to make you look differently, shoot more intentionally, and find your voice over time.</p>
-        <a class="btn-t" href="/52-weeks/">Get inspired →</a>
+
+        <div class="month-theme">
+          <span class="month-badge">April</span>
+          <span class="theme-name">Witness</span>
+        </div>
+
+        <div class="prompts-grid">
+          <div class="prompt-card">
+            <div class="p-label">Week 14</div>
+            <div class="p-name">Unseen</div>
+            <div class="p-desc">Make the viewer see the overlooked for the first time.</div>
+          </div>
+          <div class="prompt-card">
+            <div class="p-label">Week 15</div>
+            <div class="p-name">Eye Contact</div>
+            <div class="p-desc">A subject that meets the lens directly. Sit with the tension.</div>
+          </div>
+          <div class="prompt-card">
+            <div class="p-label">Week 16</div>
+            <div class="p-name">Evidence</div>
+            <div class="p-desc">Photograph the trace of something, not the thing itself.</div>
+          </div>
+          <div class="prompt-card">
+            <div class="p-label">Week 17</div>
+            <div class="p-name">A Day in the Life</div>
+            <div class="p-desc">Document one full day. Not to make it look good. To make it true.</div>
+          </div>
+        </div>
+
+        <a class="btn-t" href="/52-weeks/">See all prompts &#x2192;</a>
       </div>
+
       <div>
-        <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,252,246,.3);margin-bottom:12px;font-family:'Nunito Sans',sans-serif;">Week 14 of 52 — currently</div>
-        <div class="wgrid"><div class="wcell done"></div><div class="wcell done"></div><div class="wcell done"></div><div class="wcell done"></div><div class="wcell done"></div><div class="wcell done"></div><div class="wcell done"></div><div class="wcell done"></div><div class="wcell done"></div><div class="wcell done"></div><div class="wcell done"></div><div class="wcell done"></div><div class="wcell done"></div><div class="wcell now"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div><div class="wcell"></div></div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,252,246,.3);margin-bottom:12px;font-family:'Nunito Sans',sans-serif;">Week 14 of 52 &mdash; currently</div>
+        <div class="wgrid" id="wgrid"></div>
         <div class="wlegend">
           <div class="wleg"><div class="wleg-dot" style="background:rgba(91,170,181,.55);"></div><span class="wleg-label">Completed</span></div>
           <div class="wleg"><div class="wleg-dot" style="background:var(--yellow);"></div><span class="wleg-label">This week</span></div>
         </div>
+        <div class="spotlight">
+          <div class="s-label">Artist Spotlight &mdash; April</div>
+          <div class="s-name">Zanele Muholi</div>
+          <div class="s-sub">Visual activist and photographer. Work centred on Black queer identity, visibility, and dignity. The connection to this month's theme is direct and intentional.</div>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -492,7 +457,7 @@ a{text-decoration:none;}
 <section class="section community-section">
   <div class="comm-inner">
     <div class="ey" style="text-align:center;">Community</div>
-    <h2 class="sec-title" style="text-align:center;">You're not learning alone.</h2>
+    <h2 class="sec-title" style="text-align:center;">You're not shooting alone.</h2>
     <p class="sec-sub" style="text-align:center;max-width:100%;margin-bottom:0;">Share your work, get feedback, and keep each other accountable. The community is where the course comes to life.</p>
     <div class="comm-links">
       <a class="comm-btn" href="https://discord.gg/fzKjSY8JTR" target="_blank" rel="noopener">
@@ -514,7 +479,7 @@ a{text-decoration:none;}
 <!-- FOOTER -->
 <footer class="footer">
   <a class="footer-logo" href="/"><img src="/img/logo-white.webp" alt="Focal Point"></a>
-  <div class="footer-copy">© 2026 Focal Point. All rights reserved.</div>
+  <div class="footer-copy">&#169; 2026 Focal Point. All rights reserved.</div>
   <div class="footer-links">
     <a class="footer-link" href="/blog">Blog</a>
     <a class="footer-link" href="https://discord.gg/fzKjSY8JTR">Discord</a>
@@ -532,13 +497,16 @@ a{text-decoration:none;}
     <a class="mob-link" href="/52-weeks/" onclick="closeMobMenu()">52 Weeks</a>
     <a class="mob-link" href="https://discord.gg/fzKjSY8JTR" target="_blank" rel="noopener" onclick="closeMobMenu()">Community</a>
     <a class="mob-link" href="/blog" onclick="closeMobMenu()">Blog</a>
-    <a class="mob-cta" href="https://learn.thefocalpointhub.com">My Focal Point →</a>
+    <a class="mob-cta" href="https://learn.thefocalpointhub.com">My Focal Point &#x2192;</a>
   </div>
 </div>
+
 <script>
 function openMobMenu(){document.getElementById('mob-drawer').classList.add('open');document.body.style.overflow='hidden';}
 function closeMobMenu(){document.getElementById('mob-drawer').classList.remove('open');document.body.style.overflow='';}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMobMenu();});
+var g=document.getElementById('wgrid');
+for(var i=1;i<=52;i++){var c=document.createElement('div');c.className='wcell'+(i<14?' done':i===14?' now':'');g.appendChild(c);}
 </script>
 </body>
 </html>
