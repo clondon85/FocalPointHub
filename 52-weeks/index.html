@@ -7,7 +7,7 @@
 <meta name="description" content="52 Weeks with C. London, 2026 edition. A year-long weekly photography prompt challenge, now in its 8th year.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
   --mag:#9F217E;--teal:#5BAAB5;--yellow:#EACC28;
@@ -17,12 +17,12 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{
-  font-family:'Nunito Sans',sans-serif;
+  font-family:'Poppins',sans-serif;
   color:var(--off);
   -webkit-font-smoothing:antialiased;
   min-height:100vh;
-  background: linear-gradient(155deg,#3a7a85 0%,#7c3a82 45%,#9F217E 75%,#7a1a5e 100%);
-  background-attachment: fixed;
+  background:linear-gradient(155deg,#3a7a85 0%,#7c3a82 45%,#9F217E 75%,#7a1a5e 100%);
+  background-attachment:fixed;
 }
 a{text-decoration:none;}
 
@@ -36,9 +36,20 @@ a{text-decoration:none;}
 }
 .nav-logo img{height:32px;width:auto;}
 .nav-links{display:flex;align-items:center;gap:4px;}
-.nav-link{font-size:12.5px;font-weight:600;color:rgba(255,252,246,.6);padding:7px 14px;border-radius:8px;transition:all .15s;}
+.nav-link{
+  font-family:'Poppins',sans-serif;
+  font-size:12.5px;font-weight:600;color:rgba(255,252,246,.6);
+  padding:7px 14px;border-radius:8px;transition:all .15s;
+  text-decoration:none;white-space:nowrap;
+}
 .nav-link:hover,.nav-link.active{color:var(--off);background:rgba(255,255,255,.1);}
-.nav-cta{background:var(--mag);color:#fff;border-radius:99px;padding:9px 20px;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;transition:filter .15s;}
+.nav-cta{
+  background:var(--mag);color:#fff;border-radius:99px;
+  padding:9px 20px;
+  font-family:'Poppins',sans-serif;
+  font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  text-decoration:none;white-space:nowrap;transition:filter .15s;
+}
 .nav-cta:hover{filter:brightness(1.12);}
 .nav-mob{display:none;background:none;border:none;cursor:pointer;padding:6px;color:var(--off);}
 @media(max-width:820px){.nav{padding:0 20px;}.nav-links{display:none;}.nav-mob{display:flex;align-items:center;}}
@@ -47,12 +58,28 @@ a{text-decoration:none;}
 .mob-drawer{display:none;position:fixed;inset:0;z-index:300;}
 .mob-drawer.open{display:block;}
 .mob-overlay{position:absolute;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(4px);}
-.mob-panel{position:absolute;top:0;right:0;bottom:0;width:280px;background:rgba(40,10,60,.95);border-left:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;padding:24px;transform:translateX(100%);transition:transform .25s ease;}
+.mob-panel{
+  position:absolute;top:0;right:0;bottom:0;width:280px;
+  background:rgba(40,10,60,.95);border-left:1px solid rgba(255,255,255,.1);
+  display:flex;flex-direction:column;padding:24px;
+  transform:translateX(100%);transition:transform .25s ease;
+}
 .mob-drawer.open .mob-panel{transform:translateX(0);}
 .mob-close{align-self:flex-end;background:none;border:none;color:rgba(255,252,246,.6);cursor:pointer;font-size:24px;line-height:1;margin-bottom:24px;}
-.mob-link{font-size:16px;font-weight:600;color:rgba(255,252,246,.75);padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);transition:color .15s;}
+.mob-link{
+  font-family:'Poppins',sans-serif;
+  font-size:16px;font-weight:600;color:rgba(255,252,246,.75);
+  padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);
+  text-decoration:none;transition:color .15s;
+}
 .mob-link:hover{color:var(--off);}
-.mob-cta{margin-top:24px;background:var(--mag);color:#fff;border-radius:99px;padding:13px 24px;font-family:'Nunito Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;text-align:center;}
+.mob-cta{
+  margin-top:24px;background:var(--mag);color:#fff;
+  border-radius:99px;padding:13px 24px;
+  font-family:'Poppins',sans-serif;
+  font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;text-align:center;
+  text-decoration:none;
+}
 
 /* HERO */
 .hero{padding:100px 48px 80px;position:relative;overflow:hidden;}
@@ -64,7 +91,7 @@ a{text-decoration:none;}
 }
 .hero-inner{max-width:960px;margin:0 auto;position:relative;z-index:1;}
 .hero-ey{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--yellow);margin-bottom:18px;}
-.hero-title{font-family:'Manrope',sans-serif;font-size:64px;font-weight:800;line-height:1.04;letter-spacing:-.03em;color:var(--off);margin-bottom:20px;}
+.hero-title{font-size:64px;font-weight:800;line-height:1.04;letter-spacing:-.03em;color:var(--off);margin-bottom:20px;}
 .hero-sub{font-size:17px;color:rgba(255,252,246,.8);line-height:1.72;max-width:640px;margin-bottom:32px;}
 .hero-rule{
   background:rgba(0,0,0,.18);
@@ -100,7 +127,6 @@ a{text-decoration:none;}
 /* MONTH */
 .month{margin-bottom:80px;}
 .month-heading{
-  font-family:'Manrope',sans-serif;
   font-size:42px;font-weight:800;
   letter-spacing:-.02em;line-height:1.1;
   margin-bottom:20px;
@@ -114,7 +140,7 @@ a{text-decoration:none;}
 .prompts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px;}
 @media(max-width:620px){.prompts{grid-template-columns:1fr;}}
 .prompt{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:22px 24px;}
-.prompt-title{font-family:'Manrope',sans-serif;font-size:18px;font-weight:800;color:var(--off);margin-bottom:10px;line-height:1.2;}
+.prompt-title{font-size:18px;font-weight:800;color:var(--off);margin-bottom:10px;line-height:1.2;}
 .prompt-body{font-size:15px;color:rgba(255,252,246,.65);line-height:1.72;}
 .prompt-body p+p{margin-top:12px;}
 
@@ -134,7 +160,7 @@ a{text-decoration:none;}
 .footer{background:rgba(0,0,0,.25);border-top:1px solid rgba(255,255,255,.1);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
 .footer-copy{font-size:11px;color:rgba(255,252,246,.3);}
 .footer-links{display:flex;gap:20px;}
-.footer-link{font-size:11px;color:rgba(255,252,246,.35);transition:color .15s;}
+.footer-link{font-size:11px;color:rgba(255,252,246,.35);text-decoration:none;transition:color .15s;}
 .footer-link:hover{color:rgba(255,252,246,.75);}
 
 @media(max-width:820px){
@@ -144,7 +170,7 @@ a{text-decoration:none;}
   .progress-section{padding:32px 24px;}
   .content{padding:52px 24px 72px;}
   .footer{padding:24px;}
-  .month-name{font-size:32px;}
+  .month-heading{font-size:32px;}
 }
 </style>
 </head>
