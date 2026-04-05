@@ -34,7 +34,8 @@ a{text-decoration:none;}
 .unit-nav-btn{font-size:12px;font-weight:700;color:rgba(255,252,246,.7);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:6px 14px;transition:all .15s;white-space:nowrap;}
 a.unit-nav-btn:hover{background:rgba(255,255,255,.15);color:var(--off);}
 .unit-nav-btn.disabled{opacity:.35;cursor:default;pointer-events:none;}
-.unit-iframe{position:fixed;top:120px;left:0;right:0;bottom:0;width:100%;border:none;}
+.iframe-wrap{position:fixed;top:120px;left:0;right:0;bottom:0;overflow:hidden;}
+.unit-iframe{width:100%;height:100%;border:none;display:block;}
 .mob-drawer{display:none;position:fixed;inset:0;z-index:300;}
 .mob-drawer.open{display:block;}
 .mob-overlay{position:absolute;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);}
@@ -98,7 +99,9 @@ a.unit-nav-btn:hover{background:rgba(255,255,255,.15);color:var(--off);}
     <a class="unit-nav-btn" href="/photoclass-2026/unit-6/">Unit 6 →</a>
   </div>
 </div>
-<iframe class="unit-iframe" src="https://clondon85.github.io/DecisionProcess/" title="The Decision Process" allowfullscreen></iframe>
+<div class="iframe-wrap">
+  <iframe class="unit-iframe" src="https://clondon85.github.io/DecisionProcess/" title="The Decision Process" allowfullscreen></iframe>
+</div>
 <script>
 function openMobMenu(){document.getElementById('mob-drawer').classList.add('open');}
 function closeMobMenu(){document.getElementById('mob-drawer').classList.remove('open');}

@@ -11,11 +11,10 @@
 <style>
 :root{--mag:#9F217E;--teal:#5BAAB5;--yellow:#EACC28;--dark:#0e0618;--off:#FFFCF6;}
 *{margin:0;padding:0;box-sizing:border-box;}
-html,body{height:100%;overflow:hidden;}
-body{font-family:'Nunito Sans',sans-serif;background:var(--dark);color:var(--off);-webkit-font-smoothing:antialiased;}
+html,body{height:100%;overflow:hidden;background:var(--dark);}
+body{font-family:'Nunito Sans',sans-serif;color:var(--off);-webkit-font-smoothing:antialiased;}
 a{text-decoration:none;}
 
-/* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;background:rgba(14,6,24,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
 .nav-logo img{height:32px;width:auto;}
 .nav-links{display:flex;align-items:center;gap:4px;}
@@ -25,7 +24,6 @@ a{text-decoration:none;}
 .nav-cta:hover{filter:brightness(1.1);}
 .nav-mob{display:none;background:none;border:none;cursor:pointer;padding:6px;color:var(--off);}
 
-/* UNIT BAR */
 .unit-bar{position:fixed;top:68px;left:0;right:0;z-index:190;height:52px;background:rgba(14,6,24,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.07);display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
 .unit-bar-left{display:flex;align-items:center;gap:12px;}
 .unit-bar-back{font-size:12px;font-weight:700;color:rgba(255,252,246,.55);display:flex;align-items:center;gap:6px;transition:color .15s;}
@@ -39,10 +37,10 @@ a{text-decoration:none;}
 a.unit-nav-btn:hover{background:rgba(255,255,255,.15);color:var(--off);}
 .unit-nav-btn.disabled{opacity:.35;cursor:default;pointer-events:none;}
 
-/* IFRAME — fills remaining viewport */
-.unit-iframe{position:fixed;top:120px;left:0;right:0;bottom:0;width:100%;border:none;}
+/* Iframe wrapper fills remaining space below the two bars */
+.iframe-wrap{position:fixed;top:120px;left:0;right:0;bottom:0;overflow:hidden;}
+.unit-iframe{width:100%;height:100%;border:none;display:block;}
 
-/* MOBILE DRAWER */
 .mob-drawer{display:none;position:fixed;inset:0;z-index:300;}
 .mob-drawer.open{display:block;}
 .mob-overlay{position:absolute;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);}
@@ -111,7 +109,9 @@ a.unit-nav-btn:hover{background:rgba(255,255,255,.15);color:var(--off);}
   </div>
 </div>
 
-<iframe class="unit-iframe" src="https://clondon85.github.io/GettingStarted/" title="Before You Begin" allowfullscreen></iframe>
+<div class="iframe-wrap">
+  <iframe class="unit-iframe" src="https://clondon85.github.io/GettingStarted/" title="Before You Begin" allowfullscreen></iframe>
+</div>
 
 <script>
 function openMobMenu(){document.getElementById('mob-drawer').classList.add('open');}
