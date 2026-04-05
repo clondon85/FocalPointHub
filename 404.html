@@ -5,12 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Redirecting — Focal Point</title>
 <script>
-// Redirect old Squarespace URLs directly to Squarespace
 var path = window.location.pathname;
 var redirectMap = [
-  
   { prefix: '/blog-52', base: 'https://heptagon-clover-9zj2.squarespace.com' },
-  { prefix: '/blog', base: 'https://heptagon-clover-9zj2.squarespace.com' },
 ];
 var match = redirectMap.find(function(r){ return path.startsWith(r.prefix); });
 if (match) {
@@ -20,53 +17,56 @@ if (match) {
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--mag:#9F217E;--teal:#5BAAB5;--yellow:#EACC28;--dark:#0e0618;--off:#FFFCF6;}
 *{margin:0;padding:0;box-sizing:border-box;}
+html{background:var(--dark);}
 body{
-  font-family:'Nunito Sans',sans-serif;
-  background:var(--dark);color:var(--off);
-  min-height:100vh;display:flex;flex-direction:column;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(155deg,#3a7a85 0%,#5BAAB5 20%,#7c3a82 50%,#9F217E 75%,#7a1860 100%) fixed;
+  color:var(--off);min-height:100vh;
+  display:flex;flex-direction:column;
   align-items:center;justify-content:center;
   text-align:center;padding:40px 24px;
-  background:linear-gradient(155deg,#3a7a85 0%,#7c3a82 50%,#9F217E 100%);
+  -webkit-font-smoothing:antialiased;
 }
 .four04{
-  font-family:'Manrope',sans-serif;
-  font-size:96px;font-weight:800;
-  line-height:1;letter-spacing:-.04em;
-  color:rgba(255,252,246,.15);
-  margin-bottom:24px;
+  font-family:'Poppins',sans-serif;
+  font-size:120px;font-weight:800;
+  line-height:1;letter-spacing:-.05em;
+  color:rgba(255,252,246,.08);
+  margin-bottom:8px;
+  user-select:none;
 }
 h1{
-  font-family:'Manrope',sans-serif;
+  font-family:'Poppins',sans-serif;
   font-size:28px;font-weight:800;
+  letter-spacing:-.02em;
   color:var(--off);margin-bottom:12px;
 }
-p{font-size:15px;color:rgba(255,252,246,.65);line-height:1.65;max-width:420px;margin-bottom:32px;}
+p{font-size:15px;color:rgba(255,252,246,.58);line-height:1.7;max-width:400px;margin-bottom:32px;}
 .btn{
   background:var(--yellow);color:#1a1018;
   border-radius:99px;padding:13px 28px;
-  font-family:'Nunito Sans',sans-serif;
-  font-size:13px;font-weight:700;
+  font-family:'Poppins',sans-serif;
+  font-size:12px;font-weight:700;
   letter-spacing:.07em;text-transform:uppercase;
-  text-decoration:none;transition:all .15s;
+  text-decoration:none;transition:all .15s;display:inline-block;
 }
-.btn:hover{filter:brightness(1.08);}
+.btn:hover{filter:brightness(1.08);transform:translateY(-1px);}
 </style>
 </head>
 <body id="not-found" style="display:none;">
   <div class="four04">404</div>
   <h1>Page not found.</h1>
-  <p>This page doesn't exist. If you're looking for the Photoclass or blog, they may have moved.</p>
+  <p>This page doesn't exist or may have moved. Head back to the homepage to find what you're looking for.</p>
   <a class="btn" href="/">Go to homepage →</a>
 </body>
 <script>
-// Only show 404 UI if not redirecting
 var path2 = window.location.pathname;
-var preserved2 = ['/blog-52', '/blog'];
-var isRedirect = preserved2.some(function(p){ return path2.startsWith(p); });
+var isRedirect = ['/blog-52'].some(function(p){ return path2.startsWith(p); });
 if (!isRedirect) {
   document.getElementById('not-found').style.display = 'flex';
 }
