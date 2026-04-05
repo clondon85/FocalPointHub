@@ -8,7 +8,7 @@
 // Redirect old Squarespace URLs directly to Squarespace
 var path = window.location.pathname;
 var redirectMap = [
-  { prefix: '/photoclass-2026', base: 'https://heptagon-clover-9zj2.squarespace.com' },
+  
   { prefix: '/blog-52', base: 'https://heptagon-clover-9zj2.squarespace.com' },
   { prefix: '/blog', base: 'https://heptagon-clover-9zj2.squarespace.com' },
 ];
@@ -65,7 +65,7 @@ p{font-size:15px;color:rgba(255,252,246,.65);line-height:1.65;max-width:420px;ma
 <script>
 // Only show 404 UI if not redirecting
 var path2 = window.location.pathname;
-var preserved2 = ['/photoclass-2026', '/blog-52', '/blog'];
+var preserved2 = ['/blog-52', '/blog'];
 var isRedirect = preserved2.some(function(p){ return path2.startsWith(p); });
 if (!isRedirect) {
   document.getElementById('not-found').style.display = 'flex';
