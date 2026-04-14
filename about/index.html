@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>About — Focal Point</title>
+<meta name="description" content="Focal Point was started by Chelsea London, a nomadic New York-born photographer, educator, and community builder. This is the story of how it all began.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--mag:#9F217E;--teal:#5BAAB5;--yellow:#EACC28;--dark:#0e0618;--off:#FFFCF6;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{background:var(--dark);scroll-behavior:smooth;}
+body{font-family:'Poppins',sans-serif;background:linear-gradient(155deg,#3a7a85 0%,#5BAAB5 20%,#7c3a82 50%,#9F217E 75%,#7a1860 100%) fixed;color:var(--off);-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:200;height:68px;background:rgba(40,15,55,.45);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
+.nav-logo{display:flex;align-items:center;}
+.nav-logo img{height:32px;width:auto;}
+.nav-links{display:flex;align-items:center;gap:4px;}
+.nav-link{font-family:'Poppins',sans-serif;font-size:12.5px;font-weight:600;color:rgba(255,252,246,.6);padding:7px 14px;border-radius:8px;transition:all .15s;}
+.nav-link:hover,.nav-link.active{color:var(--off);background:rgba(255,255,255,.1);}
+.nav-cta{background:var(--mag);color:#fff;border-radius:99px;padding:9px 20px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;transition:filter .15s;}
+.nav-cta:hover{filter:brightness(1.12);}
+.nav-mob{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+.mob-drawer{display:none;position:fixed;inset:0;z-index:300;}
+.mob-drawer.open{display:block;}
+.mob-overlay{position:absolute;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);}
+.mob-panel{position:absolute;top:0;right:0;bottom:0;width:280px;background:rgba(40,10,60,.95);border-left:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;padding:24px;transform:translateX(100%);transition:transform .25s ease;}
+.mob-drawer.open .mob-panel{transform:translateX(0);}
+.mob-close{align-self:flex-end;background:none;border:none;color:rgba(255,252,246,.6);cursor:pointer;font-size:24px;line-height:1;margin-bottom:24px;}
+.mob-link{font-family:'Poppins',sans-serif;font-size:16px;font-weight:600;color:rgba(255,252,246,.75);padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);transition:color .15s;display:block;}
+.mob-link:hover{color:var(--off);}
+.mob-cta{margin-top:24px;background:var(--mag);color:#fff;border-radius:99px;padding:13px 24px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;text-align:center;}
+@media(max-width:820px){.nav{padding:0 20px;}.nav-links{display:none;}.nav-mob{display:flex;align-items:center;color:var(--off);}}
+
+/* PAGE */
+.page{max-width:860px;margin:0 auto;padding:64px 48px 100px;}
+
+/* INTRO BLOCK */
+.intro{display:grid;grid-template-columns:1fr 220px;gap:56px;align-items:start;margin-bottom:72px;}
+.intro-eyebrow{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--yellow);margin-bottom:14px;}
+.intro-name{font-family:'Poppins',sans-serif;font-size:44px;font-weight:800;letter-spacing:-.03em;line-height:1.08;color:var(--off);margin-bottom:6px;}
+.intro-handle{font-size:13px;font-weight:600;color:var(--yellow);margin-bottom:24px;}
+.intro-handle a{color:var(--yellow);border-bottom:1px solid rgba(234,204,40,.35);transition:border-color .15s;}
+.intro-handle a:hover{border-color:var(--yellow);}
+.intro-body{font-size:15.5px;color:rgba(255,252,246,.78);line-height:1.8;}
+.intro-body p{margin-bottom:16px;}
+.intro-body p:last-child{margin-bottom:0;}
+.intro-body a{color:var(--yellow);border-bottom:1px solid rgba(234,204,40,.3);transition:border-color .15s;}
+.intro-body a:hover{border-color:var(--yellow);}
+
+/* PHOTO */
+.photo-wrap{position:relative;}
+.photo-frame{width:100%;aspect-ratio:3/4;border-radius:18px;overflow:hidden;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);position:relative;}
+.photo-frame img{width:100%;height:100%;object-fit:cover;display:block;}
+.photo-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:24px;text-align:center;}
+.photo-placeholder svg{opacity:.3;}
+.photo-placeholder-text{font-size:11px;color:rgba(255,252,246,.3);line-height:1.6;}
+.photo-caption{font-size:11px;color:rgba(255,252,246,.3);text-align:center;margin-top:10px;font-style:italic;}
+
+/* DIVIDER */
+.divider{width:100%;height:1px;background:rgba(255,255,255,.1);margin:64px 0;}
+
+/* HISTORY SECTION */
+.section-eyebrow{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--yellow);margin-bottom:12px;}
+.section-title{font-family:'Poppins',sans-serif;font-size:32px;font-weight:800;letter-spacing:-.025em;line-height:1.15;color:var(--off);margin-bottom:28px;}
+.body-text{font-size:15.5px;color:rgba(255,252,246,.78);line-height:1.8;}
+.body-text p{margin-bottom:20px;}
+.body-text p:last-child{margin-bottom:0;}
+.body-text a{color:var(--yellow);border-bottom:1px solid rgba(234,204,40,.3);transition:border-color .15s;}
+.body-text a:hover{border-color:var(--yellow);}
+.body-text strong{color:var(--off);font-weight:700;}
+
+/* TIMELINE */
+.timeline{margin:40px 0 0;display:flex;flex-direction:column;gap:0;}
+.tl-item{display:grid;grid-template-columns:72px 1fr;gap:24px;position:relative;}
+.tl-item:not(:last-child) .tl-line{position:absolute;left:35px;top:28px;bottom:-20px;width:1px;background:rgba(255,255,255,.1);}
+.tl-left{display:flex;flex-direction:column;align-items:center;padding-top:4px;}
+.tl-year{font-size:11px;font-weight:700;color:var(--yellow);letter-spacing:.06em;white-space:nowrap;}
+.tl-dot{width:8px;height:8px;border-radius:50%;background:var(--mag);border:2px solid rgba(255,255,255,.2);margin-top:8px;flex-shrink:0;}
+.tl-right{padding:0 0 40px;}
+.tl-head{font-size:15px;font-weight:700;color:var(--off);margin-bottom:6px;}
+.tl-body{font-size:14px;color:rgba(255,252,246,.65);line-height:1.7;}
+.tl-body a{color:var(--yellow);border-bottom:1px solid rgba(234,204,40,.3);transition:border-color .15s;}
+.tl-body a:hover{border-color:var(--yellow);}
+
+/* STAT STRIP */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:48px 0;}
+.stat-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:24px 20px;}
+.stat-num{font-family:'Poppins',sans-serif;font-size:36px;font-weight:800;letter-spacing:-.03em;color:var(--yellow);margin-bottom:4px;}
+.stat-num span{color:rgba(255,252,246,.5);font-size:22px;}
+.stat-label{font-size:12px;color:rgba(255,252,246,.5);line-height:1.5;}
+
+/* CTA BLOCK */
+.cta-block{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:40px;text-align:center;margin-top:64px;}
+.cta-title{font-family:'Poppins',sans-serif;font-size:26px;font-weight:800;letter-spacing:-.02em;color:var(--off);margin-bottom:10px;}
+.cta-sub{font-size:14.5px;color:rgba(255,252,246,.6);line-height:1.7;max-width:460px;margin:0 auto 28px;}
+.cta-acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-y{background:var(--yellow);color:#1a1018;border-radius:99px;padding:13px 28px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;transition:all .15s;display:inline-block;}
+.btn-y:hover{filter:brightness(1.08);transform:translateY(-1px);}
+.btn-o{background:transparent;color:var(--off);border:1.5px solid rgba(255,255,255,.35);border-radius:99px;padding:12px 24px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;transition:all .15s;display:inline-block;}
+.btn-o:hover{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.08);}
+
+/* FOOTER */
+.footer{background:rgba(0,0,0,.25);border-top:1px solid rgba(255,255,255,.07);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.footer-logo img{height:22px;width:auto;opacity:.7;}
+.footer-copy{font-size:11px;color:rgba(255,252,246,.25);}
+.footer-links{display:flex;gap:20px;}
+.footer-link{font-size:11px;color:rgba(255,252,246,.3);transition:color .15s;}
+.footer-link:hover{color:rgba(255,252,246,.7);}
+
+@media(max-width:820px){
+  .page{padding:44px 24px 80px;}
+  .intro{grid-template-columns:1fr;gap:36px;}
+  .intro-name{font-size:34px;}
+  .photo-frame{aspect-ratio:1/1;max-width:240px;}
+  .stats{grid-template-columns:1fr 1fr;}
+  .footer{padding:24px;}
+}
+@media(max-width:560px){
+  .stats{grid-template-columns:1fr;}
+  .intro-name{font-size:28px;}
+  .section-title{font-size:26px;}
+  .cta-block{padding:28px 20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-logo" href="/"><img src="/img/logo-white.webp" alt="Focal Point"></a>
+  <div class="nav-links">
+    <a class="nav-link" href="/photoclass-2026/">Photoclass 2026</a>
+    <a class="nav-link" href="https://courses.thefocalpointhub.com">Courses</a>
+    <a class="nav-link" href="/52-weeks/">52 Weeks</a>
+    <a class="nav-link" href="https://discord.gg/fzKjSY8JTR" target="_blank" rel="noopener">Community</a>
+    <a class="nav-link" href="/blog">Blog</a>
+    <a class="nav-link active" href="/about">About</a>
+  </div>
+  <a class="nav-cta" href="https://learn.thefocalpointhub.com">My Focal Point &#x2192;</a>
+  <button class="nav-mob" aria-label="Menu" onclick="openMobMenu()">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+  </button>
+</nav>
+
+<!-- PAGE CONTENT -->
+<div class="page">
+
+  <!-- INTRO: CHELSEA -->
+  <div class="intro">
+    <div>
+      <div class="intro-eyebrow">The person behind Focal Point</div>
+      <h1 class="intro-name">Chelsea London</h1>
+      <div class="intro-handle">
+        <a href="https://www.clondon.me" target="_blank" rel="noopener">clondon.me</a>
+        &nbsp;·&nbsp;
+        <a href="https://www.instagram.com/clondon/" target="_blank" rel="noopener">@clondon</a>
+      </div>
+      <div class="intro-body">
+        <p>I'm a New York-born photographer and educator, currently based in the Netherlands. I've spent years moving between cities across the US and Europe and my camera has been with me for all of it.</p>
+        <p>Photography has always been about atmosphere for me. The way light hits something. The moment a composition clicks. I've been <a href="https://www.clondon.me/photography" target="_blank" rel="noopener">internationally published and shown in galleries</a> across multiple continents, and I've had the privilege of presenting at Today at Apple events in London and New York. In 2019 I founded the Prague Street Photography Collective.</p>
+        <p>When not photographing, I am an Instructional Designer. I hold an MS in Instructional Design and Technology and am currently pursuing my EdD in Instructional Systems and Learning Technologies. Education has always been the through-line. Focal Point is where photography and that love of building good learning experiences meet.</p>
+      </div>
+    </div>
+    <div class="photo-wrap">
+      <div class="photo-frame">
+        <!-- Replace with your photo: place the file at /img/chelsea.jpg -->
+        <img src="/img/chelsea.jpg" alt="Chelsea London" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'><svg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' fill=\'none\'><circle cx=\'20\' cy=\'15\' r=\'7\' stroke=\'white\' stroke-width=\'1.5\'/><path d=\'M6 36c0-7.732 6.268-14 14-14s14 6.268 14 14\' stroke=\'white\' stroke-width=\'1.5\' stroke-linecap=\'round\'/></svg><p class=\'photo-placeholder-text\'>Add your photo at<br>/img/chelsea.jpg</p></div>'">
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- FOCAL POINT HISTORY -->
+  <div class="section-eyebrow">How we got here</div>
+  <h2 class="section-title">The story of Focal Point</h2>
+
+  <div class="body-text">
+    <p>Focal Point didn't start as a grand plan. It grew, piece by piece, out of a simple habit and a community that kept showing up.</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat-card">
+      <div class="stat-num">7,000<span>+</span></div>
+      <div class="stat-label">Community members across Discord and Reddit</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">2024<span></span></div>
+      <div class="stat-label">The year Focal Point took over and rebuilt Photoclass from scratch</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">6<span>+ yrs</span></div>
+      <div class="stat-label">Since the very first 52 Weeks prompt in 2019</div>
+    </div>
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-line"></div>
+      <div class="tl-left">
+        <div class="tl-year">2019</div>
+        <div class="tl-dot"></div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-head">It started with a hashtag</div>
+        <div class="tl-body">52 Weeks with C. London started as a personal Instagram project. One prompt a week, shared publicly, no grand plan behind it. Just a way to keep shooting with intention. People found it, joined in, and kept coming back.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-line"></div>
+      <div class="tl-left">
+        <div class="tl-year">2020</div>
+        <div class="tl-dot"></div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-head">A community takes shape</div>
+        <div class="tl-body">As 52 Weeks grew into a global community of photographers at every level, I added dedicated spaces to gather in: a Discord server and a subreddit. The prompts became a gathering point. The community became something bigger than any single project.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-line"></div>
+      <div class="tl-left">
+        <div class="tl-year">2024</div>
+        <div class="tl-dot"></div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-head">Photoclass joins the family</div>
+        <div class="tl-body">The community kept asking: where do I actually learn? I took over <a href="http://www.r-photoclass.com/" target="_blank" rel="noopener">r/photoclass</a>, the Reddit photography course originally built by <strong>Alex Buisse</strong>. Alex created something genuinely great, and that original course is still worth your time. But we've since rewritten Photoclass entirely from the ground up. The new version is a structured, cohort-based course with ten units, real assignments, mentor feedback, and a community to keep you honest. Always free.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-line"></div>
+      <div class="tl-left">
+        <div class="tl-year">2026</div>
+        <div class="tl-dot"></div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-head">My Focal Point launches</div>
+        <div class="tl-body">We built My Focal Point, a personalised student dashboard for tracking progress, submitting assignments, setting goals, and reflecting on your work. The home base the community always needed.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-year">Now</div>
+        <div class="tl-dot"></div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-head">Still growing, still free</div>
+        <div class="tl-body">Focal Point is now a community of over 7,000 photographers. 52 Weeks is in its seventh year. Photoclass 2026 is underway, with specialized courses currently in development, launching soon. The goal has never changed: make serious photography education free and accessible, and build the kind of community where people actually get better.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <div class="cta-title">Come shoot with us.</div>
+    <div class="cta-sub">Photoclass is free, the community is open, and there's always a prompt to work on. Jump in wherever makes sense for you.</div>
+    <div class="cta-acts">
+      <a class="btn-y" href="/photoclass-2026/">Join Photoclass</a>
+      <a class="btn-o" href="https://discord.gg/fzKjSY8JTR" target="_blank" rel="noopener">Join the Discord</a>
+      <a class="btn-o" href="/52-weeks/">52 Weeks</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <a class="footer-logo" href="/"><img src="/img/logo-white.webp" alt="Focal Point"></a>
+  <div class="footer-copy">&#169; 2026 Focal Point. All rights reserved.</div>
+  <div class="footer-links">
+    <a class="footer-link" href="/blog">Blog</a>
+    <a class="footer-link" href="/about">About</a>
+    <a class="footer-link" href="https://discord.gg/fzKjSY8JTR">Discord</a>
+    <a class="footer-link" href="https://ko-fi.com/focalpoint_clondon">Support</a>
+  </div>
+</footer>
+
+<!-- Mobile drawer -->
+<div class="mob-drawer" id="mob-drawer">
+  <div class="mob-overlay" onclick="closeMobMenu()"></div>
+  <div class="mob-panel">
+    <button class="mob-close" onclick="closeMobMenu()">&#xd7;</button>
+    <a class="mob-link" href="/photoclass-2026/" onclick="closeMobMenu()">Photoclass 2026</a>
+    <a class="mob-link" href="https://courses.thefocalpointhub.com" onclick="closeMobMenu()">Courses</a>
+    <a class="mob-link" href="/52-weeks/" onclick="closeMobMenu()">52 Weeks</a>
+    <a class="mob-link" href="https://discord.gg/fzKjSY8JTR" target="_blank" rel="noopener" onclick="closeMobMenu()">Community</a>
+    <a class="mob-link" href="/blog" onclick="closeMobMenu()">Blog</a>
+    <a class="mob-link active" href="/about" onclick="closeMobMenu()">About</a>
+    <a class="mob-cta" href="https://learn.thefocalpointhub.com">My Focal Point &#x2192;</a>
+  </div>
+</div>
+
+<script>
+function openMobMenu(){document.getElementById('mob-drawer').classList.add('open');document.body.style.overflow='hidden';}
+function closeMobMenu(){document.getElementById('mob-drawer').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMobMenu();});
+</script>
+</body>
+</html>
