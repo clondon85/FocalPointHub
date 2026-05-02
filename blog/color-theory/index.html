@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Basic Color Theory for Photographers — Focal Point</title>
+<meta name="description" content="A practical guide to color theory for photographers: orders of color, HSL variables, and color schemes with real photo examples.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--mag:#9F217E;--teal:#5BAAB5;--yellow:#EACC28;--dark:#0e0618;--off:#FFFCF6;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{background:var(--dark);scroll-behavior:smooth;}
+body{font-family:'Poppins',sans-serif;background:linear-gradient(155deg,#3a7a85 0%,#5BAAB5 20%,#7c3a82 50%,#9F217E 75%,#7a1860 100%) fixed;color:var(--off);-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:200;height:68px;background:rgba(40,15,55,.45);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
+.nav-logo{display:flex;align-items:center;}
+.nav-logo img{height:32px;width:auto;}
+.nav-links{display:flex;align-items:center;gap:4px;}
+.nav-link{font-family:'Poppins',sans-serif;font-size:12.5px;font-weight:600;color:rgba(255,252,246,.6);padding:7px 14px;border-radius:8px;transition:all .15s;}
+.nav-link:hover{color:var(--off);background:rgba(255,255,255,.1);}
+.nav-cta{background:var(--mag);color:#fff;border-radius:99px;padding:9px 20px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;transition:filter .15s;}
+.nav-cta:hover{filter:brightness(1.12);}
+.nav-mob{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+.mob-drawer{display:none;position:fixed;inset:0;z-index:300;}
+.mob-drawer.open{display:block;}
+.mob-overlay{position:absolute;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);}
+.mob-panel{position:absolute;top:0;right:0;bottom:0;width:280px;background:rgba(40,10,60,.95);border-left:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;padding:24px;transform:translateX(100%);transition:transform .25s ease;}
+.mob-drawer.open .mob-panel{transform:translateX(0);}
+.mob-close{align-self:flex-end;background:none;border:none;color:rgba(255,252,246,.6);cursor:pointer;font-size:24px;line-height:1;margin-bottom:24px;font-family:'Poppins',sans-serif;}
+.mob-link{font-family:'Poppins',sans-serif;font-size:16px;font-weight:600;color:rgba(255,252,246,.75);padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);transition:color .15s;display:block;}
+.mob-link:hover{color:var(--off);}
+.mob-cta{margin-top:24px;background:var(--mag);color:#fff;border-radius:99px;padding:13px 24px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;text-align:center;}
+@media(max-width:820px){.nav{padding:0 20px;}.nav-links{display:none;}.nav-mob{display:flex;align-items:center;color:var(--off);}}
+
+/* BREADCRUMB */
+.breadcrumb{padding:24px 48px 0;max-width:780px;margin:0 auto;display:flex;align-items:center;gap:8px;}
+.bc-link{font-size:11px;font-weight:600;color:rgba(255,252,246,.4);transition:color .15s;}
+.bc-link:hover{color:rgba(255,252,246,.7);}
+.bc-sep{font-size:11px;color:rgba(255,252,246,.2);}
+.bc-cur{font-size:11px;color:rgba(255,252,246,.35);}
+
+/* ARTICLE */
+.article{max-width:780px;margin:0 auto;padding:36px 48px 80px;}
+.hero-img{width:100%;border-radius:16px;display:block;margin-bottom:40px;aspect-ratio:16/8;object-fit:cover;}
+.post-cat{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:12px;}
+.post-title{font-family:'Poppins',sans-serif;font-size:40px;font-weight:800;letter-spacing:-.03em;line-height:1.1;color:var(--off);margin-bottom:18px;}
+.post-meta{display:flex;align-items:center;gap:16px;margin-bottom:36px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.1);}
+.meta-author{font-size:13px;font-weight:600;color:rgba(255,252,246,.65);}
+.meta-date{font-size:12px;color:rgba(255,252,246,.35);}
+.meta-dot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.2);}
+
+/* PROSE */
+.prose h2{font-family:'Poppins',sans-serif;font-size:28px;font-weight:800;letter-spacing:-.02em;color:var(--off);margin:44px 0 16px;line-height:1.2;}
+.prose h3{font-family:'Poppins',sans-serif;font-size:20px;font-weight:700;color:var(--yellow);margin:30px 0 14px;letter-spacing:.01em;}
+.prose p{font-size:17px;color:rgba(255,252,246,.78);line-height:1.8;margin-bottom:18px;}
+.prose strong{color:var(--off);font-weight:700;}
+
+/* WIDGET WRAPPER */
+.widget-wrap{margin:32px 0;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.1);}
+.widget-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,252,246,.35);padding:14px 20px 0;background:rgba(0,0,0,.2);}
+
+/* COMPLEMENTARY WIDGET */
+.comp-widget{background:#9F217E;padding:2rem;display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap;}
+.comp-wheel-side{display:flex;flex-direction:column;align-items:center;gap:.75rem;flex-shrink:0;}
+.comp-widget canvas{cursor:crosshair;display:block;width:280px;height:280px;}
+.widget-hint{font-size:13px;color:rgba(255,255,255,.55);text-align:center;}
+.comp-info-side{display:flex;flex-direction:column;gap:1.25rem;flex:1;min-width:200px;}
+.sel-info{min-height:44px;display:flex;flex-direction:column;justify-content:center;gap:4px;}
+.sel-pair-name{font-size:14px;font-weight:500;color:#fff;}
+.sel-hex{font-family:monospace;font-size:12px;color:rgba(255,255,255,.5);letter-spacing:.03em;}
+.sel-placeholder{font-size:14px;color:rgba(255,255,255,.4);}
+.yw-divider{width:40px;height:2px;background:#EACC28;border-radius:2px;}
+.swatch-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.swatch-card{display:flex;flex-direction:column;gap:4px;}
+.swatch-pair{display:flex;border-radius:8px;overflow:hidden;height:44px;border:1px solid rgba(255,255,255,.2);}
+.swatch-half{flex:1;}
+.swatch-label{font-size:13px;color:rgba(255,255,255,.65);}
+
+/* ANALOGOUS WIDGET */
+.ana-widget{background:#5BAAB5;padding:2rem;display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap;}
+.ana-info-side{display:flex;flex-direction:column;gap:1.25rem;flex:1;min-width:200px;}
+.ana-wheel-side{display:flex;flex-direction:column;align-items:center;gap:.75rem;flex-shrink:0;}
+.ana-widget canvas{cursor:crosshair;display:block;width:280px;height:280px;}
+.ana-sel-pair-name{font-size:14px;font-weight:500;color:#111;}
+.ana-sel-hex{font-family:monospace;font-size:12px;color:rgba(0,0,0,.45);letter-spacing:.03em;}
+.ana-sel-placeholder{font-size:14px;color:rgba(0,0,0,.35);}
+.ana-hint{font-size:13px;color:rgba(0,0,0,.4);text-align:center;}
+.ana-swatch-label{font-size:13px;color:rgba(0,0,0,.55);}
+.swatch-triple{display:flex;border-radius:8px;overflow:hidden;height:44px;border:1px solid rgba(0,0,0,.1);}
+.swatch-third{flex:1;}
+
+/* MONOCHROME WIDGET */
+.mono-widget{background:#9F217E;padding:2rem;display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap;}
+.mono-wheel-side{display:flex;flex-direction:column;align-items:center;gap:.75rem;flex-shrink:0;}
+.mono-widget canvas{cursor:crosshair;display:block;width:280px;height:280px;}
+.mono-info-side{display:flex;flex-direction:column;gap:1.25rem;flex:1;min-width:200px;}
+.sel-hue-name{font-size:14px;font-weight:500;color:#fff;}
+.sel-sub{font-size:14px;color:rgba(255,255,255,.55);}
+.palette-label{font-size:13px;color:rgba(255,255,255,.65);}
+.swatch-strip{display:flex;border-radius:8px;overflow:hidden;height:44px;border:1px solid rgba(255,255,255,.2);}
+.swatch-step{flex:1;}
+.hex-row{display:flex;}
+.hex-label{flex:1;font-family:monospace;font-size:10px;color:rgba(255,255,255,.4);text-align:center;padding-top:3px;}
+
+/* PHOTO GRIDS */
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0;}
+.photo-grid.two-col{grid-template-columns:repeat(2,1fr);}
+.photo-grid.one-col{grid-template-columns:1fr;}
+.photo-card{border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.1);}
+.photo-card img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover;}
+.palette-strip{display:flex;height:28px;}
+.palette-strip span{flex:1;}
+.photo-caption{padding:10px 12px;font-size:15px;color:rgba(255,252,246,.5);line-height:1.5;background:rgba(255,255,255,.04);}
+
+/* PRACTICE CARDS */
+.practice-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:24px 0;}
+.practice-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;overflow:hidden;}
+.practice-card img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover;}
+.practice-caption{padding:14px 16px;}
+.scheme-tag{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:6px;display:block;}
+.practice-caption p{font-size:15px;color:rgba(255,252,246,.6);line-height:1.65;margin:0;}
+
+/* CALLOUT */
+.callout{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-left:3px solid var(--teal);border-radius:12px;padding:20px 24px;margin:28px 0;}
+.callout p{margin-bottom:0;font-size:14.5px;color:rgba(255,252,246,.65);line-height:1.75;}
+.callout strong{color:var(--teal);}
+
+/* DISCLAIMER */
+.disclaimer{background:rgba(234,204,40,.07);border:1px solid rgba(234,204,40,.2);border-radius:12px;padding:20px 24px;margin:40px 0 0;}
+.disclaimer p{font-size:15px;color:rgba(255,252,246,.6);line-height:1.75;margin-bottom:10px;}
+.disclaimer p:last-child{margin-bottom:0;}
+.disclaimer strong{color:var(--yellow);}
+
+/* PHOTOCLASS CTA */
+.pc-cta{margin-top:52px;background:rgba(159,33,126,.15);border:1px solid rgba(159,33,126,.3);border-radius:16px;padding:28px 32px;display:flex;gap:20px;align-items:center;}
+.pc-cta-text{flex:1;}
+.pc-cta-label{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--mag);margin-bottom:6px;}
+.pc-cta-title{font-size:18px;font-weight:800;color:var(--off);margin-bottom:6px;}
+.pc-cta-desc{font-size:13px;color:rgba(255,252,246,.5);line-height:1.6;}
+.pc-cta-btn{flex-shrink:0;background:var(--mag);color:#fff;border-radius:99px;padding:12px 22px;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap;transition:filter .15s;}
+.pc-cta-btn:hover{filter:brightness(1.12);}
+
+/* AUTHOR */
+.author-bio{margin-top:40px;padding:24px 28px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;display:flex;gap:20px;align-items:flex-start;}
+.author-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--mag),var(--teal));flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#fff;}
+.author-name{font-size:14px;font-weight:700;color:var(--off);margin-bottom:4px;}
+.author-desc{font-size:12.5px;color:rgba(255,252,246,.5);line-height:1.6;}
+.author-link{font-size:11px;color:var(--teal);margin-top:6px;display:inline-block;}
+.back-wrap{margin-top:48px;padding-top:28px;border-top:1px solid rgba(255,255,255,.08);}
+.back-link{font-size:13px;font-weight:700;color:rgba(255,252,246,.45);transition:color .15s;display:inline-flex;align-items:center;gap:6px;}
+.back-link:hover{color:var(--off);}
+
+/* FOOTER */
+.footer{background:rgba(0,0,0,.25);border-top:1px solid rgba(255,255,255,.07);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.footer-logo img{height:22px;width:auto;opacity:.7;}
+.footer-copy{font-size:11px;color:rgba(255,252,246,.25);}
+.footer-links{display:flex;gap:20px;}
+.footer-link{font-size:11px;color:rgba(255,252,246,.3);transition:color .15s;}
+.footer-link:hover{color:rgba(255,252,246,.7);}
+
+@media(max-width:820px){.article{padding:28px 24px 64px;}.breadcrumb{padding:20px 24px 0;}.post-title{font-size:30px;}.pc-cta{flex-direction:column;}.pc-cta-btn{align-self:flex-start;}}
+@media(max-width:600px){.post-title{font-size:26px;}.prose h2{font-size:22px;}.photo-grid{grid-template-columns:1fr;}.practice-grid{grid-template-columns:1fr;}.comp-widget,.ana-widget,.mono-widget{flex-direction:column;}.comp-widget canvas,.ana-widget canvas,.mono-widget canvas{width:240px;height:240px;}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="https://thefocalpointhub.com"><img src="/img/logo-white.webp" alt="Focal Point"></a>
+  <div class="nav-links">
+    <a class="nav-link" href="https://thefocalpointhub.com/photoclass-2026/">Photoclass 2026</a>
+    <a class="nav-link" href="https://courses.thefocalpointhub.com">Courses</a>
+    <a class="nav-link" href="https://thefocalpointhub.com/52-weeks/">52 Weeks</a>
+    <a class="nav-link" href="https://thefocalpointhub.com/about">About</a>
+    <a class="nav-link" href="https://thefocalpointhub.com/blog">Blog</a>
+    <a class="nav-link" href="https://discord.gg/fzKjSY8JTR">Community</a>
+    <a class="nav-cta" href="https://learn.thefocalpointhub.com">My Focal Point &rarr;</a>
+  </div>
+  <button class="nav-mob" id="mobOpen" aria-label="Open menu">
+    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="12" x2="19" y2="12"/><line x1="3" y1="18" x2="19" y2="18"/></svg>
+  </button>
+</nav>
+<div class="mob-drawer" id="mobDrawer">
+  <div class="mob-overlay" id="mobOverlay"></div>
+  <div class="mob-panel">
+    <button class="mob-close" id="mobClose">&times;</button>
+    <a class="mob-link" href="https://thefocalpointhub.com/photoclass-2026/">Photoclass 2026</a>
+    <a class="mob-link" href="https://courses.thefocalpointhub.com">Courses</a>
+    <a class="mob-link" href="https://thefocalpointhub.com/52-weeks/">52 Weeks</a>
+    <a class="mob-link" href="https://thefocalpointhub.com/about">About</a>
+    <a class="mob-link" href="https://thefocalpointhub.com/blog">Blog</a>
+    <a class="mob-link" href="https://discord.gg/fzKjSY8JTR">Community</a>
+    <a class="mob-cta" href="https://learn.thefocalpointhub.com">My Focal Point &rarr;</a>
+  </div>
+</div>
+
+<div class="breadcrumb">
+  <a class="bc-link" href="https://thefocalpointhub.com">Home</a>
+  <span class="bc-sep">&rsaquo;</span>
+  <a class="bc-link" href="https://thefocalpointhub.com/blog">Blog</a>
+  <span class="bc-sep">&rsaquo;</span>
+  <span class="bc-cur">Basic Color Theory</span>
+</div>
+
+<article class="article">
+
+  <img class="hero-img" src="assets/1color.png" alt="Color theory for photographers">
+
+  <div class="post-cat">Color Theory</div>
+  <h1 class="post-title">Basic Color Theory for Photographers</h1>
+  <div class="post-meta">
+    <span class="meta-author">C. London</span>
+    <span class="meta-dot"></span>
+    <span class="meta-date">Focal Point</span>
+  </div>
+
+  <div class="prose">
+
+    <p>As photographers, we have a lot of tools available to us: compositional rules, lighting knowledge, the exposure triangle, and so on. Color is just another one of those tools. While it can be an intimidating element to a photographer, color can help solidify a voice. Knowing and understanding color theory the way painters, designers, and artists of all trades do, a photographer can utilize color to their benefit.</p>
+
+    <p>You may already be aware of the concept of additive and subtractive color (RGB vs. RYB), which is something we will touch upon in a future post. For the sake of this lesson, we will be talking in generics about color theory and are focusing on Red Yellow Blue (RYB).</p>
+
+    <p>We will look at orders of colors, variables of colors, and color schemes. By the end, you should be able to recognize different color orders and schemes, and how to use variables to bring out the most in your images.</p>
+
+    <h2>Orders of Colors</h2>
+
+    <p>This may cause some flashbacks to elementary school art class, but let's start at the beginning: the orders of colors. There are three orders: Primary, Secondary, and Tertiary colors.</p>
+
+    <p>When working in RYB color, the primary colors are red, yellow, and blue. They are the three pure colors from which all other colors are derived. If we take two primary colors and combine them equally, we get a secondary color. A tertiary color is one which is a combination of a primary and secondary color.</p>
+
+    <p>By knowing the three orders, we can make decisions about which colors we want to show in frame. Let's look at some examples of the three orders in actual photographs.</p>
+
+    <div class="photo-grid one-col">
+      <div class="photo-card">
+        <img src="assets/1a_Primary_color_pallet_At.jpg" alt="Primary colors in photography">
+        <div class="palette-strip">
+          <span style="background:#c0111f;"></span><span style="background:#b01020;"></span><span style="background:#1a75bc;"></span><span style="background:#1560a8;"></span><span style="background:#0d3d7a;"></span><span style="background:#07285e;"></span>
+        </div>
+        <div class="photo-caption"><strong>Primary colors.</strong> Note the primary colors do not distract the eye from the subject. By using strong primary reds and blues, the subject is clear to the viewer.</div>
+      </div>
+    </div>
+
+    <div class="photo-grid one-col">
+      <div class="photo-card">
+        <img src="assets/Secondary_Brasov_rooves.jpg" alt="Secondary colors in photography">
+        <div class="palette-strip">
+          <span style="background:#3d0a0a;"></span><span style="background:#7a1a0a;"></span><span style="background:#b84010;"></span><span style="background:#e06a20;"></span><span style="background:#f09040;"></span><span style="background:#f8d0a0;"></span>
+        </div>
+        <div class="photo-caption"><strong>Secondary colors.</strong> Strong secondary colors often add interest and can easily become a subject on their own.</div>
+      </div>
+    </div>
+
+    <div class="photo-grid one-col">
+      <div class="photo-card">
+        <img src="assets/Tertiary_color_palatte_Sko.jpg" alt="Tertiary colors in photography">
+        <div class="palette-strip">
+          <span style="background:#100818;"></span><span style="background:#601040;"></span><span style="background:#9818a0;"></span><span style="background:#b840c0;"></span><span style="background:#d870d8;"></span><span style="background:#e8a8e8;"></span>
+        </div>
+        <div class="photo-caption"><strong>Tertiary colors.</strong> Tertiary colors are often used to create visual interest and make for other-worldly vibes.</div>
+      </div>
+    </div>
+
+    <h2>Variables of Colors</h2>
+
+    <p>Now that we have been introduced to the orders of the colors, let's look at their variables. Those who have post processed images in Adobe Lightroom, Apple Photos, Capture One, or any other RAW editor may be familiar with what is commonly known as the HSL sliders: Hue, Saturation, and Luminosity.</p>
+
+    <h3>Hue</h3>
+    <p>Hue simply is the shade or name of the color. In our editing programs, this slider allows us to completely change a color.</p>
+
+    <div class="photo-grid one-col">
+      <div class="photo-card">
+        <img src="assets/cmoomyb5c09x307143lr9hd1x.jpg" alt="Hue slider in Lightroom">
+        <div class="photo-caption">Hue slider (Lightroom Classic). Moving the orange hue slider on a sunset shifts the entire color, fundamentally changing what the viewer reads as dominant in the image.</div>
+      </div>
+    </div>
+
+    <h3>Saturation</h3>
+    <p>Saturation is the amount of color, or its intensity. This is how we end up with those selective color photos we all... er... love so much, but it can also be used to isolate the strength of one color over the others.</p>
+
+    <div class="photo-grid one-col">
+      <div class="photo-card">
+        <img src="assets/cmoomyb5209x20714f8zl4squ.jpg" alt="Saturation slider in Lightroom">
+        <div class="photo-caption">Saturation slider (Lightroom Classic). A photo consisting mainly of three colors can have one pulled entirely from the image, or pushed to dominate it, just by moving a single slider.</div>
+      </div>
+    </div>
+
+    <h3>Luminance</h3>
+    <p>Luminance is the brightness of the color. This helps us bring out bright color, recover skin tones, and many other techniques.</p>
+
+    <div class="photo-grid one-col">
+      <div class="photo-card">
+        <img src="assets/cmoomyb4n09x007144hgpemte.gif" alt="Luminance slider in Lightroom">
+        <div class="photo-caption">Luminance slider (Lightroom Classic). Here you can see how the blues react to the luminance slider.</div>
+      </div>
+    </div>
+
+    <h2>Color Schemes</h2>
+
+    <p>When you decorate a house, you choose the color of the walls to go with the furniture, wall hangings, curtains, and so on. You are essentially creating a color scheme. We do the same thing when we set up a shot. When being intentional with the color in your images, scheme absolutely comes into play.</p>
+
+    <p>Three of the most popular color schemes are complementary, analogous, and monochrome. To look at each individually, it helps to revisit our RYB color wheel.</p>
+
+    <h3>Complementary Colors</h3>
+
+    <p>Simply put, complementary colors are the ones which sit completely opposite one another on the color wheel, and they, ahem, complement one another. For example, red and green may make you think of Christmas, or light blue and orange may make you think of the Mets (oh, only me?). But there's a reason these combinations create such strong emotions in us. They just look good together.</p>
+
+    <p>Note how attention is not being fought for by strong colors, but rather the colors create balance.</p>
+
+    <!-- COMPLEMENTARY WHEEL WIDGET -->
+    <div class="widget-wrap">
+      <div class="widget-label">Interactive: Complementary Colors</div>
+      <div class="comp-widget">
+        <div class="comp-wheel-side">
+          <canvas id="compWheel" width="400" height="400"></canvas>
+          <p class="widget-hint">Click the wheel to see its complement</p>
+        </div>
+        <div class="comp-info-side">
+          <div class="sel-info" id="compSelInfo">
+            <span class="sel-placeholder">Select a color to explore</span>
+          </div>
+          <div class="yw-divider"></div>
+          <div class="swatch-grid">
+            <div class="swatch-card">
+              <div class="swatch-pair"><div class="swatch-half" style="background:#e63946"></div><div class="swatch-half" style="background:#46e6d5"></div></div>
+              <div class="swatch-label">Red + Cyan</div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-pair"><div class="swatch-half" style="background:#f5a623"></div><div class="swatch-half" style="background:#2364f5"></div></div>
+              <div class="swatch-label">Orange + Blue</div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-pair"><div class="swatch-half" style="background:#e8e023"></div><div class="swatch-half" style="background:#7123e8"></div></div>
+              <div class="swatch-label">Yellow + Violet</div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-pair"><div class="swatch-half" style="background:#3dbd4d"></div><div class="swatch-half" style="background:#bd3dad"></div></div>
+              <div class="swatch-label">Green + Magenta</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p>Below are a few images which utilize complementary colors.</p>
+
+    <div class="photo-grid">
+      <div class="photo-card">
+        <img src="assets/3a_complimentary_Eiffel_To.jpg" alt="Complementary colors, Eiffel Tower">
+        <div class="palette-strip"><span style="background:#0a2858;"></span><span style="background:#1560a8;"></span><span style="background:#3a90d0;"></span><span style="background:#c09010;"></span><span style="background:#d8a820;"></span><span style="background:#e8c840;"></span></div>
+        <div class="photo-caption">Tones of blues and yellows complement each other.</div>
+      </div>
+      <div class="photo-card">
+        <img src="assets/3b_Complimentary_bridal_fl.jpg" alt="Complementary colors, florals">
+        <div class="palette-strip"><span style="background:#1a3a1a;"></span><span style="background:#2d6030;"></span><span style="background:#4a8a50;"></span><span style="background:#8a3040;"></span><span style="background:#c04060;"></span><span style="background:#e06080;"></span></div>
+        <div class="photo-caption">Greens and reds are complementary.</div>
+      </div>
+      <div class="photo-card">
+        <img src="assets/3c_Complimentary_greece_be.jpg" alt="Complementary colors, Greece beach">
+        <div class="palette-strip"><span style="background:#051530;"></span><span style="background:#1560a8;"></span><span style="background:#3090d0;"></span><span style="background:#904010;"></span><span style="background:#c06820;"></span><span style="background:#e89040;"></span></div>
+        <div class="photo-caption">Darker shades of blue complement oranges.</div>
+      </div>
+    </div>
+
+    <h3>Analogous Colors</h3>
+
+    <p>Colors which sit next to each other on the color wheel and share similar colors are known as analogous colors. They will have one dominant color in common, most often a primary color, but can also be a secondary or tertiary.</p>
+
+    <p>Analogous colors are often found in nature. Think those rich oranges and yellows in a New England autumn. Landscape photographers can really benefit from knowingly utilizing analogous colors, but they also lend themselves to other aspects of photography, such as beautifully bokeh'd backgrounds of a portrait. By having similar colors in the background, the subject remains the focus.</p>
+
+    <!-- ANALOGOUS WHEEL WIDGET -->
+    <div class="widget-wrap">
+      <div class="widget-label">Interactive: Analogous Colors</div>
+      <div class="ana-widget">
+        <div class="ana-info-side">
+          <div class="sel-info" id="anaSelInfo">
+            <span class="ana-sel-placeholder" style="font-size:14px;color:rgba(0,0,0,.35);">Select a color to explore</span>
+          </div>
+          <div class="yw-divider"></div>
+          <div class="swatch-grid">
+            <div class="swatch-card">
+              <div class="swatch-triple"><div class="swatch-third" style="background:#e63946"></div><div class="swatch-third" style="background:#e6763a"></div><div class="swatch-third" style="background:#e6a623"></div></div>
+              <div class="ana-swatch-label">Red family</div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-triple"><div class="swatch-third" style="background:#23a6e6"></div><div class="swatch-third" style="background:#2364e6"></div><div class="swatch-third" style="background:#6023e6"></div></div>
+              <div class="ana-swatch-label">Blue family</div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-triple"><div class="swatch-third" style="background:#3dbd4d"></div><div class="swatch-third" style="background:#23bd96"></div><div class="swatch-third" style="background:#23bdb0"></div></div>
+              <div class="ana-swatch-label">Green family</div>
+            </div>
+            <div class="swatch-card">
+              <div class="swatch-triple"><div class="swatch-third" style="background:#bd3dad"></div><div class="swatch-third" style="background:#9F217E"></div><div class="swatch-third" style="background:#7123bd"></div></div>
+              <div class="ana-swatch-label">Violet family</div>
+            </div>
+          </div>
+        </div>
+        <div class="ana-wheel-side">
+          <canvas id="anaWheel" width="400" height="400"></canvas>
+          <p class="ana-hint">Click the wheel to see analogous colors</p>
+        </div>
+      </div>
+    </div>
+
+    <p>Below are some examples of analogous colors in photographs.</p>
+
+    <div class="photo-grid">
+      <div class="photo-card">
+        <img src="assets/Analogous_pallate_train_do.jpg" alt="Analogous colors, train">
+        <div class="palette-strip"><span style="background:#0a2030;"></span><span style="background:#1a6070;"></span><span style="background:#2a8890;"></span><span style="background:#4aaab0;"></span><span style="background:#80c8d0;"></span><span style="background:#a0d8e0;"></span></div>
+        <div class="photo-caption">Varying shades of blue and green are analogous.</div>
+      </div>
+      <div class="photo-card">
+        <img src="assets/Analogous_color_pallate_so.jpg" alt="Analogous colors, street scene">
+        <div class="palette-strip"><span style="background:#2a1008;"></span><span style="background:#5a2810;"></span><span style="background:#8a4820;"></span><span style="background:#b87030;"></span><span style="background:#d09040;"></span><span style="background:#e8b860;"></span></div>
+        <div class="photo-caption">Browns and oranges sit next to each other on the color wheel.</div>
+      </div>
+      <div class="photo-card">
+        <img src="assets/Analogous_color_pallate_um.jpg" alt="Analogous colors, night scene">
+        <div class="palette-strip"><span style="background:#080818;"></span><span style="background:#200858;"></span><span style="background:#3008a0;"></span><span style="background:#6018c0;"></span><span style="background:#9840d8;"></span><span style="background:#c070e8;"></span></div>
+        <div class="photo-caption">Analogous shades of blues and purples.</div>
+      </div>
+    </div>
+
+    <h3>Monochrome Colors</h3>
+
+    <p>While you may be familiar with monochrome referring to black and white, it actually refers to anything which uses solely one color value. Those images you see where there is overwhelmingly one color present are monochrome, for all intents and purposes. We see this technique often in those hazy sunrise/set shots, but it is also a very impactful technique for street shots.</p>
+
+    <!-- MONOCHROME WHEEL WIDGET -->
+    <div class="widget-wrap">
+      <div class="widget-label">Interactive: Monochrome Colors</div>
+      <div class="mono-widget">
+        <div class="mono-wheel-side">
+          <canvas id="monoWheel" width="400" height="400"></canvas>
+          <p class="widget-hint">Click a hue to build its palette</p>
+        </div>
+        <div class="mono-info-side">
+          <div class="sel-info" id="monoSelInfo">
+            <span class="sel-placeholder">Select a hue to explore tints and shades</span>
+          </div>
+          <div class="yw-divider"></div>
+          <div id="monopalette">
+            <div class="palette-label">Tints (light &rarr; base)</div>
+            <div class="swatch-strip" id="tintsStrip">
+              <div class="swatch-step" style="background:rgba(255,255,255,.12)"></div><div class="swatch-step" style="background:rgba(255,255,255,.10)"></div><div class="swatch-step" style="background:rgba(255,255,255,.08)"></div><div class="swatch-step" style="background:rgba(255,255,255,.06)"></div><div class="swatch-step" style="background:rgba(255,255,255,.04)"></div><div class="swatch-step" style="background:rgba(255,255,255,.03)"></div>
+            </div>
+            <div class="hex-row" id="tintsHex"><div class="hex-label">—</div><div class="hex-label">—</div><div class="hex-label">—</div><div class="hex-label">—</div><div class="hex-label">—</div><div class="hex-label">—</div></div>
+            <div class="palette-label" style="margin-top:8px;">Shades (base &rarr; dark)</div>
+            <div class="swatch-strip" id="shadesStrip">
+              <div class="swatch-step" style="background:rgba(0,0,0,.03)"></div><div class="swatch-step" style="background:rgba(0,0,0,.04)"></div><div class="swatch-step" style="background:rgba(0,0,0,.06)"></div><div class="swatch-step" style="background:rgba(0,0,0,.08)"></div><div class="swatch-step" style="background:rgba(0,0,0,.10)"></div><div class="swatch-step" style="background:rgba(0,0,0,.12)"></div>
+            </div>
+            <div class="hex-row" id="shadesHex"><div class="hex-label">—</div><div class="hex-label">—</div><div class="hex-label">—</div><div class="hex-label">—</div><div class="hex-label">—</div><div class="hex-label">—</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="photo-grid">
+      <div class="photo-card">
+        <img src="assets/Monochrome_color_pallate_o.jpg" alt="Monochrome orange">
+        <div class="palette-strip"><span style="background:#3a1808;"></span><span style="background:#6a2810;"></span><span style="background:#a04820;"></span><span style="background:#d07030;"></span><span style="background:#e89848;"></span><span style="background:#f0b870;"></span></div>
+        <div class="photo-caption">Shades of orange.</div>
+      </div>
+      <div class="photo-card">
+        <img src="assets/Monochrome_color_pallete_g.jpg" alt="Monochrome green">
+        <div class="palette-strip"><span style="background:#081808;"></span><span style="background:#205020;"></span><span style="background:#387038;"></span><span style="background:#589858;"></span><span style="background:#80c080;"></span><span style="background:#a8d8a8;"></span></div>
+        <div class="photo-caption">Shades of green.</div>
+      </div>
+      <div class="photo-card">
+        <img src="assets/Monochrome_pink_sky.jpg" alt="Monochrome pink">
+        <div class="palette-strip"><span style="background:#5a1840;"></span><span style="background:#902860;"></span><span style="background:#c04880;"></span><span style="background:#d870a0;"></span><span style="background:#e898c0;"></span><span style="background:#f0c0d8;"></span></div>
+        <div class="photo-caption">Shades of pink.</div>
+      </div>
+    </div>
+
+    <h2>Color Theory in Practice</h2>
+
+    <p>So now we know the orders and variables, as well as three popular schemes of color, but how do those tools aid us in our photography? When we combine the three aspects, we can deliberately look for or create scenes that further our intended story.</p>
+
+    <div class="practice-grid">
+      <div class="practice-card">
+        <img src="assets/X--2ZWtQHuJQTCEyRM.jpg" alt="Complementary colors in practice">
+        <div class="palette-strip"><span style="background:#0a2020;"></span><span style="background:#1a5050;"></span><span style="background:#2a7878;"></span><span style="background:#c09010;"></span><span style="background:#d8a820;"></span><span style="background:#e8c040;"></span></div>
+        <div class="practice-caption">
+          <span class="scheme-tag">Complementary</span>
+          <p>When I first approached this scene, I saw two things: interesting lines and complementary colors. With a little patience and a whole lot of luck, the jogger ran into the scene wearing one of the two complementary colors. Had this color story not been introduced, the image would have had much less impact. In this instance, the color creates the story.</p>
+        </div>
+      </div>
+      <div class="practice-card">
+        <img src="assets/cmoomyb2h09wx07149y7jeizc.gif" alt="Monochrome in practice, orange sunset">
+        <div class="palette-strip"><span style="background:#3a1008;"></span><span style="background:#7a2808;"></span><span style="background:#b04810;"></span><span style="background:#d87020;"></span><span style="background:#f09840;"></span><span style="background:#f8c060;"></span></div>
+        <div class="practice-caption">
+          <span class="scheme-tag">Monochrome, Secondary</span>
+          <p>This photo utilizes monochrome in secondary colors. With a stark gradient from dark to light oranges, the image projects a warm summer's sunset, which is exactly what I was hoping to achieve as it was well over 105F (42C). Trying to capture that in a photo was an important part of the story of my time in that city.</p>
+        </div>
+      </div>
+      <div class="practice-card" style="grid-column:1/-1;">
+        <img src="assets/cmoomyb4809wy07144anx7ytf.gif" alt="Analogous tertiary colors in practice, ocean">
+        <div class="palette-strip"><span style="background:#081828;"></span><span style="background:#1a5058;"></span><span style="background:#286870;"></span><span style="background:#388888;"></span><span style="background:#50a8a8;"></span><span style="background:#70c0c0;"></span></div>
+        <div class="practice-caption">
+          <span class="scheme-tag">Analogous Tertiary</span>
+          <p>Here we see analogous tertiary colors. While the color is not so much the subject as it is in the other two, it is still crucial to set the mood for the shot. The various levels of greens and blues in the ocean water enhances the relaxed atmosphere I was intending to create with this image.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      <p><strong>A note on color models:</strong> It is important to note that while RYB color is one with which we are all familiar, it is not the standard anymore. In fact, your photography software does not utilize RYB color by default. It uses a different, four color, subtractive color model known as CMYK (cyan, magenta, yellow, and key black). We stuck with RYB to keep it simple. In a future post, we will go deeper into color theory, as it is a rabbit hole.</p>
+      <p>In the meantime, an excellent resource for choosing colors is <a href="https://color.adobe.com" style="color:var(--teal);">Adobe's color wheel</a>. Here you can choose a color wheel and scheme and be given applicable pairings of colors. If not for nothing, it's fun and pretty to look at.</p>
+    </div>
+
+    <div class="pc-cta">
+      <div class="pc-cta-text">
+        <div class="pc-cta-label">Part of</div>
+        <div class="pc-cta-title">Photoclass 2026</div>
+        <div class="pc-cta-desc">This lesson is part of the free, cohort-based photography course from Focal Point. Ten units covering the art and technology of photography, from the exposure triangle to personal projects.</div>
+      </div>
+      <a class="pc-cta-btn" href="https://thefocalpointhub.com/photoclass-2026/">Explore Photoclass &rarr;</a>
+    </div>
+
+    <div class="author-bio">
+      <div class="author-avatar">C</div>
+      <div>
+        <div class="author-name">C. London</div>
+        <div class="author-desc">Creator of Focal Point. Photographer, educator, and the person who forgot 2016 was a leap year and ended up doing a 366-day self-portrait project.</div>
+        <a class="author-link" href="https://thefocalpointhub.com/about">About Chelsea &rarr;</a>
+      </div>
+    </div>
+
+    <div class="back-wrap">
+      <a class="back-link" href="https://thefocalpointhub.com/blog">&larr; Back to Blog</a>
+    </div>
+
+  </div>
+</article>
+
+<footer class="footer">
+  <div class="footer-logo"><img src="/img/logo-white.webp" alt="Focal Point"></div>
+  <span class="footer-copy">&copy; 2026 Focal Point</span>
+  <div class="footer-links">
+    <a class="footer-link" href="https://thefocalpointhub.com/photoclass-2026/">Photoclass</a>
+    <a class="footer-link" href="https://thefocalpointhub.com/52-weeks/">52 Weeks</a>
+    <a class="footer-link" href="https://thefocalpointhub.com/blog">Blog</a>
+    <a class="footer-link" href="https://discord.gg/fzKjSY8JTR">Community</a>
+  </div>
+</footer>
+
+<script>
+// Mobile nav
+var mobOpen=document.getElementById('mobOpen'),mobClose=document.getElementById('mobClose'),mobOverlay=document.getElementById('mobOverlay'),mobDrawer=document.getElementById('mobDrawer');
+mobOpen.addEventListener('click',function(){mobDrawer.classList.add('open');});
+mobClose.addEventListener('click',function(){mobDrawer.classList.remove('open');});
+mobOverlay.addEventListener('click',function(){mobDrawer.classList.remove('open');});
+
+// Shared helpers
+function hslToRgb(h,s,l){s/=100;l/=100;var k=function(n){return(n+h/30)%12;},a=s*Math.min(l,1-l),f=function(n){return l-a*Math.max(-1,Math.min(k(n)-3,Math.min(9-k(n),1)));};return[Math.round(f(0)*255),Math.round(f(8)*255),Math.round(f(4)*255)];}
+function rgbToHex(r,g,b){return'#'+[r,g,b].map(function(x){return x.toString(16).padStart(2,'0');}).join('');}
+function hueToName(h){var names=['red','red-orange','orange','yellow-orange','yellow','yellow-green','green','green-cyan','cyan','cyan-blue','blue','blue-violet','violet','violet-magenta','magenta','magenta-red'];return names[Math.round((h/360)*names.length)%names.length];}
+
+// ---- COMPLEMENTARY WHEEL ----
+(function(){
+  var canvas=document.getElementById('compWheel'),ctx=canvas.getContext('2d');
+  var W=400,CX=200,CY=200,OUTER=172,INNER=98,SEG=72,selHue=null;
+  function draw(h){
+    ctx.clearRect(0,0,W,W);
+    for(var i=0;i<SEG;i++){var hh=(i/SEG)*360,sA=(i/SEG)*Math.PI*2-Math.PI/2,eA=((i+1)/SEG)*Math.PI*2-Math.PI/2;ctx.beginPath();ctx.moveTo(CX+INNER*Math.cos(sA),CY+INNER*Math.sin(sA));ctx.arc(CX,CY,OUTER,sA,eA);ctx.arc(CX,CY,INNER,eA,sA,true);ctx.closePath();ctx.fillStyle='hsl('+hh+',78%,54%)';ctx.fill();}
+    if(h!==null){
+      var ch=(h+180)%360;
+      [h,ch].forEach(function(hv){var ang=(hv/360)*Math.PI*2-Math.PI/2,sw=(Math.PI*2/SEG)*0.55;ctx.beginPath();ctx.arc(CX,CY,OUTER+8,ang-sw,ang+sw);ctx.arc(CX,CY,INNER-6,ang+sw,ang-sw,true);ctx.closePath();ctx.strokeStyle='#fff';ctx.lineWidth=3;ctx.stroke();});
+      var a1=(h/360)*Math.PI*2-Math.PI/2,a2=(ch/360)*Math.PI*2-Math.PI/2;
+      ctx.beginPath();ctx.moveTo(CX+(INNER-2)*Math.cos(a1),CY+(INNER-2)*Math.sin(a1));ctx.lineTo(CX+(INNER-2)*Math.cos(a2),CY+(INNER-2)*Math.sin(a2));ctx.strokeStyle='rgba(255,255,255,0.65)';ctx.lineWidth=1.5;ctx.setLineDash([6,4]);ctx.stroke();ctx.setLineDash([]);
+      ctx.beginPath();ctx.arc(CX,CY,6,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,0.8)';ctx.fill();
+      var rgb1=hslToRgb(h,78,54),rgb2=hslToRgb(ch,78,54);
+      ctx.beginPath();ctx.arc(CX,CY,INNER-12,0,Math.PI*2);var g=ctx.createLinearGradient(CX-50,CY-50,CX+50,CY+50);g.addColorStop(0,rgbToHex(rgb1[0],rgb1[1],rgb1[2]));g.addColorStop(1,rgbToHex(rgb2[0],rgb2[1],rgb2[2]));ctx.fillStyle=g;ctx.fill();
+      var info=document.getElementById('compSelInfo');info.innerHTML='<div class="sel-pair-name">'+hueToName(h)+' + '+hueToName(ch)+'</div><div class="sel-hex">'+rgbToHex(rgb1[0],rgb1[1],rgb1[2])+'  /  '+rgbToHex(rgb2[0],rgb2[1],rgb2[2])+'</div>';
+    } else {
+      ctx.beginPath();ctx.arc(CX,CY,INNER-12,0,Math.PI*2);ctx.fillStyle='#8a1b6a';ctx.fill();
+    }
+  }
+  canvas.addEventListener('click',function(e){var r=canvas.getBoundingClientRect(),sx=W/r.width,sy=W/r.height,mx=(e.clientX-r.left)*sx,my=(e.clientY-r.top)*sy,dx=mx-CX,dy=my-CY,dist=Math.sqrt(dx*dx+dy*dy);if(dist>=INNER&&dist<=OUTER+8){var ang=Math.atan2(dy,dx)+Math.PI/2;if(ang<0)ang+=Math.PI*2;selHue=Math.round((ang/(Math.PI*2))*360)%360;draw(selHue);}});
+  draw(null);
+})();
+
+// ---- ANALOGOUS WHEEL ----
+(function(){
+  var canvas=document.getElementById('anaWheel'),ctx=canvas.getContext('2d');
+  var W=400,CX=200,CY=200,OUTER=172,INNER=98,SEG=72,selHue=null;
+  function draw(h){
+    ctx.clearRect(0,0,W,W);
+    for(var i=0;i<SEG;i++){var hh=(i/SEG)*360,sA=(i/SEG)*Math.PI*2-Math.PI/2,eA=((i+1)/SEG)*Math.PI*2-Math.PI/2;ctx.beginPath();ctx.moveTo(CX+INNER*Math.cos(sA),CY+INNER*Math.sin(sA));ctx.arc(CX,CY,OUTER,sA,eA);ctx.arc(CX,CY,INNER,eA,sA,true);ctx.closePath();ctx.fillStyle='hsl('+hh+',78%,54%)';ctx.fill();}
+    if(h!==null){
+      var lh=(h-30+360)%360,rh=(h+30)%360;
+      [lh,h,rh].forEach(function(hv){var ang=(hv/360)*Math.PI*2-Math.PI/2,sw=(Math.PI*2/SEG)*0.55;ctx.beginPath();ctx.arc(CX,CY,OUTER+8,ang-sw,ang+sw);ctx.arc(CX,CY,INNER-6,ang+sw,ang-sw,true);ctx.closePath();ctx.strokeStyle='#fff';ctx.lineWidth=3;ctx.stroke();});
+      var la=(lh/360)*Math.PI*2-Math.PI/2,ra=(rh/360)*Math.PI*2-Math.PI/2,sa=(h/360)*Math.PI*2-Math.PI/2,midR=(OUTER+INNER)/2;
+      var span=(ra-la+Math.PI*2)%(Math.PI*2);ctx.beginPath();if(span<=Math.PI){ctx.arc(CX,CY,midR,la,ra);}else{ctx.arc(CX,CY,midR,la,ra,true);}ctx.strokeStyle='rgba(255,255,255,0.6)';ctx.lineWidth=4;ctx.stroke();
+      ctx.beginPath();ctx.moveTo(CX+(INNER-2)*Math.cos(la),CY+(INNER-2)*Math.sin(la));ctx.lineTo(CX,CY);ctx.lineTo(CX+(INNER-2)*Math.cos(ra),CY+(INNER-2)*Math.sin(ra));ctx.strokeStyle='rgba(255,255,255,0.45)';ctx.lineWidth=1.5;ctx.setLineDash([5,4]);ctx.stroke();ctx.setLineDash([]);
+      ctx.beginPath();ctx.moveTo(CX+(INNER-2)*Math.cos(sa),CY+(INNER-2)*Math.sin(sa));ctx.lineTo(CX,CY);ctx.strokeStyle='rgba(255,255,255,0.8)';ctx.lineWidth=1.5;ctx.stroke();
+      var r1=hslToRgb(lh,78,54),r2=hslToRgb(h,78,54),r3=hslToRgb(rh,78,54);
+      ctx.beginPath();ctx.arc(CX,CY,INNER-12,0,Math.PI*2);var g=ctx.createLinearGradient(CX-50,CY,CX+50,CY);g.addColorStop(0,rgbToHex(r1[0],r1[1],r1[2]));g.addColorStop(0.5,rgbToHex(r2[0],r2[1],r2[2]));g.addColorStop(1,rgbToHex(r3[0],r3[1],r3[2]));ctx.fillStyle=g;ctx.fill();
+      var info=document.getElementById('anaSelInfo');info.innerHTML='<div class="ana-sel-pair-name">'+hueToName(lh)+'  &middot;  '+hueToName(h)+'  &middot;  '+hueToName(rh)+'</div><div class="ana-sel-hex">'+rgbToHex(r1[0],r1[1],r1[2])+'  /  '+rgbToHex(r2[0],r2[1],r2[2])+'  /  '+rgbToHex(r3[0],r3[1],r3[2])+'</div>';
+    } else {
+      ctx.beginPath();ctx.arc(CX,CY,INNER-12,0,Math.PI*2);ctx.fillStyle='#4a9099';ctx.fill();
+    }
+  }
+  canvas.addEventListener('click',function(e){var r=canvas.getBoundingClientRect(),sx=W/r.width,sy=W/r.height,mx=(e.clientX-r.left)*sx,my=(e.clientY-r.top)*sy,dx=mx-CX,dy=my-CY,dist=Math.sqrt(dx*dx+dy*dy);if(dist>=INNER&&dist<=OUTER+8){var ang=Math.atan2(dy,dx)+Math.PI/2;if(ang<0)ang+=Math.PI*2;selHue=Math.round((ang/(Math.PI*2))*360)%360;draw(selHue);}});
+  draw(null);
+})();
+
+// ---- MONOCHROME WHEEL ----
+(function(){
+  var canvas=document.getElementById('monoWheel'),ctx=canvas.getContext('2d');
+  var W=400,CX=200,CY=200,OUTER=172,INNER=98,SEG=72,selHue=null;
+  var tintL=[90,80,70,60,55,50],shadeL=[50,45,38,30,22,14];
+  function buildPalette(h){
+    var ts=document.getElementById('tintsStrip'),ss=document.getElementById('shadesStrip'),th=document.getElementById('tintsHex'),sh=document.getElementById('shadesHex');
+    ts.innerHTML='';ss.innerHTML='';th.innerHTML='';sh.innerHTML='';
+    tintL.forEach(function(l){var rgb=hslToRgb(h,70,l),hex=rgbToHex(rgb[0],rgb[1],rgb[2]),d=document.createElement('div');d.className='swatch-step';d.style.background=hex;ts.appendChild(d);var lbl=document.createElement('div');lbl.className='hex-label';lbl.textContent=hex;th.appendChild(lbl);});
+    shadeL.forEach(function(l){var rgb=hslToRgb(h,70,l),hex=rgbToHex(rgb[0],rgb[1],rgb[2]),d=document.createElement('div');d.className='swatch-step';d.style.background=hex;ss.appendChild(d);var lbl=document.createElement('div');lbl.className='hex-label';lbl.textContent=hex;sh.appendChild(lbl);});
+  }
+  function draw(h){
+    ctx.clearRect(0,0,W,W);
+    for(var i=0;i<SEG;i++){var hh=(i/SEG)*360,sA=(i/SEG)*Math.PI*2-Math.PI/2,eA=((i+1)/SEG)*Math.PI*2-Math.PI/2;ctx.beginPath();ctx.moveTo(CX+INNER*Math.cos(sA),CY+INNER*Math.sin(sA));ctx.arc(CX,CY,OUTER,sA,eA);ctx.arc(CX,CY,INNER,eA,sA,true);ctx.closePath();ctx.fillStyle='hsl('+hh+',78%,54%)';ctx.fill();}
+    if(h!==null){
+      var ang=(h/360)*Math.PI*2-Math.PI/2,sw=(Math.PI*2/SEG)*0.65;
+      ctx.beginPath();ctx.arc(CX,CY,OUTER+8,ang-sw,ang+sw);ctx.arc(CX,CY,INNER-6,ang+sw,ang-sw,true);ctx.closePath();ctx.strokeStyle='#fff';ctx.lineWidth=3;ctx.stroke();
+      ctx.beginPath();ctx.moveTo(CX+(INNER-2)*Math.cos(ang),CY+(INNER-2)*Math.sin(ang));ctx.lineTo(CX,CY);ctx.strokeStyle='rgba(255,255,255,0.7)';ctx.lineWidth=1.5;ctx.stroke();
+      var allL=tintL.concat(shadeL.slice(1)),innerR=INNER-12,slA=(Math.PI*2)/allL.length;
+      allL.forEach(function(l,i){var rgb=hslToRgb(h,70,l),a=-Math.PI/2+i*slA;ctx.beginPath();ctx.moveTo(CX,CY);ctx.arc(CX,CY,innerR,a,a+slA);ctx.closePath();ctx.fillStyle=rgbToHex(rgb[0],rgb[1],rgb[2]);ctx.fill();});
+      var info=document.getElementById('monoSelInfo');info.innerHTML='<div class="sel-hue-name">'+hueToName(h)+'</div><div class="sel-sub">tints and shades</div>';
+      buildPalette(h);
+    } else {
+      ctx.beginPath();ctx.arc(CX,CY,INNER-12,0,Math.PI*2);ctx.fillStyle='#8a1b6a';ctx.fill();
+    }
+  }
+  canvas.addEventListener('click',function(e){var r=canvas.getBoundingClientRect(),sx=W/r.width,sy=W/r.height,mx=(e.clientX-r.left)*sx,my=(e.clientY-r.top)*sy,dx=mx-CX,dy=my-CY,dist=Math.sqrt(dx*dx+dy*dy);if(dist>=INNER&&dist<=OUTER+8){var ang=Math.atan2(dy,dx)+Math.PI/2;if(ang<0)ang+=Math.PI*2;selHue=Math.round((ang/(Math.PI*2))*360)%360;draw(selHue);}});
+  draw(null);
+})();
+</script>
+</body>
+</html>
