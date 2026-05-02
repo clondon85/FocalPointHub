@@ -64,7 +64,7 @@ a{text-decoration:none;}
 .widget-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,252,246,.35);padding:14px 20px 0;background:rgba(0,0,0,.2);}
 
 /* COMPLEMENTARY WIDGET */
-.comp-widget{background:#9F217E;padding:2rem;display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap;}
+.comp-widget{padding:2rem;display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap;}
 .comp-wheel-side{display:flex;flex-direction:column;align-items:center;gap:.75rem;flex-shrink:0;}
 .comp-widget canvas{cursor:crosshair;display:block;width:280px;height:280px;}
 .widget-hint{font-size:13px;color:rgba(255,255,255,.55);text-align:center;}
@@ -81,20 +81,20 @@ a{text-decoration:none;}
 .swatch-label{font-size:13px;color:rgba(255,255,255,.65);}
 
 /* ANALOGOUS WIDGET */
-.ana-widget{background:#5BAAB5;padding:2rem;display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap;}
+.ana-widget{padding:2rem;display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap;}
 .ana-info-side{display:flex;flex-direction:column;gap:1.25rem;flex:1;min-width:200px;}
 .ana-wheel-side{display:flex;flex-direction:column;align-items:center;gap:.75rem;flex-shrink:0;}
 .ana-widget canvas{cursor:crosshair;display:block;width:280px;height:280px;}
-.ana-sel-pair-name{font-size:14px;font-weight:500;color:#111;}
-.ana-sel-hex{font-family:monospace;font-size:12px;color:rgba(0,0,0,.45);letter-spacing:.03em;}
-.ana-sel-placeholder{font-size:14px;color:rgba(0,0,0,.35);}
-.ana-hint{font-size:13px;color:rgba(0,0,0,.4);text-align:center;}
-.ana-swatch-label{font-size:13px;color:rgba(0,0,0,.55);}
-.swatch-triple{display:flex;border-radius:8px;overflow:hidden;height:44px;border:1px solid rgba(0,0,0,.1);}
+.ana-sel-pair-name{font-size:14px;font-weight:500;color:var(--off);}
+.ana-sel-hex{font-family:monospace;font-size:12px;color:rgba(255,252,246,.45);letter-spacing:.03em;}
+.ana-sel-placeholder{font-size:14px;color:rgba(255,252,246,.4);}
+.ana-hint{font-size:13px;color:rgba(255,252,246,.55);text-align:center;}
+.ana-swatch-label{font-size:13px;color:rgba(255,252,246,.65);}
+.swatch-triple{display:flex;border-radius:8px;overflow:hidden;height:44px;border:1px solid rgba(255,255,255,.2);}
 .swatch-third{flex:1;}
 
 /* MONOCHROME WIDGET */
-.mono-widget{background:#9F217E;padding:2rem;display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap;}
+.mono-widget{padding:2rem;display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap;}
 .mono-wheel-side{display:flex;flex-direction:column;align-items:center;gap:.75rem;flex-shrink:0;}
 .mono-widget canvas{cursor:crosshair;display:block;width:280px;height:280px;}
 .mono-info-side{display:flex;flex-direction:column;gap:1.25rem;flex:1;min-width:200px;}
@@ -207,7 +207,7 @@ a{text-decoration:none;}
 
 <article class="article">
 
-  <img class="hero-img" src="assets/1color.png" alt="Color theory for photographers">
+  <img class="hero-img" src="/img/blog/colortheory.jpg" alt="Color theory for photographers">
 
   <div class="post-cat">Color Theory</div>
   <h1 class="post-title">Basic Color Theory for Photographers</h1>
@@ -376,7 +376,7 @@ a{text-decoration:none;}
       <div class="ana-widget">
         <div class="ana-info-side">
           <div class="sel-info" id="anaSelInfo">
-            <span class="ana-sel-placeholder" style="font-size:14px;color:rgba(0,0,0,.35);">Select a color to explore</span>
+            <span class="ana-sel-placeholder">Select a color to explore</span>
           </div>
           <div class="yw-divider"></div>
           <div class="swatch-grid">
