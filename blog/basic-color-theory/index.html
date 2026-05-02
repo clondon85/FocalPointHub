@@ -110,8 +110,8 @@ a{text-decoration:none;}
 .photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0;}
 .photo-grid.two-col{grid-template-columns:repeat(2,1fr);}
 .photo-grid.one-col{grid-template-columns:1fr;}
-.photo-card{border-radius:10px;overflow:hidden;border:3px solid rgba(255,255,255,.9);background:#fff;}
-.photo-card img{width:100%;display:block;}
+.photo-card{border-radius:10px;overflow:hidden;border:3px solid rgba(255,255,255,.9);background:#fff;width:100%;display:block;}
+.photo-card img{width:100%;height:auto;display:block;}
 .photo-caption{padding:10px 0 4px;font-size:15px;color:rgba(255,252,246,.65);line-height:1.55;}
 
 /* PRACTICE CARDS - image+palette left, text right */
@@ -231,33 +231,96 @@ a{text-decoration:none;}
 
     <p>This may cause some flashbacks to elementary school art class, but let's start at the beginning: the orders of colors. There are three orders: Primary, Secondary, and Tertiary colors.</p>
 
-    <div style="text-align:center;margin:28px 0;">
-      <img src="assets/1color.png" alt="RYB color wheel showing primary, secondary, and tertiary colors" style="max-width:480px;width:100%;border-radius:12px;">
+    <div style="margin:32px 0;display:flex;gap:32px;align-items:center;flex-wrap:wrap;justify-content:center;" id="colorWheelWrap">
+
+      <div style="position:relative;flex-shrink:0;">
+        <div style="position:relative;display:inline-block;">
+          <img src="assets/1color.png" alt="RYB color wheel" style="width:360px;height:auto;display:block;">
+
+          <!-- Hotspot: Primary (center triangle) -->
+          <div class="hs-btn" data-popup="popup-primary" style="left:48%;top:52%;"><span>i</span></div>
+          <!-- Hotspot: Secondary (orange segment, upper right) -->
+          <div class="hs-btn" data-popup="popup-secondary" style="left:65%;top:28%;"><span>i</span></div>
+          <!-- Hotspot: Tertiary (outer blue segment, left) -->
+          <div class="hs-btn" data-popup="popup-tertiary" style="left:10%;top:50%;"><span>i</span></div>
+        </div>
+
+        <p style="text-align:center;font-size:13px;color:rgba(255,252,246,.4);margin-top:8px;font-style:italic;">Click each 'i' to learn more.</p>
+
+        <style>
+        .hs-btn{position:absolute;transform:translate(-50%,-50%);width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.2);border:2px solid rgba(255,255,255,0.85);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s;}
+        .hs-btn:hover,.hs-btn.active{background:rgba(255,255,255,0.5);}
+        .hs-btn::after{content:'';position:absolute;inset:-7px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.35);animation:hsPulse 2s ease-out infinite;}
+        .hs-btn span{font-family:'Poppins',sans-serif;font-size:13px;font-style:italic;font-weight:700;color:#fff;line-height:1;}
+        </style>
+
+        <script>
+        document.querySelectorAll('.hs-btn').forEach(function(btn){
+          btn.addEventListener('click',function(){
+            document.querySelectorAll('.hs-btn').forEach(function(b){b.classList.remove('active');});
+            document.querySelectorAll('.wheel-popup').forEach(function(p){p.classList.remove('active');});
+            btn.classList.add('active');
+            document.getElementById(btn.dataset.popup).classList.add('active');
+          });
+        });
+        // Default active
+        document.querySelector('.hs-btn[data-popup="popup-primary"]').classList.add('active');
+        </script>
+
+      </div>
+
+      <!-- POPUP PANEL -->
+      <div id="wheelPopupPanel" style="flex:1;min-width:220px;max-width:300px;">
+        <div id="popup-primary" class="wheel-popup active">
+          <div class="wheel-popup-label">Primary Colors</div>
+          <p>When working in RYB color, the primary colors are red, yellow, and blue. They are the three pure colors from which all other colors are derived.</p>
+          <p><strong>They are the starting point for every other color on the wheel.</strong></p>
+        </div>
+        <div id="popup-secondary" class="wheel-popup">
+          <div class="wheel-popup-label">Secondary Colors</div>
+          <p>A 50/50 combination of any two primary colors produces a secondary color.</p>
+          <p><strong>Red + Yellow = Orange. Yellow + Blue = Green. Blue + Red = Violet.</strong></p>
+        </div>
+        <div id="popup-tertiary" class="wheel-popup">
+          <div class="wheel-popup-label">Tertiary Colors</div>
+          <p>A tertiary color is a combination of a primary and a secondary color, a 25/75 or 75/25 mix.</p>
+          <p><strong>Example: Blue + Green = Turquoise.</strong></p>
+        </div>
+      </div>
+
     </div>
+
+    <style>
+    .wheel-popup{display:none;animation:fadeIn .2s ease;}
+    .wheel-popup.active{display:block;}
+    .wheel-popup-label{font-family:'Poppins',sans-serif;font-size:16px;font-weight:700;color:var(--yellow);margin-bottom:12px;}
+    .wheel-popup p{font-size:15px;color:rgba(255,252,246,.75);line-height:1.7;margin-bottom:10px;}
+    .wheel-popup p:last-child{margin-bottom:0;}
+    .wheel-popup strong{color:var(--off);}
+    @keyframes hsPulse{0%{opacity:.6;transform:scale(1);}100%{opacity:0;transform:scale(1.5);}}
+    </style>
+
+    <script>
+    // wheel interactions handled inline above
+    </script>
 
     <p>When working in RYB color, the primary colors are red, yellow, and blue. They are the three pure colors from which all other colors are derived. If we take two primary colors and combine them equally, we get a secondary color. A tertiary color is one which is a combination of a primary and secondary color.</p>
 
     <p>By knowing the three orders, we can make decisions about which colors we want to show in frame. Let's look at some examples of the three orders in actual photographs.</p>
 
-    <div class="photo-grid one-col">
+    <div class="photo-grid">
       <div>
         <div class="photo-card">
           <img src="assets/1a_Primary_color_pallet_At.jpg" alt="Primary colors in photography">
         </div>
         <div class="photo-caption"><strong>Primary colors.</strong> Note the primary colors do not distract the eye from the subject. By using strong primary reds and blues, the subject is clear to the viewer.</div>
       </div>
-    </div>
-
-    <div class="photo-grid one-col">
       <div>
         <div class="photo-card">
           <img src="assets/Secondary_Brasov_rooves.jpg" alt="Secondary colors in photography">
         </div>
         <div class="photo-caption"><strong>Secondary colors.</strong> Strong secondary colors often add interest and can easily become a subject on their own.</div>
       </div>
-    </div>
-
-    <div class="photo-grid one-col">
       <div>
         <div class="photo-card">
           <img src="assets/Tertiary_color_palatte_Sko.jpg" alt="Tertiary colors in photography">
@@ -496,7 +559,7 @@ a{text-decoration:none;}
       <div class="practice-row">
         <div>
           <div class="practice-img-wrap">
-            <img src="assets/X--2ZWtQHuJQTCEyRM.jpg" alt="Complementary colors in practice">
+            <img src="assets/complementary.jpg" alt="Complementary colors in practice">
           </div>
         </div>
         <div class="practice-text">
@@ -507,7 +570,7 @@ a{text-decoration:none;}
       <div class="practice-row">
         <div>
           <div class="practice-img-wrap">
-            <img src="assets/cmoomyb2h09wx07149y7jeizc.gif" alt="Monochrome in practice, orange sunset">
+            <img src="assets/monochrome.jpg" alt="Monochrome in practice, orange sunset">
           </div>
         </div>
         <div class="practice-text">
@@ -518,7 +581,7 @@ a{text-decoration:none;}
       <div class="practice-row">
         <div>
           <div class="practice-img-wrap">
-            <img src="assets/cmoomyb4809wy07144anx7ytf.gif" alt="Analogous tertiary colors in practice, ocean">
+            <img src="assets/analogous.jpg" alt="Analogous tertiary colors in practice, ocean">
           </div>
         </div>
         <div class="practice-text">
@@ -543,7 +606,7 @@ a{text-decoration:none;}
     </div>
 
     <div class="author-bio">
-      <div class="author-avatar">C</div>
+      <img src="/img/chelsea1.jpg" alt="Chelsea London" style="width:48px;height:48px;border-radius:50%;object-fit:cover;flex-shrink:0;">
       <div>
         <div class="author-name">C. London</div>
         <div class="author-desc">Creator of Focal Point. Photographer, educator, and the person who forgot 2016 was a leap year and ended up doing a 366-day self-portrait project.</div>
